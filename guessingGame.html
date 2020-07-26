@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Guessing Game</title>
+
+</head>
+<body>
+<!--This is the levels frame-->
+<div id="Levels" class = "level" align = "center">
+    <h1>Welcome!</h1>
+    <p>Choose your level:</p>
+    <br>
+    <button id="btnEasy" onclick="getRandomNum(20)">Easy</button>
+    <br>
+    <button id="btnMedium" onclick="getRandomNum(100)">Medium</button>
+    <br>
+    <button id="btnHard" onclick="getRandomNum(500)">Hard</button>
+    <br>
+</div>
+
+<!--This is the guessing frame-->
+<div id="Game" class = "hidden" align="center">
+    <h2 id="score" align="right"></h2>
+    <h1 id="caption">Enter your guess:</h1>
+    <input id = "guess" type = "text"></input>
+    <br>
+    <button id="btnCheckGuess" onclick = "checkGuess()">Guess</button>
+</div>
+
+<!--This frame appears when the user has won-->
+<div id="win" class="hidden" align="center">
+    <h1 id="youWinCap">You Win!</h1>
+    <br>
+    <button id="btnPlayAgain" onclick="reloadGame(0)">Play Again?</button>
+</div>
+
+<!--This frame appears when the user has run out of guesses-->
+<div id="gameOver" class="hidden" align="center">
+    <h1 id="gameOverCap">Game Over</h1>
+    <br>
+    <button id="btnPlayAgain" onclick="reloadGame(1)">Play Again?</button>
+</div>
+</body>
+
+<script>
+    //Javascript code starts here
+    var intRandomNum = 0; //stores the computer generated random number
+    var intScore = 10; //keeps track of the score
+
+
+    function getRandomNum(max){
+        //generate a random number for the user to guess
+        //max is set based on the level the user chose
+
+        intRandomNum = Math.floor((Math.random() * max) + 1);
+        score.textContent = "Score: 10"; //reset the score
+
+        Game.classList.remove('hidden'); //show the guessing game frame
+        Levels.classList.add('hidden');  //hide the levels frame
+
+    }
+
+    function checkGuess(){
+        //checks to see if the entered guess:
+        // ? matches the random number, OR
+        // ? if not, show a hint or game over
+
+        if (guess.value == intRandomNum){
+
+            //guessed correctly
+            Game.classList.add('hidden'); //hide the game panel
+            win.classList.remove('hidden'); //show the win screen
+
+        } else {
+
+            intScore = intScore - 1;  //deduct a point each time they get it wrong
+            if (intScore == 0) {
+
+                //Game over
+                gameOver.classList.remove('hidden');
+                guess.textContent = "0"; //clear the guess text field
+                Game.classList.add('hidden');
+
+            } else {
+
+                //give hint to user
+                if (guess.value > intRandomNum) {
+                    caption.textContent = "Guess lower!"
+                } else {
+                    caption.textContent = "Guess higher!"
+                }
+                score.textContent = "Score: " +  intScore; //update score
+
+            }
+
+        }
+    }
+
+    function reloadGame(booGameOver){
+        //hide the game over or win div based on the boolean parameter
+        if (booGameOver) {
+            gameOver.classList.add('hidden');
+
+        } else {
+            win.classList.add('hidden');
+
+        }
+        Levels.classList.remove('hidden'); //show levels frame again
+    }
+
+
+
+</script>
+</html>
