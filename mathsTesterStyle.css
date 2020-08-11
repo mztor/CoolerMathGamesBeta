@@ -1,0 +1,26 @@
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+.button {
+    width: 150px;
+    height: 55px;
+    border-radius: 15px;
+    border: 2px solid;
+    margin-bottom: 5px;
+    background-color: whitesmoke;
+}
+
+.button:hover {
+    background-color: aqua;
+    color: black;
+}

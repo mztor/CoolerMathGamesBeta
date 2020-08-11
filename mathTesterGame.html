@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <title>mathTesterGame</title>
     <link rel="stylesheet" href="mathsTesterStyle.css">
+    <script src="mathTesterScript.js"></script>
 </head>
 <body>
-<div>
-    <h1>Maths Tester Game</h1>
-</div>
+    <div class="container">
+        <div>
+            <h1>Maths Tester Game</h1>
+        </div>
+        <div>
+            <h2>Choose your difficulty</h2>
+        </div>
+        <div id="menu">
+            <div>
+                <button class="button" id="easy" onclick="toReady(1)">Easy</button>
+            </div>
+            <div>
+                <button class="button" id="medium" onclick="toReady(2)">Medium</button>
+            </div>
+            <div>
+                <button class="button" id="hard" onclick="toReady(3)">Hard</button>
+            </div>
+        </div>
+        <div>
+            <button class="button" id="ready">Ready?</button>
+        </div>
+    </div>
 </body>
 </html>
