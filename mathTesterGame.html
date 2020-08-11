@@ -26,8 +26,16 @@
             </div>
         </div>
         <div>
-            <button class="button" id="ready">Ready?</button>
+            <button class="button" id="ready" onclick="Test">Ready?</button>
         </div>
+        <p id="score"></p>
+        <p id="time"></p>
+        <br>
+        <div id="question"></div>
+        <input id="input" type="text" autocomplete="off" value="">
+        <button class="button" id="answer" onclick="checkAnswer()">Answer</button>
+        <p></p>
+        <button class="button" id="playAgain" onclick="toDifficulty()">Play Again</button>
     </div>
 </body>
 </html>
