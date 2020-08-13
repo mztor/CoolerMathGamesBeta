@@ -1,7 +1,7 @@
 var difficulty = 0;
 var score = 0;
 var highestValue = 0;
-var time = 60;
+var timeMax = 60;
 var ran1 = 0;
 var ran2 = 0;
 var questionMax = 0;
@@ -12,7 +12,6 @@ var answer = 0;
 function toReady(n) {
     difficulty = n;
     highestValue = 0;
-    time = 0;
     var menu = document.getElementById("menu");
     var readyMenu = document.getElementById("readyMenu");
     var playAgain = document.getElementById("playAgain");
@@ -22,41 +21,6 @@ function toReady(n) {
 }
 
 function Test() {
-    while (time !== 0) {
-        timer()
-        console.log(time)
-        if (difficulty === 1) {
-            highestValue = 10;
-            questionMax = 1;
-            generateQuestion();
-            if (questionType === 1) {
-                addition()
-            }
-        }
-        else if (difficulty === 2) {
-            highestValue = 11;
-            questionMax = 2;
-            generateQuestion();
-            if (questionType === 1) {
-                addition()
-            }
-            else {
-                subtraction()
-            }
-        }
-        else {
-            highestValue = 12;
-            questionMax = 3;
-            generateQuestion();
-            if (questionType === 1) {
-                addition()
-            } else if (questionType === 2) {
-                subtraction()
-            } else {
-                multiply()
-            }
-        }
-    }
     var score = document.getElementById("score");
     var time = document.getElementById("time");
     var question = document.getElementById("question");
@@ -67,6 +31,39 @@ function Test() {
     time.style.display = "inline-block";
     question.style.display = "inline-block";
     input.style.display = "inline-block";
+    timer()
+    console.log(timeMax)
+    if (difficulty === 1) {
+        highestValue = 10;
+        questionMax = 1;
+        generateQuestion();
+        if (questionType === 1) {
+            addition();
+        }
+    }
+    else if (difficulty === 2) {
+        highestValue = 11;
+        questionMax = 2;
+        generateQuestion();
+        if (questionType === 1) {
+            addition();
+        }
+        else {
+            subtraction();
+        }
+    }
+    else {
+        highestValue = 12;
+        questionMax = 3;
+        generateQuestion();
+        if (questionType === 1) {
+            addition();
+        } else if (questionType === 2) {
+            subtraction();
+        } else {
+            multiply();
+        }
+    }
 }
 
 function random1() {
@@ -103,10 +100,10 @@ function multiply() {
 }
 
 function timer() {
-    while (time !== 0) {
-        let seconds = time;
-        setInterval(function () {
-            seconds--;
+    let seconds = timeMax;
+    let time = setInterval(function () {
+        seconds--;
+        console.log(seconds);
+        if (seconds <= 0) { clearInterval(time) }
         }, 1000);
-    }
 }
