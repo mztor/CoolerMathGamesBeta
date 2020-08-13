@@ -11,10 +11,10 @@
         <div>
             <h1>Maths Tester Game</h1>
         </div>
-        <div>
-            <h2>Choose your difficulty</h2>
-        </div>
         <div id="menu">
+            <div>
+            <h2>Choose your difficulty</h2>
+            </div>
             <div>
                 <button class="button" id="easy" onclick="toReady(1)">Easy</button>
             </div>
@@ -24,18 +24,24 @@
             <div>
                 <button class="button" id="hard" onclick="toReady(3)">Hard</button>
             </div>
+            <br>
+            <div>
+                <button class="button" id="help" onclick="toHelp()">Help</button>
+            </div>
         </div>
-        <div>
-            <button class="button" id="ready" onclick="Test">Ready?</button>
+        <div id="readyMenu">
+            <h2>ARE YOU READY!!!</h2>
+            <button class="button" id="ready" onclick="Test()" onclick="random1()">Ready?</button>
         </div>
         <p id="score"></p>
         <p id="time"></p>
         <br>
         <div id="question"></div>
         <input id="input" type="text" autocomplete="off" value="">
+        <p id="output"></p>
         <button class="button" id="answer" onclick="checkAnswer()">Answer</button>
         <p></p>
-        <button class="button" id="playAgain" onclick="toDifficulty()">Play Again</button>
+        <button class="button" id="playAgain" onclick="toMenu()">Play Again</button>
     </div>
 </body>
 </html>

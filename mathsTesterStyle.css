@@ -24,3 +24,43 @@ h2 {
     background-color: aqua;
     color: black;
 }
+
+#menu {
+    display: block;
+}
+
+#readyMenu {
+    display: none;
+}
+
+#score {
+    display: none;
+}
+
+#time {
+    display: none;
+}
+
+#question {
+    display: none;
+}
+
+#input {
+    display: none;
+    margin-top: 30px;
+    border: 2px solid;
+    height: 25px;
+    border-radius: 5px;
+}
+
+#output {
+    display: none;
+}
+
+#answer {
+    display: none;
+}
+
+#playAgain {
+    display: none;
+}
