@@ -18,9 +18,11 @@ function toReady(n) {
     var menu = document.getElementById("menu");
     var readyMenu = document.getElementById("readyMenu");
     var playAgain = document.getElementById("playAgain");
+    var help = document.getElementById("helpMenu")
     menu.style.display = "none";
     playAgain.style.display = "none";
     readyMenu.style.display = "inline-block";
+    help.style.display = "none";
 }
 
 function Test() {
@@ -171,6 +173,7 @@ function toMenu() {
     var readyMenu = document.getElementById("readyMenu");
     var answer = document.getElementById("answer");
     var menu = document.getElementById("menu");
+    var help = document.getElementById("helpMenu");
     readyMenu.style.display = "none";
     score.style.display = "none";
     time.style.display = "none";
@@ -179,4 +182,12 @@ function toMenu() {
     answer.style.display = "none";
     playAgain.style.display = "none";
     menu.style.display = "block";
+    help.style.display = "none";
+}
+
+function toHelp() {
+    var help = document.getElementById("helpMenu");
+    var menu = document.getElementById("menu")
+    help.style.display = "inline-block";
+    menu.style.display = "none"
 }

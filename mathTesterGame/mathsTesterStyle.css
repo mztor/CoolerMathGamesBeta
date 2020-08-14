@@ -66,3 +66,7 @@ h2 {
 #playAgain {
     display: none;
 }
+
+#helpMenu {
+    display: none;
+}
