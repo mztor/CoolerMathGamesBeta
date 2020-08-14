@@ -7,7 +7,6 @@ const moles = document.querySelectorAll(".mole")
 let score = 0
 let counter = 10
 let prevNum = -1
-let
 
 easyButton.addEventListener("click", function() {
     difficulty.innerHTML="Difficulty: <strong>Easy</strong>"
