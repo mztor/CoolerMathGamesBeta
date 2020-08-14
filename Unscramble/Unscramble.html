@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Unscramble Mini-game</title>
-    <link href="Unscramble.css" rel="stylesheet" type=""
+    <link href="Unscramble.css" rel="stylesheet" type="text/css">
+    <script src="Unscramble.js"></script>
 </head>
 <body>
-    <h1>Unscramble</h1>
-    Choose difficulty:
-<p>
-    <button id="L1" class="LButtons">Level 1</button><br>
-    <button id="L2" class="LButtons">Level 2</button><br>
-    <button id="L3" class="LButtons">Level 3</button>
-</p>
+    <h1 id="gameTitle">Unscramble</h1>
+    <div id="difficultySelect">
+        <p>
+            Choose difficulty:
+        </p>
+        <p>
+            <button id="L1" class="LButtons">Level 1</button><br>
+            <button id="L2" class="LButtons">Level 2</button><br>
+            <button id="L3" class="LButtons">Level 3</button>
+        </p>
+        <a id="helpButton" onclick="toHelp()">?</a>
+    </div>
+<!-- Help menu page -->
+<div id="helpMenu" class="hide">
+    <h1 id="instructionsTitle">Instructions</h1>
 
-<div id="helpMenu">
-    <button
+
+    <a class="blueButtons" onclick="toDifficulty()">←Back</a>
+
 </div>
-
 </body>
 </html>
