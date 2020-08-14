@@ -9,7 +9,6 @@ var questionType = 0;
 var questionDis = "";
 var answer = 0;
 var seconds;
-var gameStart = false;
 
 function toReady(n) {
     scores = 0;
