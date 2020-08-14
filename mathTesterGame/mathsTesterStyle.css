@@ -66,3 +66,12 @@ h2 {
 #playAgain {
     display: none;
 }
+
+#helpMenu {
+    display: none;
+}
+
+#helpText {
+    font-size: 20px;
+    width: 700px;
+}
