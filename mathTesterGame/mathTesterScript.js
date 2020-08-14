@@ -9,9 +9,10 @@ var questionType = 0;
 var questionDis = "";
 var answer = 0;
 var seconds;
-let checked = false;
+var gameStart = false;
 
 function toReady(n) {
+    scores = 0;
     difficulty = n;
     highestValue = 0;
     var menu = document.getElementById("menu");
@@ -23,6 +24,7 @@ function toReady(n) {
 }
 
 function Test() {
+    gameStart = true;
     timer();
     console.log(timeMax);
     document.getElementById("time").innerHTML = "Time: " + timeMax;
@@ -56,24 +58,24 @@ function generateQuestion() {
 }
 
 function addition() {
-    random1()
-    random2()
+    random1();
+    random2();
     questionDis = ran1 + " + " + ran2;
     answer = ran1 + ran2;
     document.getElementById("question").innerHTML = questionDis;
 }
 
 function subtraction() {
-    random1()
-    random2()
+    random1();
+    random2();
     questionDis = ran1 + " - " + ran2;
     answer = ran1 - ran2;
     document.getElementById("question").innerHTML = questionDis;
 }
 
 function multiply() {
-    random1()
-    random2()
+    random1();
+    random2();
     questionDis = ran1 + " X " + ran2;
     answer = ran1 * ran2;
     document.getElementById("question").innerHTML = questionDis;
@@ -83,12 +85,8 @@ function check() {
     checked = true;
     var input = Number(document.getElementById("input").value);
     console.log(answer);
-    if (seconds === 0) {
-        toEndScreen()
-    } else {
-        if (input === answer) {
-            scores = scores + 1;
-        }
+    if (input === answer) {
+        scores = scores + 1;
     }
     questions()
     document.getElementById("question").innerHTML = questionDis;
@@ -98,10 +96,18 @@ function check() {
 function timer() {
     seconds = timeMax;
     let time = setInterval(function () {
-        document.getElementById("time").innerHTML = "Time: " + seconds;
-        //console.log(seconds);
+        console.log(seconds);
         seconds--;
-        if (seconds <= 0) { clearInterval(time) }
+        if (seconds === 0) {
+            toEndScreen();
+        }
+        else if (seconds <= 0) { clearInterval(time) }
+        else {
+            if (seconds === 0) {
+                toEndScreen();
+            }
+        }
+        document.getElementById("time").innerHTML = "Time: " + seconds;
         }, 1000);
 }
 
@@ -153,5 +159,24 @@ function toEndScreen() {
     question.style.display = "none";
     input.style.display = "none";
     answer.style.display = "none";
-    playAgain.style.display = "block";
+    playAgain.style.display = "inline-block";
+}
+
+function toMenu() {
+    var score = document.getElementById("score");
+    var playAgain = document.getElementById("playAgain");
+    var time = document.getElementById("time");
+    var question = document.getElementById("question");
+    var input = document.getElementById("input");
+    var readyMenu = document.getElementById("readyMenu");
+    var answer = document.getElementById("answer");
+    var menu = document.getElementById("menu");
+    readyMenu.style.display = "none";
+    score.style.display = "none";
+    time.style.display = "none";
+    question.style.display = "none";
+    input.style.display = "none";
+    answer.style.display = "none";
+    playAgain.style.display = "none";
+    menu.style.display = "block";
 }
