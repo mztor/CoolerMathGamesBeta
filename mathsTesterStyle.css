@@ -1,0 +1,66 @@
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+.button {
+    width: 150px;
+    height: 55px;
+    border-radius: 15px;
+    border: 2px solid;
+    margin-bottom: 5px;
+    background-color: whitesmoke;
+}
+
+.button:hover {
+    background-color: aqua;
+    color: black;
+}
+
+#menu {
+    display: block;
+}
+
+#readyMenu {
+    display: none;
+}
+
+#score {
+    display: none;
+}
+
+#time {
+    display: none;
+}
+
+#question {
+    display: none;
+}
+
+#input {
+    display: none;
+    margin-top: 30px;
+    border: 2px solid;
+    height: 25px;
+    border-radius: 5px;
+}
+
+#output {
+    display: none;
+}
+
+#answer {
+    display: none;
+}
+
+#playAgain {
+    display: none;
+}
