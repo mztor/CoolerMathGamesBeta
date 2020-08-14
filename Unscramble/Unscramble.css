@@ -39,3 +39,18 @@ p {
     background-color: rgb(255, 187, 177);
     color: rgb(201, 45, 57);
 }
+
+#helpMenu {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+    font-size: 32px;
+    font-weight: bold;
+    background-color: #83bbe5;
+    color: white;
+}
