@@ -35,10 +35,12 @@ h2 {
 
 #score {
     display: none;
+    font-size: 30px;
 }
 
 #time {
     display: none;
+    font-size: 30px;
 }
 
 #question {

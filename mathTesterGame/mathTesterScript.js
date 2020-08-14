@@ -23,6 +23,12 @@ function toReady(n) {
 }
 
 function Test() {
+    timer();
+    console.log(timeMax);
+    document.getElementById("time").innerHTML = "Time: " + timeMax;
+    document.getElementById("score").innerHTML = "Score: " + scores;
+    questions();
+    document.getElementById("question").innerHTML = questionDis;
     var score = document.getElementById("score");
     var time = document.getElementById("time");
     var question = document.getElementById("question");
@@ -35,20 +41,6 @@ function Test() {
     question.style.display = "block";
     input.style.display = "inline-block";
     answer.style.display = "inline-block";
-    timer();
-    console.log(timeMax);
-    document.getElementById("time").innerHTML = "Time: " + timeMax;
-    document.getElementById("score").innerHTML = "Score: " + scores;
-    questions();
-    document.getElementById("question").innerHTML = questionDis;
-    while (seconds !== 0 && checked === true) {
-        questions();
-        document.getElementById("question").innerHTML = questionDis;
-        checked = false;
-    }
-    if (seconds === 0) {
-
-    }
 }
 
 function random1() {
@@ -66,38 +58,49 @@ function generateQuestion() {
 function addition() {
     random1()
     random2()
-    questionDis = ran1 + "+ " + ran2;
+    questionDis = ran1 + " + " + ran2;
     answer = ran1 + ran2;
+    document.getElementById("question").innerHTML = questionDis;
 }
 
 function subtraction() {
     random1()
     random2()
-    questionDis = ran1 + "- " + ran2;
+    questionDis = ran1 + " - " + ran2;
     answer = ran1 - ran2;
+    document.getElementById("question").innerHTML = questionDis;
 }
 
 function multiply() {
     random1()
     random2()
-    questionDis = ran1 + "X " + ran2;
+    questionDis = ran1 + " X " + ran2;
     answer = ran1 * ran2;
+    document.getElementById("question").innerHTML = questionDis;
 }
 
 function check() {
     checked = true;
-    var input = document.getElementById("input");
-    if (input === answer) {
-        scores += 1;
+    var input = Number(document.getElementById("input").value);
+    console.log(answer);
+    if (seconds === 0) {
+        toEndScreen()
+    } else {
+        if (input === answer) {
+            scores = scores + 1;
+        }
     }
+    questions()
+    document.getElementById("question").innerHTML = questionDis;
+    document.getElementById("score").innerHTML = "Score: " + scores;
 }
 
 function timer() {
     seconds = timeMax;
     let time = setInterval(function () {
         document.getElementById("time").innerHTML = "Time: " + seconds;
+        //console.log(seconds);
         seconds--;
-        console.log(seconds);
         if (seconds <= 0) { clearInterval(time) }
         }, 1000);
 }
@@ -134,4 +137,21 @@ function questions() {
             multiply();
         }
     }
+}
+
+function toEndScreen() {
+    var score = document.getElementById("score");
+    var playAgain = document.getElementById("playAgain");
+    var time = document.getElementById("time");
+    var question = document.getElementById("question");
+    var input = document.getElementById("input");
+    var readyMenu = document.getElementById("readyMenu");
+    var answer = document.getElementById("answer");
+    readyMenu.style.display = "none";
+    score.style.display = "block";
+    time.style.display = "none";
+    question.style.display = "none";
+    input.style.display = "none";
+    answer.style.display = "none";
+    playAgain.style.display = "block";
 }
