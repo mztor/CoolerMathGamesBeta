@@ -7,25 +7,51 @@
     <script src="Unscramble.js"></script>
 </head>
 <body>
+    <!-- Game Title -->
     <h1 id="gameTitle">Unscramble</h1>
+
+    <!-- Difficulty Selection Page -->
     <div id="difficultySelect">
         <p>
             Choose difficulty:
         </p>
         <p>
-            <button id="L1" class="LButtons">Level 1</button><br>
-            <button id="L2" class="LButtons">Level 2</button><br>
-            <button id="L3" class="LButtons">Level 3</button>
+            <button id="L1" class="LButtons" onclick="toGameplay()">Level 1</button><br>
+            <button id="L2" class="LButtons" onclick="toGameplay()">Level 2</button><br>
+            <button id="L3" class="LButtons" onclick="toGameplay()">Level 3</button>
         </p>
+    </div>
+
+    <!-- Help menu page -->
+    <div id="helpMenu" class="hide">
+        <h1 id="instructionsTitle">Instructions</h1>
+
+        <ul id="instructionsList">
+            <li>Type in what you think the original word is.</li>
+            <li>Unscramble the words correctly to gain points.</li>
+            <li>If you guess 3 words incorrectly, you'll run out of lives and will have to try again.</li>
+            <li>Get as many words correct as you can to win!</li>
+        </ul>
+        <p>
+            <a class="blueButtons" onclick="toGameplay()">← Back</a>
+        </p>
+
+    </div>
+
+    <!-- Gameplay Screens -->
+    <div id="gameplay" class="hide">
+        <span id="s_word">xxx</span>
+
+        <form>
+            <label for="guess"></label>
+            <input id="guess" type="text"><br>
+            <input id="submit" class="blueButtons" type="submit" value="Submit">
+        </form>
+
         <a id="helpButton" onclick="toHelp()">?</a>
     </div>
-<!-- Help menu page -->
-<div id="helpMenu" class="hide">
-    <h1 id="instructionsTitle">Instructions</h1>
 
-
-    <a class="blueButtons" onclick="toDifficulty()">←Back</a>
-
-</div>
+    <!-- Quit Button -->
+    <a id="quit" class="blueButtons hide" onclick="toDifficulty()">Quit</a>
 </body>
 </html>
