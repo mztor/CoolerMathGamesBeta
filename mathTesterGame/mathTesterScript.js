@@ -1,7 +1,7 @@
 var difficulty = 0;
 var scores = 0;
 var highestValue = 0;
-var timeMax = 60;
+var timeMax = 10;
 var ran1 = 0;
 var ran2 = 0;
 var questionMax = 0;
@@ -9,8 +9,10 @@ var questionType = 0;
 var questionDis = "";
 var answer = 0;
 var seconds;
+var stopTimer = true;
 
 function toReady(n) {
+    stopTimer = true;
     scores = 0;
     difficulty = n;
     highestValue = 0;
@@ -20,16 +22,18 @@ function toReady(n) {
     var playAgain = document.getElementById("playAgain");
     var help = document.getElementById("helpMenu")
     var back = document.getElementById("back");
+    var score = document.getElementById("score")
     menu.style.display = "none";
     playAgain.style.display = "none";
     readyMenu.style.display = "inline-block";
     help.style.display = "none";
     back.style.display = "inline-block";
+    score.style.display = "none"
 }
 
 function Test() {
+    stopTimer = false;
     timer();
-    console.log(timeMax);
     document.getElementById("time").innerHTML = "Time: " + timeMax;
     document.getElementById("score").innerHTML = "Score: " + scores;
     questions();
@@ -99,19 +103,22 @@ function check() {
 function timer() {
     seconds = timeMax;
     let time = setInterval(function () {
-        console.log(seconds);
-        seconds--;
-        if (seconds === 0) {
-            toEndScreen();
-        }
-        else if (seconds <= 0) { clearInterval(time) }
-        else {
+        if (stopTimer === true) {
+            return;
+        } else {}
+            console.log(seconds);
+            seconds--;
             if (seconds === 0) {
                 toEndScreen();
             }
-        }
-        document.getElementById("time").innerHTML = "Time: " + seconds;
-        }, 1000);
+            else if (seconds <= 0) {
+                clearInterval(time)
+            } else {
+                if (seconds === 0) {
+                    toEndScreen();
+                }
+            }
+            document.getElementById("time").innerHTML = "Time: " + seconds;}, 1000);
 }
 
 function questions() {
@@ -156,6 +163,7 @@ function toEndScreen() {
     var input = document.getElementById("input");
     var readyMenu = document.getElementById("readyMenu");
     var answer = document.getElementById("answer");
+    var back = document.getElementById("back");
     readyMenu.style.display = "none";
     score.style.display = "block";
     time.style.display = "none";
@@ -163,9 +171,11 @@ function toEndScreen() {
     input.style.display = "none";
     answer.style.display = "none";
     playAgain.style.display = "inline-block";
+    back.style.display = "none";
 }
 
 function toMenu() {
+    stopTimer = true;
     var score = document.getElementById("score");
     var playAgain = document.getElementById("playAgain");
     var time = document.getElementById("time");
