@@ -20,3 +20,4 @@ function toGameplay() {
     document.getElementById("gameplay").classList.remove("hide")
     document.getElementById("quit").classList.remove("hide")
 }
+

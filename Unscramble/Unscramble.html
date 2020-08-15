@@ -16,9 +16,9 @@
             Choose difficulty:
         </p>
         <p>
-            <button id="L1" class="LButtons" onclick="toGameplay()">Level 1</button><br>
-            <button id="L2" class="LButtons" onclick="toGameplay()">Level 2</button><br>
-            <button id="L3" class="LButtons" onclick="toGameplay()">Level 3</button>
+            <button id="L1" class="LButtons" onclick="toGameplay(this.id)">Level 1</button><br>
+            <button id="L2" class="LButtons" onclick="toGameplay(this.id)">Level 2</button><br>
+            <button id="L3" class="LButtons" onclick="toGameplay(this.id)">Level 3</button>
         </p>
     </div>
 
@@ -40,12 +40,13 @@
 
     <!-- Gameplay Screens -->
     <div id="gameplay" class="hide">
+        <span id="lives"></span>
         <span id="s_word">xxx</span>
 
         <form>
             <label for="guess"></label>
-            <input id="guess" type="text"><br>
-            <input id="submit" class="blueButtons" type="submit" value="Submit">
+            <input id="guess" type="text"><span id="mark"></span><br>
+            <input id="submit" class="blueButtons" type="submit" value="Submit" onclick="checkGuess()" >
         </form>
 
         <a id="helpButton" onclick="toHelp()">?</a>
