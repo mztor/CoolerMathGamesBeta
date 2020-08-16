@@ -11,6 +11,12 @@ body {
     font-size: 90px;
 }
 
+#playButton, #leaderboardButton {
+    margin: 10px;
+    width: 270px;
+    padding: 15px 25px;
+}
+
 .LButtons {
     padding: 15px 30px;
     font-weight: bold;
@@ -91,6 +97,11 @@ body {
 
     font-family: sans-serif;
     border-radius: 20px;
+}
+
+#score {
+    position: absolute;
+    right: 60px;
 }
 
 #s_word {
