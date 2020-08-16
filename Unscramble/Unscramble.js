@@ -78,7 +78,7 @@ function startGame(difficulty) {
     let wordIndex = 0;
     while (rounds !== 0) {
         document.getElementById("s_word").textContent = generateWord(difficulty, wordIndex)
-        checkGuess(words_1[wordIndex], score)
+        document.getElementById("submit").onclick = function() {checkGuess(words_1[wordIndex], score)}
         wordIndex = wordIndex + 1
     }
 }
