@@ -36,7 +36,7 @@ function Test() {
     document.getElementById("time").innerHTML = "Time: " + timeMax;
     document.getElementById("score").innerHTML = "Score: " + scores;
     questions();
-    document.getElementById("question").innerHTML = questionDis;
+    document.getElementById("question").innerHTML = questionDis + " = ?";
     var score = document.getElementById("score");
     var time = document.getElementById("time");
     var question = document.getElementById("question");
