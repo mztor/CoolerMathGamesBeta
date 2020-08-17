@@ -89,7 +89,6 @@ function multiply() {
 }
 
 function check() {
-    checked = true;
     var input = Number(document.getElementById("input").value);
     console.log(answer);
     if (input === answer) {
@@ -101,24 +100,24 @@ function check() {
 }
 
 function timer() {
+    if (stopTimer === true) {
+        return;
+    }
     seconds = timeMax;
     let time = setInterval(function () {
-        if (stopTimer === true) {
-            return;
-        } else {}
-            console.log(seconds);
-            seconds--;
+        console.log(seconds);
+        seconds--;
+        if (seconds === 0) {
+            toEndScreen();
+        }
+        else if (seconds <= 0) {
+            clearInterval(time)
+        } else {
             if (seconds === 0) {
                 toEndScreen();
             }
-            else if (seconds <= 0) {
-                clearInterval(time)
-            } else {
-                if (seconds === 0) {
-                    toEndScreen();
-                }
-            }
-            document.getElementById("time").innerHTML = "Time: " + seconds;}, 1000);
+        }
+        document.getElementById("time").innerHTML = "Time: " + seconds;}, 1000);
 }
 
 function questions() {
