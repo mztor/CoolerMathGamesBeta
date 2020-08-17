@@ -25,11 +25,25 @@ h2 {
     margin-bottom: 5px;
     background-color: whitesmoke;
     font-family: 'Architects Daughter', cursive;
+    font-size: 25px;
 }
 
 .button:hover {
     background-color: aqua;
     color: black;
+}
+
+.button2 {
+    width: 125px;
+    height: 40px;
+    border-radius: 15px;
+    border: 2px solid;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 17px;
+}
+
+.button2:hover {
+    background-color: white;
 }
 
 #menu {
@@ -59,12 +73,17 @@ h2 {
     display: none;
     margin-top: 30px;
     border: 2px solid;
-    height: 25px;
     border-radius: 5px;
+    font-size: 25px;
+    width: 150px;
+    text-align: center;
+    height: 43px;
 }
 
 #output {
     display: none;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 #answer {
