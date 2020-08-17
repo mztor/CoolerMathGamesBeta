@@ -16,11 +16,11 @@
         <h2 class="heading">Select Difficulty</h2>
         <br>
         <div class="container">
-            <button id="easyButton" class="button">Easy</button>
+            <button id="easyButton" class="button" onclick="loadGame()">Easy</button>
         </div>
         <br>
         <div class="container">
-            <button id="hardButton" class="button">Hard</button>
+            <button id="hardButton" class="button" onclick="loadGame()">Hard</button>
         </div>
         <br>
         <div class="container">
@@ -28,7 +28,7 @@
         </div>
         <br>
         <div class="container">
-            <button id="testButton" class="button">Test Mode</button>
+            <button id="testButton" class="button" onclick="loadGame()">Test Mode</button>
         </div>
     </div>
 
@@ -47,11 +47,11 @@
         </div>
         <br>
         <div style="text-align: left">
-            <button class="quit">Quit</button>
+            <button class="quit" onclick="loadStart()">Quit</button>
         </div>
     </div>
 
-    <div id="game">
+    <div id="game" class="hide">
         <h1 class="heading">Whack-A-Mole</h1>
         <hr>
         <p style="text-align: left" id="difficulty"></p>
@@ -76,15 +76,19 @@
             </tr>
         </table>
 
-        <button class="quit">Quit</button>
+        <button class="quit" onclick="loadStart()">Quit</button>
     </div>
 
-    <div id="finish">
+    <div id="finish" class="hide">
         <h1 class="heading">Whack-A-Mole</h1>
         <hr>
-        <h2 id="finalScore"></h2>
-
-        <button class="quit">Quit</button>
+        <h2 class="heading">Score: <strong id="finalScore"></strong><strong> / 10</strong></h2>
+        <h2 class="heading"><span id="highScore"></span></h2>
+        <div class="container">
+            <button class="button" onclick="loadGame()">Play Again</button>
+        </div>
+        <br>
+        <button class="quit" onclick="loadStart()">Quit</button>
 
     </div>
 
