@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Whack-A-Mole</title>
+    <link rel="stylesheet" href="wam.css">
+</head>
+
+<body>
+    <div id="start">
+        <h1 class="heading">Whack-A-Mole</h1>
+        <hr>
+        <h2 class="heading">Select Difficulty</h2>
+        <br>
+        <div class="container">
+            <button id="easyButton" class="button">Easy</button>
+        </div>
+        <br>
+        <div class="container">
+            <button id="hardButton" class="button">Hard</button>
+        </div>
+        <br>
+        <div class="container">
+            <button id="instructionsButton" class="button">How To Play</button>
+        </div>
+        <div style="text-align: left">
+            <button id="testButton" class="button">Test Mode</button>
+        </div>
+    </div>
+
+    <div id="instructions">
+        <h1 class="heading">Whack-A-Mole</h1>
+        <hr>
+        <h2 class="heading">Instructions</h2>
+        <br>
+        <div style="width: 400px; margin:auto; font-size:20px">
+            <ul>
+                <li>Moles will appear randomly out of the holes a total of <strong>TEN</strong> times.</li>
+                <li>Click on as many as possible before the game ends.</li>
+                <li><strong>WARNING</strong>: Moles on hard difficulty appear for a random amount of time!</li>
+                <li>Press <strong>START</strong> to begin. Good Luck!</li>
+            </ul>
+        </div>
+        <br>
+        <div style="text-align: left">
+            <button class="quit">Quit</button>
+        </div>
+    </div>
+
+    <div id="game">
+        <h1 class="heading">Whack-A-Mole</h1>
+        <hr>
+        <p style="text-align: left" id="difficulty"></p>
+
+        <table class="table">
+            <tr>
+                <td class="rowTop" colspan="3">Score: <strong id="score">0</strong></td>
+            </tr>
+            <tr>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+            </tr>
+            <tr>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+            </tr>
+            <tr>
+                <td class="rowBottom" colspan="3"><button id="startButton">Start</button></td>
+            </tr>
+        </table>
+
+        <button class="quit">Quit</button>
+    </div>
+
+    <div id="finish">
+        <h1 class="heading">Whack-A-Mole</h1>
+        <hr>
+        <h2 id="finalScore"></h2>
+
+        <button class="quit">Quit</button>
+
+    </div>
+
+
+
+    <script src="wam.js"></script>
+</body>
+
+
+</html>
