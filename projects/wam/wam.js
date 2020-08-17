@@ -15,7 +15,6 @@ let hardTimer = createHardTimer(750, 1000)
 let difficulty = null
 let number = null
 let remaining = 10
-let moleClicked = false
 
 easyButton.addEventListener("click", function() {
     difficultyText.innerHTML="Difficulty: <strong>Easy</strong>"
@@ -30,7 +29,9 @@ testButton.addEventListener("click", function() {
     difficulty = "test"
 })
 startButton.addEventListener("click", function() {
+    startButton.disabled = true
     if (difficulty === "easy" || difficulty ==="hard") {
+        clickSetUp()
         playGame()
     } else if (difficulty ==="test") {
         playTest()
@@ -39,6 +40,18 @@ startButton.addEventListener("click", function() {
 
 function createHardTimer(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
+}
+
+function clickSetUp() {
+    for (let i = 0; i < moles.length; i++) {
+        moles[i].addEventListener("click", function () {
+            if (i === number) {
+                score++
+                scoreText.innerText = score.toString()
+                moles[number].style.visibility = "hidden"
+            }
+        })
+    }
 }
 
 function selectCell() {
@@ -71,27 +84,34 @@ function playGame() {
 }
 
 function playTest() {
+    if (prevNum !== null) {
+        moles[prevNum].style.visibility="hidden"
+    }
+    if (counter <= 0 ) {
+        return
+    }
     number = selectCell()
     prevNum = number
     moles[number].style.visibility="visible"
     remaining--
     remainingText.innerText=remaining.toString()
-
+    counter -= 1
+    for (let i = 0; i < moles.length; i++) {
+        moles[i].addEventListener("click", function() {
+            if (i === number && score !== 10) {
+                score++
+                scoreText.innerText = score.toString()
+                moles[number].style.visibility = "hidden"
+                console.log(counter, score, number)
+                playTest()
+            }
+        })
+    }
 }
+
 
 
 function loadInstructions() {
     document.getElementById("instructions").classList.remove("hide")
     document.getElementById("instructions").classList.add("show")
-}
-
-for (let i = 0; i < moles.length; i++) {
-    moles[i].addEventListener("click", function() {
-        if (i === number) {
-            score++
-            moleClicked = true
-            scoreText.innerText=score.toString()
-            moles[number].style.visibility="hidden"
-        }
-    })
 }
