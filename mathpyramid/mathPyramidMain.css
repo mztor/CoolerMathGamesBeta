@@ -1,0 +1,13 @@
+.buttonMenu{
+    font-size: 40px;
+}
+
+.gameMenu{
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+.hideMP{
+    display: none;
+}
