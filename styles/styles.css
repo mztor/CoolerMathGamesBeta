@@ -11,7 +11,7 @@
     height: 50px;
     position: fixed;
     overflow: hidden;
-    background: white;
+    background: #b470fd;
     z-index: 2;
 }
 
@@ -26,29 +26,26 @@ ul {
 }
 
 ul li {
-    float: left;
+    float: right;
     text-align: center;
     padding-top: 10px;
     height: 50px;
-    width: 11.7%;
+    width: 10%;
     transition-duration: 0.5s;
 }
 
 ul li:hover {
-    background-color: #6ebae7;
-}
-
-ul li:hover a {
-    color: white;
+    background: #ca9aff;
 }
 
 .banner {
     padding: 0;
     width: fit-content;
+    float: left;
 }
 
 ul li a {
-    color: #888;
+    color: white;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 12px;
@@ -57,5 +54,26 @@ ul li a {
 #content {
     width: 100vw;
     height: 100vh;
-    background: #a755fd;
+    background: #6080f2;
+}
+
+#footer {
+    width: 100vw;
+    background: #3aa6dd;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    color: white;
+}
+
+#footer h1 {
+    padding-bottom: 50px;
+}
+
+#footer img {
+    opacity: 0.5;
+    transition-duration: 0.7s;
+}
+
+#footer img:hover {
+    opacity: 1;
 }
