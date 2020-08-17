@@ -112,7 +112,7 @@ function check() {
         document.getElementById("output").style.color = "red";
     }
     questions()
-    document.getElementById("question").innerHTML = questionDis;
+    document.getElementById("question").innerHTML = questionDis + " = ?";
     document.getElementById("score").innerHTML = "Score: " + scores;
 }
 
@@ -225,5 +225,6 @@ function toHelp() {
 }
 
 function testingMode() {
+    console.log("Testing mode activated, press testing mode again on the difficulty screen if you want to go into the mode again")
     testing = true;
 }
