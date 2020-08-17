@@ -22,9 +22,9 @@
             Choose difficulty:
         </p>
         <p>
-            <button id="L1" class="LButtons" onclick="toGameplay(); startGame(this.id)">Level 1</button><br>
-            <button id="L2" class="LButtons" onclick="toGameplay(); startGame(this.id)">Level 2</button><br>
-            <button id="L3" class="LButtons" onclick="toGameplay(); startGame(this.id)">Level 3</button>
+            <button id="L1" class="LButtons" onclick="toGameplay(); getNextWord(this.id)">Level 1</button><br>
+            <button id="L2" class="LButtons" onclick="toGameplay(); getNextWord(this.id)">Level 2</button><br>
+            <button id="L3" class="LButtons" onclick="toGameplay(); getNextWord(this.id)">Level 3</button>
         </p>
         <a id="helpButton" onclick="toHelp()">?</a>
     </div>
@@ -55,8 +55,8 @@
             <input id="guess" type="text"><span id="mark"></span><br>
 
         </form>
-        <button id="submit" class="blueButtons">Submit</button>
-
+        <button id="submit" class="blueButtons" onclick="checkGuess(words_1[wordIndex], score)">Submit</button>
+        <button id="nextRound" class="blueButtons hide" onclick="getNextWord()">Next Round</button>
     </div>
 
     <!-- Quit Button -->
