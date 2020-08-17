@@ -106,7 +106,7 @@ function timer() {
     let time = setInterval(function () {
         console.log(seconds);
         seconds--;
-        if (seconds <= 0) {
+        if (seconds <= -1) {
             clearInterval(time);
             toEndScreen();
         } else if (stopTimer) {
