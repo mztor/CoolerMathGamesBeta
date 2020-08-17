@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+body {
+    font-family: 'Architects Daughter', cursive;
+}
+
 .container {
     margin: 0 auto;
     text-align: center;
@@ -18,6 +24,7 @@ h2 {
     border: 2px solid;
     margin-bottom: 5px;
     background-color: whitesmoke;
+    font-family: 'Architects Daughter', cursive;
 }
 
 .button:hover {
@@ -35,14 +42,17 @@ h2 {
 
 #score {
     display: none;
+    font-size: 30px;
 }
 
 #time {
     display: none;
+    font-size: 30px;
 }
 
 #question {
     display: none;
+    font-size: 30px;
 }
 
 #input {
@@ -62,5 +72,18 @@ h2 {
 }
 
 #playAgain {
+    display: none;
+}
+
+#helpMenu {
+    display: none;
+}
+
+#helpText {
+    font-size: 20px;
+    width: 700px;
+}
+
+#back {
     display: none;
 }

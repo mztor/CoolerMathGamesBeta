@@ -4,13 +4,17 @@
     text-align: center;
     padding: 30px;
     margin: 20px;
+    text-size: 20px;
 }
 .inputTTT:hover{
-    color: blue;
+    color: magenta;
+    background-color: dodgerblue;
 }
 
 h1{
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2{
@@ -37,7 +41,6 @@ div{
 }
 
 #helpTTT {
-    outline: 1px solid black;
     width: 99%;
     margin-left: auto;
     margin-right: auto;
@@ -52,7 +55,7 @@ div{
 }
 
 .buttonTTT{
-    border: solid black;
+    border: 3px solid black;
     color: black;
     background-color: grey;
     padding: 15px 32px 15px 32px;
@@ -64,5 +67,6 @@ div{
 }
 
 .buttonTTT:hover{
-    color: red;
+    color: magenta;
+    background: aqua;
 }
