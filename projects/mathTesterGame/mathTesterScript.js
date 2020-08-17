@@ -43,12 +43,15 @@ function Test() {
     var input = document.getElementById("input");
     var readyMenu = document.getElementById("readyMenu")
     var answer = document.getElementById("answer")
+    var output = document.getElementById("output")
     readyMenu.style.display = "none";
     score.style.display = "block";
     time.style.display = "block";
     question.style.display = "block";
     input.style.display = "inline-block";
     answer.style.display = "inline-block";
+    output.style.display = "inline-block";
+    document.getElementById("output").innerHTML = "";
 }
 
 function random1() {
@@ -68,7 +71,7 @@ function addition() {
     random2();
     questionDis = ran1 + " + " + ran2;
     answer = ran1 + ran2;
-    document.getElementById("question").innerHTML = questionDis;
+    document.getElementById("question").innerHTML = questionDis + " = ?";
 }
 
 function subtraction() {
@@ -76,7 +79,7 @@ function subtraction() {
     random2();
     questionDis = ran1 + " - " + ran2;
     answer = ran1 - ran2;
-    document.getElementById("question").innerHTML = questionDis;
+    document.getElementById("question").innerHTML = questionDis + " = ?";
 }
 
 function multiply() {
@@ -84,7 +87,7 @@ function multiply() {
     random2();
     questionDis = ran1 + " X " + ran2;
     answer = ran1 * ran2;
-    document.getElementById("question").innerHTML = questionDis;
+    document.getElementById("question").innerHTML = questionDis + " = ?";
 }
 
 function check() {
@@ -92,6 +95,12 @@ function check() {
     console.log(answer);
     if (input === answer) {
         scores = scores + 1;
+        document.getElementById("output").innerHTML = "Correct!";
+        document.getElementById("output").style.color = "green";
+    }
+    else {
+        document.getElementById("output").innerHTML = "Incorrect!";
+        document.getElementById("output").style.color = "red";
     }
     questions()
     document.getElementById("question").innerHTML = questionDis;
@@ -158,6 +167,7 @@ function toEndScreen() {
     var readyMenu = document.getElementById("readyMenu");
     var answer = document.getElementById("answer");
     var back = document.getElementById("back");
+    var output = document.getElementById("output")
     readyMenu.style.display = "none";
     score.style.display = "block";
     time.style.display = "none";
@@ -166,6 +176,7 @@ function toEndScreen() {
     answer.style.display = "none";
     playAgain.style.display = "inline-block";
     back.style.display = "none";
+    output.style.display = "none";
 }
 
 function toMenu() {
@@ -180,6 +191,7 @@ function toMenu() {
     var menu = document.getElementById("menu");
     var help = document.getElementById("helpMenu");
     var back = document.getElementById("back");
+    var output = document.getElementById("output")
     readyMenu.style.display = "none";
     score.style.display = "none";
     time.style.display = "none";
@@ -190,6 +202,7 @@ function toMenu() {
     menu.style.display = "block";
     help.style.display = "none";
     back.style.display = "none";
+    output.style.display = "none";
 }
 
 function toHelp() {
