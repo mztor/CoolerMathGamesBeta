@@ -7,25 +7,59 @@
     <script src="Unscramble.js"></script>
 </head>
 <body>
+    <!-- Game Title -->
     <h1 id="gameTitle">Unscramble</h1>
-    <div id="difficultySelect">
+
+    <!-- Title Page -->
+    <div id="titlePage">
+        <button style="font-weight:bold" id="playButton" class="blueButtons" onclick="toDifficulty()">Play Game</button><br>
+        <button id="leaderboardButton" class="blueButtons">Leaderboard</button>
+    </div>
+
+    <!-- Difficulty Selection Page -->
+    <div id="difficultySelect" class="hide">
         <p>
             Choose difficulty:
         </p>
         <p>
-            <button id="L1" class="LButtons">Level 1</button><br>
-            <button id="L2" class="LButtons">Level 2</button><br>
-            <button id="L3" class="LButtons">Level 3</button>
+            <button id="L1" class="LButtons" onclick="toGameplay(); startGame(this.id)">Level 1</button><br>
+            <button id="L2" class="LButtons" onclick="toGameplay(); startGame(this.id)">Level 2</button><br>
+            <button id="L3" class="LButtons" onclick="toGameplay(); startGame(this.id)">Level 3</button>
         </p>
         <a id="helpButton" onclick="toHelp()">?</a>
     </div>
-<!-- Help menu page -->
-<div id="helpMenu" class="hide">
-    <h1 id="instructionsTitle">Instructions</h1>
 
+    <!-- Help menu page -->
+    <div id="helpMenu" class="hide">
+        <h1 id="instructionsTitle">Instructions</h1>
 
-    <a class="blueButtons" onclick="toDifficulty()">←Back</a>
+        <ul id="instructionsList">
+            <li>Type in what you think the original word is.</li>
+            <li>Unscramble the words correctly to gain points.</li>
+            <li>If you guess 3 words incorrectly, you'll run out of lives and will have to try again.</li>
+            <li>Get as many words correct as you can to win!</li>
+        </ul>
+        <p>
+            <a class="blueButtons" onclick="toDifficulty()">← Back</a>
+        </p>
 
-</div>
+    </div>
+
+    <!-- Gameplay Screens -->
+    <div id="gameplay" class="hide">
+        <span id="score">Score: <span id="scoreTotal">000</span></span><br>
+        <span id="s_word">xxx</span>
+
+        <form>
+            <label for="guess"></label>
+            <input id="guess" type="text"><span id="mark"></span><br>
+
+        </form>
+        <button id="submit" class="blueButtons">Submit</button>
+
+    </div>
+
+    <!-- Quit Button -->
+    <a id="quit" class="blueButtons hide" onclick="toTitlePage()">Quit</a>
 </body>
 </html>
