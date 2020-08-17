@@ -28,20 +28,37 @@
             <div>
                 <button class="button" id="help" onclick="toHelp()">Help</button>
             </div>
+            <br>
+            <div>
+                <button class="button2" id="testing" onclick="testingMode()">Testing mode</button>
+            </div>
         </div>
         <div id="readyMenu">
             <h2>ARE YOU READY!!!</h2>
-            <button class="button" id="ready" onclick="Test()">Ready?</button>
+            <button class="button" id="ready" onclick="Test()">Ready!</button>
         </div>
         <p id="score"></p>
         <p id="time"></p>
         <br>
         <div id="question"></div>
-        <input id="input" type="text" autocomplete="off" value="">
-        <p id="output"></p>
+        <div><p id="output"></p></div>
+        <input id="input" type="text" autocomplete="off" onfocus="this.value=''">
         <button class="button" id="answer" onclick="check()">Answer</button>
         <p></p>
         <button class="button" id="playAgain" onclick="toMenu()">Play Again</button>
+        <div id="helpMenu">
+            <h2>Instructions</h2>
+            <p id="helpText">
+                Answer the question shown to you when you press ready the game will start immediately, answer the question
+                displayed to you in the box below the question, then press answer to send in your answer. A point will
+                only be added to your score if your answer is correct. Everytime you answer the question a new question
+                will be shown too you.
+            </p>
+        </div>
+        <br>
+        <div>
+            <button class="button" id="back" onclick="toMenu()">Back</button>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,72 @@
+.inputTTT{
+    width: 5vw;
+    height: 50px;
+    text-align: center;
+    padding: 30px;
+    margin: 20px;
+    text-size: 20px;
+}
+.inputTTT:hover{
+    color: magenta;
+    background-color: dodgerblue;
+}
+
+h1{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2{
+    text-align: left;
+    position: absolute;
+    top: 50px;
+}
+
+h3{
+    text-align: right;
+}
+div{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hideTTT {
+    display: none;
+}
+
+.showTTT{
+    display: block;
+}
+
+#helpTTT {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    text-align: center;
+}
+
+#menuTTT {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonTTT{
+    border: 3px solid black;
+    color: black;
+    background-color: grey;
+    padding: 15px 32px 15px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin: auto;
+
+}
+
+.buttonTTT:hover{
+    color: magenta;
+    background: aqua;
+}

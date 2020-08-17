@@ -1,20 +1,79 @@
-button {
-    margin: 10px;
-    width: 200px;
+/* This style sheet is for Will only! Please do not make any alterations */
 
-
+* {
+    font-family: "Lucida Sans Unicode", sans-serif;
+    margin: 0;
+    padding: 0;
 }
-h1{
+
+#nav {
+    width: 100vw;
+    height: 50px;
+    position: fixed;
+    overflow: hidden;
+    background: #b470fd;
+    z-index: 2;
+}
+
+#nav .menu {
+    width: 83.33%;
+    height: 100%;
+    margin: 0 auto 0 auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    float: right;
     text-align: center;
-}
-.buttons {
-    text-align: center;
-}
-
-p{
-    text-align: center;
+    padding-top: 10px;
+    height: 50px;
+    width: 10%;
+    transition-duration: 0.5s;
 }
 
-.hidden {
-    display: none;
+ul li:hover {
+    background: #ca9aff;
+}
+
+.banner {
+    padding: 0;
+    width: fit-content;
+    float: left;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+#content {
+    width: 100vw;
+    height: 100vh;
+    background: #6080f2;
+}
+
+#footer {
+    width: 100vw;
+    background: #3aa6dd;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    color: white;
+}
+
+#footer h1 {
+    padding-bottom: 50px;
+}
+
+#footer img {
+    opacity: 0.5;
+    transition-duration: 0.7s;
+}
+
+#footer img:hover {
+    opacity: 1;
 }

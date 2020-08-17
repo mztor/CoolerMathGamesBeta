@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+body {
+    font-family: 'Architects Daughter', cursive;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+.button {
+    width: 150px;
+    height: 55px;
+    border-radius: 15px;
+    border: 2px solid;
+    margin-bottom: 5px;
+    background-color: whitesmoke;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 25px;
+}
+
+.button:hover {
+    background-color: aqua;
+    color: black;
+}
+
+.button2 {
+    width: 125px;
+    height: 40px;
+    border-radius: 15px;
+    border: 2px solid;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 17px;
+}
+
+.button2:hover {
+    background-color: white;
+}
+
+#menu {
+    display: block;
+}
+
+#readyMenu {
+    display: none;
+}
+
+#score {
+    display: none;
+    font-size: 30px;
+}
+
+#time {
+    display: none;
+    font-size: 30px;
+}
+
+#question {
+    display: none;
+    font-size: 30px;
+}
+
+#input {
+    display: none;
+    margin-top: 30px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 25px;
+    width: 150px;
+    text-align: center;
+    height: 43px;
+}
+
+#output {
+    display: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#answer {
+    display: none;
+}
+
+#playAgain {
+    display: none;
+}
+
+#helpMenu {
+    display: none;
+}
+
+#helpText {
+    font-size: 20px;
+    width: 700px;
+}
+
+#back {
+    display: none;
+}
