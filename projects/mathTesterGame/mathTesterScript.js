@@ -10,6 +10,7 @@ var questionDis = "";
 var answer = 0;
 var seconds;
 var stopTimer = true;
+var testing = false;
 
 function toReady(n) {
     stopTimer = true;
@@ -71,6 +72,9 @@ function addition() {
     random2();
     questionDis = ran1 + " + " + ran2;
     answer = ran1 + ran2;
+    if (testing === true) {
+        console.log(answer)
+    }
     document.getElementById("question").innerHTML = questionDis + " = ?";
 }
 
@@ -79,6 +83,9 @@ function subtraction() {
     random2();
     questionDis = ran1 + " - " + ran2;
     answer = ran1 - ran2;
+    if (testing === true) {
+        console.log(answer)
+    }
     document.getElementById("question").innerHTML = questionDis + " = ?";
 }
 
@@ -87,12 +94,14 @@ function multiply() {
     random2();
     questionDis = ran1 + " X " + ran2;
     answer = ran1 * ran2;
+    if (testing === true) {
+        console.log(answer)
+    }
     document.getElementById("question").innerHTML = questionDis + " = ?";
 }
 
 function check() {
     var input = Number(document.getElementById("input").value);
-    console.log(answer);
     if (input === answer) {
         scores = scores + 1;
         document.getElementById("output").innerHTML = "Correct!";
@@ -113,7 +122,6 @@ function timer() {
     }
     seconds = timeMax;
     let time = setInterval(function () {
-        console.log(seconds);
         seconds--;
         if (seconds <= -1) {
             clearInterval(time);
@@ -177,6 +185,7 @@ function toEndScreen() {
     playAgain.style.display = "inline-block";
     back.style.display = "none";
     output.style.display = "none";
+    testing = false;
 }
 
 function toMenu() {
@@ -203,6 +212,7 @@ function toMenu() {
     help.style.display = "none";
     back.style.display = "none";
     output.style.display = "none";
+    testing = false;
 }
 
 function toHelp() {
@@ -212,4 +222,8 @@ function toHelp() {
     help.style.display = "inline-block";
     menu.style.display = "none";
     back.style.display = "inline-block";
+}
+
+function testingMode() {
+    testing = true;
 }

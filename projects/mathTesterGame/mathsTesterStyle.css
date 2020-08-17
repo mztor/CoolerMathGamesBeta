@@ -33,6 +33,15 @@ h2 {
     color: black;
 }
 
+.button2 {
+    width: 125px;
+    height: 40px;
+    border-radius: 15px;
+    border: 2px solid;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 17px;
+}
+
 #menu {
     display: block;
 }
