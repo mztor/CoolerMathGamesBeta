@@ -16,7 +16,6 @@ function toReady(n) {
     scores = 0;
     difficulty = n;
     highestValue = 0;
-    clearInterval(seconds)
     var menu = document.getElementById("menu");
     var readyMenu = document.getElementById("readyMenu");
     var playAgain = document.getElementById("playAgain");
@@ -107,15 +106,11 @@ function timer() {
     let time = setInterval(function () {
         console.log(seconds);
         seconds--;
-        if (seconds === 0) {
+        if (seconds <= 0) {
+            clearInterval(time);
             toEndScreen();
-        }
-        else if (seconds <= 0) {
-            clearInterval(time)
-        } else {
-            if (seconds === 0) {
-                toEndScreen();
-            }
+        } else if (stopTimer) {
+            clearInterval(time);
         }
         document.getElementById("time").innerHTML = "Time: " + seconds;}, 1000);
 }
