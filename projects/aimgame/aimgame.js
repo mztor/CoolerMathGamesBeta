@@ -1,7 +1,7 @@
 const canvas = document.getElementById("tester-canvas")
 const ctx = canvas.getContext('2d');
 
-const player = {
+const player = { // making sure the the 1st target will always appear in the middle of the screen.
     x: 950,
     y: 490,
     colour: "cornflowerblue"
@@ -27,9 +27,11 @@ function onclick (e) {
     if ((player.x -px)**2 + (player.y - py)**2 < 50**2) {
         console.log("hit");
     }
-}
+} // function that checks whether or not the user clicks is within the target; hits the target.
 
-function run () {
+
+
+function run () { // function that runs the target game.
     var loop = function () {
         update();
         render();
@@ -56,5 +58,4 @@ function render() {
     ctx.arc(player.x, player.y, 50, 0, 2 * Math.PI)
     ctx.fill();
 }
-
 run();
