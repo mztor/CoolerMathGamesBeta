@@ -17,7 +17,7 @@ function toReady(n) {
     scores = 0; //Reset the scores back to 0
     difficulty = n; //Set the difficulty of the game
     highestValue = 0; //reset the highest value
-    var menu = document.getElementById("menu"); //setting the variables and hiding the elements
+    var menu = document.getElementById("menu"); //setting the variables and hiding, showing the elements
     var readyMenu = document.getElementById("readyMenu");
     var playAgain = document.getElementById("playAgain");
     var help = document.getElementById("helpMenu")
@@ -38,7 +38,7 @@ function Test() {
     document.getElementById("score").innerHTML = "Score: " + scores; //displaying the score
     questions(); //start generating question
     document.getElementById("question").innerHTML = questionDis + " = ?"; //displaying the question
-    var score = document.getElementById("score"); //setting the variables and hiding the elements
+    var score = document.getElementById("score"); //setting the variables and hiding, showing the elements
     var time = document.getElementById("time");
     var question = document.getElementById("question");
     var input = document.getElementById("input");
@@ -167,7 +167,7 @@ function questions() { //generates a question types per difficulty and sets valu
 }
 
 function toEndScreen() {  //making the endscreen function
-    var score = document.getElementById("score"); //setting the variables and hiding the elements
+    var score = document.getElementById("score"); //setting the variables and hiding, showing the elements
     var playAgain = document.getElementById("playAgain");
     var time = document.getElementById("time");
     var question = document.getElementById("question");
@@ -190,7 +190,7 @@ function toEndScreen() {  //making the endscreen function
 
 function toMenu() {
     stopTimer = true; //setting the stop-timer true
-    var score = document.getElementById("score"); //setting the variables and hiding the elements
+    var score = document.getElementById("score"); //setting the variables and hiding, showing the elements
     var playAgain = document.getElementById("playAgain");
     var time = document.getElementById("time");
     var question = document.getElementById("question");
@@ -216,7 +216,7 @@ function toMenu() {
 }
 
 function toHelp() {
-    var help = document.getElementById("helpMenu"); //setting the variables and hiding the elements
+    var help = document.getElementById("helpMenu"); //setting the variables and hiding, showing the elements
     var menu = document.getElementById("menu");
     var back = document.getElementById("back");
     help.style.display = "inline-block";
