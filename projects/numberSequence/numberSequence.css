@@ -1,0 +1,26 @@
+#title {
+    font-size: 64px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #6080f2;
+}
+
+.buttonHolder {
+    justify-content: center;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.difficultyButton {
+    background-color: #6080f2;
+    color: white;
+    font-size: 20px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.difficultyButton:hover {
+    border: 2px solid #f44336;
+}
