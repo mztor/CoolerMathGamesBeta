@@ -14,23 +14,28 @@
         <h1 class="heading">Whack-A-Mole</h1>
         <hr>
         <h2 class="heading">Select Difficulty</h2>
+        <br>
         <div class="container">
-            <button id="easyButton" class="button">Easy</button>
+            <button id="easyButton" class="button" onclick="loadGame()">Easy</button>
         </div>
         <br>
         <div class="container">
-            <button id="hardButton" class="button">Hard</button>
+            <button id="hardButton" class="button" onclick="loadGame()">Hard</button>
         </div>
         <br>
         <div class="container">
-            <button id="instructionsButton" class="button">How To Play</button>
+            <button id="instructionsButton" class="button" onclick="loadInstructions()">How To Play</button>
+        </div>
+        <br>
+        <div class="container">
+            <button id="testButton" class="button" onclick="loadGame()">Test Mode</button>
         </div>
     </div>
 
-    <div id="instructions">
+    <div id="instructions" class="hide">
         <h1 class="heading">Whack-A-Mole</h1>
         <hr>
-        <h2 class="heading" style="font-size: 30px">Instructions</h2>
+        <h2 class="heading">Instructions</h2>
         <br>
         <div style="width: 400px; margin:auto; font-size:20px">
             <ul>
@@ -42,28 +47,29 @@
         </div>
         <br>
         <div style="text-align: left">
-            <button class="quit">Quit</button>
+            <button class="quit" onclick="loadStart()">Quit</button>
         </div>
     </div>
 
-    <div id="game">
+    <div id="game" class="hide">
         <h1 class="heading">Whack-A-Mole</h1>
         <hr>
         <p style="text-align: left" id="difficulty"></p>
 
         <table class="table">
             <tr>
-                <td class="rowTop" colspan="3">Score: <strong id="score">0</strong></td>
+                <td class="rowTop" style="text-align: left; padding-left: 6px" colspan="2">Score: <strong id="score">0</strong><strong> / 10</strong></td>
+                <td class="rowTop" style="text-align: right; padding-right: 6px" >Moles Remaining: <strong id="remaining">10</strong></td>
             </tr>
             <tr>
-                <td id="hole0" class="hole"><img class="mole" src="images/mole.png"></td>
-                <td id="hole1" class="hole"><img class="mole" src="images/mole.png"></td>
-                <td id="hole2" class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
             </tr>
             <tr>
-                <td id="hole3" class="hole"><img class="mole" src="images/mole.png"></td>
-                <td id="hole4" class="hole"><img class="mole" src="images/mole.png"></td>
-                <td id="hole5" class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
+                <td class="hole"><img class="mole" src="images/mole.png"></td>
             </tr>
             <tr>
                 <td class="rowBottom" colspan="3"><button id="startButton">Start</button></td>
@@ -72,6 +78,22 @@
 
         <button class="quit" onclick="loadStart()">Quit</button>
     </div>
+
+    <div id="finish" class="hide">
+        <h1 class="heading">Whack-A-Mole</h1>
+        <hr>
+        <h2 class="heading">Score: <strong id="finalScore"></strong><strong> / 10</strong></h2>
+        <h2 class="heading"><span id="highScore"></span></h2>
+        <div class="container">
+            <button class="button" onclick="loadGame()">Play Again</button>
+        </div>
+        <br>
+        <button class="quit" onclick="loadStart()">Quit</button>
+
+    </div>
+
+
+
     <script src="wam.js"></script>
 </body>
 

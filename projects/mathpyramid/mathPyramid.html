@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Math Pyramid</title>
+    <link rel="stylesheet" href="mathPyramidStyle.css">
+    <script src="mathPyramidScript.js"></script>
 </head>
 <body>
+    <div id="menuMP" class="gameMenu">
+        <div>
+            <h1>Welcome to Math Pyramid!</h1>
+        </div>
+        <div>
+            <h2>Choose your difficulties</h2>
+        </div><br>
+        <div>
+            <button class="buttonMenu" onclick="toGame(1)">Easy</button>
+        </div>
+        <div>
+            <button class="buttonMenu" onclick="toGame(2)">Medium</button>
+        </div>
+        <div>
+            <button class="buttonMenu" onclick="toGame(3)">Hard</button>
+        </div><br>
+        <div>
+            <button class="buttonMenu" onclick="toHelp()">Help</button>
+        </div>
+    </div>
 
+    <div id="gameMP" class="hideMP">
+        <input id="input" type="text"><br>
+        <p id="L2First"></p>
+        <p id="L2Second"></p><br>
+        <p id="L3First"></p>
+        <p id="L3Second"></p>
+        <p id="L3Third"></p>
+    </div>
+
+    <div id="HelpMP">
+        <p>This is a help page.</p>
+    </div>
 </body>
 </html>

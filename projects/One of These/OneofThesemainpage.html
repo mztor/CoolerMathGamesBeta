@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>One Of These</title>
+    <link rel="stylesheet" type="text/css" href="OneofTheseStyle.css">
+    <script src="OneofThese.js"></script>
+</head>
+<body>
+
+<div id="nameScreen">
+    <input type="text" id="Name" placeholder="Please enter name">
+    <button onclick="x(document.getElementById('Name').value)">Begin</button>
+</div>
+
+<div id="difficultyScreen" align="center">
+    <p id="nameDisplay">Hi there , Welcome to One of These!</p>
+    <button onclick="generateQuestion('easy')">Easy</button>
+    <button onclick="generateQuestion('medium')">Medium</button>
+    <button onclick="generateQuestion('hard')">Hard</button>
+    <button onclick="generateQuestion('challenging')">Challenge</button>
+</div>
+
+<div id="questionScreen" align="center">
+
+</div>
+
+</body>
+</html>

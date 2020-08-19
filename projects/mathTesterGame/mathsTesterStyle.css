@@ -25,6 +25,7 @@ h2 {
     margin-bottom: 5px;
     background-color: whitesmoke;
     font-family: 'Architects Daughter', cursive;
+    font-size: 25px;
 }
 
 .button:hover {
@@ -32,51 +33,69 @@ h2 {
     color: black;
 }
 
+.button2 {
+    width: 125px;
+    height: 40px;
+    border-radius: 15px;
+    border: 2px solid;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 17px;
+}
+
+.button2:hover {
+    background-color: white;
+}
+
 #menu {
     display: block;
 }
 
 #readyMenu {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }
 
 #score {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
     font-size: 30px;
 }
 
 #time {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
     font-size: 30px;
 }
 
 #question {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
     font-size: 30px;
 }
 
 #input {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
     margin-top: 30px;
     border: 2px solid;
-    height: 25px;
     border-radius: 5px;
+    font-size: 25px;
+    width: 150px;
+    text-align: center;
+    height: 43px;
 }
 
 #output {
-    display: none;
+    display: none; /*output is set to nothing, no need to hide it*/
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 #answer {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }
 
 #playAgain {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }
 
 #helpMenu {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }
 
 #helpText {
@@ -85,5 +104,5 @@ h2 {
 }
 
 #back {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }

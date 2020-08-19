@@ -41,7 +41,6 @@ div{
 }
 
 #helpTTT {
-    width: 99%;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
@@ -59,14 +58,22 @@ div{
     color: black;
     background-color: grey;
     padding: 15px 32px 15px 32px;
+    width: fit-content;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
-    margin: auto;
-
+    left: 30%;
+    position: absolute;
 }
 
 .buttonTTT:hover{
     color: magenta;
     background: aqua;
+}
+
+.EverythingTTT{
+    left: 35%;
+    width: 50%;
+    padding: 10px;
+    display: block;
 }

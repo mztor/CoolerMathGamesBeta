@@ -39,6 +39,8 @@ function checkGuess(word, score) {
         document.getElementById("s_word").textContent = word
 
     }
+    document.getElementById("nextRound").classList.remove("hide")
+    document.getElementById("submit").classList.add("hide")
 }
 
 function generateWord(difficulty, index) {
@@ -71,15 +73,20 @@ words_1 = ["bug", "fix", "ice", "spy", "pie", "sky", "sun", "toy", "oil", "shy"]
 words_2 = ["eggs", "exit", "edge", "have", "then", "when", "here", "word", "area", "find"]
 words_3 = ["catch", "hedge", "light", "heavy", "where", "block", "guess", "lunch", "month", "round"]
 
+let rounds = 10;
+let wordIndex = 0;
+score = 0o00
 // Main Program
-function startGame(difficulty) {
-    let rounds = 10;
-    score = 0o00
-    let wordIndex = 0;
-    while (rounds !== 0) {
+//    function startGame(difficulty) {
+//        score = 0o00
+//    }
+
+function getNextWord(difficulty) {
+    if (rounds > 0) {
         document.getElementById("s_word").textContent = generateWord(difficulty, wordIndex)
-        document.getElementById("submit").onclick = function() {checkGuess(words_1[wordIndex], score)}
+        // document.getElementById("submit").onclick = function() {checkGuess(words_1[wordIndex], score)}
         wordIndex = wordIndex + 1
+        rounds = rounds - 1
     }
 }
 

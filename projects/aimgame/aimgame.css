@@ -1,0 +1,10 @@
+#tester-canvas {
+    border: 1px solid black;
+}
+.hide { /* class that hides an element */
+    display:none;
+}
+.show { /* class that shows an element */
+    display: block;
+}
+
