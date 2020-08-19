@@ -8,3 +8,14 @@
     display: block;
 }
 
+#targetHit {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+#targetcount {
+    position: absolute;
+    top: 90px;
+    left: 90px;
+}
+
