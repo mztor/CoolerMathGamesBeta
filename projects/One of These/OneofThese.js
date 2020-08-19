@@ -1,6 +1,8 @@
 let incorrectAnswerOne, incorrectAnswerTwo, incorrectAnswerThree, correctAnswer
+let questionsLeft= 5
+let score = 0
 
-function x (name) {
+function nameGrabber(name) {
     document.getElementById('nameScreen').style = 'display:none;';
     document.getElementById('nameDisplay').innerText = "Hi there " + name + ", Welcome to One of These!";
     document.getElementById('difficultyScreen').style = 'display:block';
@@ -8,29 +10,70 @@ function x (name) {
 
 
 function generateQuestion(difficulty){
-    switch(difficulty){
-        case 'easy':
-            alert("easy mode selected");
-            incorrectAnswerOne = Math.floor(Math.random() * 10) + 1;
-            incorrectAnswerTwo = incorrectAnswerOne + 1;
-            incorrectAnswerThree = incorrectAnswerTwo + 1;
-            correctAnswer = incorrectAnswerOne + 1234567890;
-            alert(incorrectAnswerOne + "" + incorrectAnswerTwo + "" + incorrectAnswerThree + " " + correctAnswer);
-            break;
-        case 'medium':
-            alert("Medium mode selected");
-            incorrectAnswerOne = Math.floor(Math.random() * 100) + 1;
-            incorrectAnswerTwo = incorrectAnswerOne * 2;
-            incorrectAnswerThree = incorrectAnswerOne * 3;
-            correctAnswer = 15/incorrectAnswerOne;
-            break;
-        case 'hard':
-            alert("Hard mode selected");
-            incorrectAnswerOne = Math.floor(Math.random() * 10000) + 1;
-            break;
-        case 'challenging':
-            alert("Challenging mode selected");
-            break;
+    if (questionsLeft > 0){
+        switch(difficulty){
+            case 'easy':
+                incorrectAnswerOne = Math.floor(Math.random() * 10) + 1;
+                incorrectAnswerTwo = incorrectAnswerOne + 1;
+                incorrectAnswerThree = incorrectAnswerTwo + 1;
+                correctAnswer = incorrectAnswerOne * Math.floor(Math.random() * 123421) + 1;
+                document.getElementById("incAns1").innerHTML = incorrectAnswerOne;
+                document.getElementById("incAns2").innerHTML = incorrectAnswerTwo;
+                document.getElementById("incAns3").innerHTML = incorrectAnswerThree;
+                document.getElementById("corAns").innerHTML = correctAnswer;
+
+                break;
+            case 'medium':
+                incorrectAnswerOne = Math.floor(Math.random() * 100) + 1;
+                incorrectAnswerTwo = incorrectAnswerOne * 2;
+                incorrectAnswerThree = incorrectAnswerOne * 3;
+                correctAnswer = (incorrectAnswerOne + 1)*2;
+                document.getElementById("incAns1").innerHTML = incorrectAnswerOne;
+                document.getElementById("incAns2").innerHTML = incorrectAnswerTwo;
+                document.getElementById("incAns3").innerHTML = incorrectAnswerThree;
+                document.getElementById("corAns").innerHTML = correctAnswer;
+                break;
+            case 'hard':
+                incorrectAnswerOne = Math.floor(Math.random() * 10000) + 1;
+                incorrectAnswerTwo = incorrectAnswerOne * 10;
+                incorrectAnswerThree = incorrectAnswerOne * 100;
+                correctAnswer = Math.floor(incorrectAnswerOne * 2.3456);
+                document.getElementById("incAns1").innerHTML = incorrectAnswerOne;
+                document.getElementById("incAns2").innerHTML = incorrectAnswerTwo;
+                document.getElementById("incAns3").innerHTML = incorrectAnswerThree;
+                document.getElementById("corAns").innerHTML = correctAnswer;
+                break;
+            case 'challenging':
+                alert("Challenging mode selected");
+                break;
+        }
 
     }
+    else{
+        displayEndScreen()
+    }
+
+}
+
+
+function displayAnswerScreen(answer){
+    if (answer == correct) {
+        score += 1
+
+        questionsLeft -= 1
+    }
+    else{
+
+        questionsLeft -= 1
+    }
+}
+
+function quit(){
+    questionsLeft = 5
+
+}
+
+
+function displayEndScreen(){
+
 }
