@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id"
+          content="28754738977-0ssjcguk1kkdcogqvkmu8r8v8uhvqucq.apps.googleusercontent.com">
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="styles/homepage.css">
     <title>Cooler Math Games Beta</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
 <!-- This HTML document is for Will only! Please do not make any alterations to this! -->
@@ -13,7 +17,7 @@
         <nav>
             <ul>
                 <li class="banner"><img src="http://www.placehold.it/430x50" alt="CoolerMathsGames"></li>
-                <li><a href="#">Login</a></li>
+                <li class="sign-in"><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Scoreboard</a></li>
                 <li><a href="#">About Us</a></li>
