@@ -5,6 +5,10 @@
     color: #6080f2;
 }
 
+.invisibleStuff {
+    display: none;
+}
+
 .buttonHolder {
     justify-content: center;
     text-align: center;
