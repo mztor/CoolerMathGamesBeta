@@ -11,27 +11,6 @@
     background-color: dodgerblue;
 }
 
-h1{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-h2{
-    text-align: left;
-    position: absolute;
-    top: 50px;
-}
-
-h3{
-    text-align: right;
-}
-div{
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .hideTTT {
     display: none;
 }
@@ -77,3 +56,32 @@ div{
     padding: 10px;
     display: block;
 }
+
+body{
+    background-color: lightblue;
+}
+p{
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+h1{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2{
+    text-align: left;
+    position: absolute;
+    top: 50px;
+}
+
+h3{
+    text-align: right;
+}
+div{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+}
+

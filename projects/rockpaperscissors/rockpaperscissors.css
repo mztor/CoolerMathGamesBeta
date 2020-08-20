@@ -1,0 +1,102 @@
+h1 {
+    visibility: visible;
+}
+#button1 {
+    display: none;
+    position: absolute;
+    top: 450px;
+    left: 700px;
+}
+h1 {
+    display: none;
+    position: absolute;
+    left: 1000px;
+    top: 350px;
+    font-size: 36px;
+}
+h2 {
+    display: none;
+    position: absolute;
+    left: 300px;
+    top: 350px;
+    font-size: 36px;
+}
+#responses {
+    display: none;
+    position: absolute;
+    top: 600px;
+    left: 628px;
+}
+.responses button {
+    display: none;
+    padding: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+button {
+    background-color: white;
+    border-color: black;
+    font-size: 24px;
+}
+#button2 {
+    display: none;
+    position: absolute;
+    top: 600px;
+    left: 628px;
+}
+#homeplay {
+    display: none;
+    position: absolute;
+    top: 600px;
+    left: 628px;
+}
+#startbutton {
+    position: absolute;
+    top: 450px;
+    left: 700px;
+}
+#standardbutton {
+    display: none;
+    top: 450px;
+    left: 700px;
+}
+#hardbutton {
+    display: none;
+    top: 450px;
+    left: 700px;
+}
+h5 {
+    display: none;
+    font-family: Arial;
+    font-size: 50px;
+    position: absolute;
+    left: 600px;
+    top: 200px;
+}
+#hardgamemode {
+    position: absolute;
+    left: 700px;
+    top: 450px;
+}
+#computerscore {
+    position: absolute;
+    left: 950px;
+    display: none;
+    text-align: center;
+}
+#playerscore {
+    position: absolute;
+    left: 300px;
+    display: none;
+    text-align: center;
+}
+#standardgamemode {
+    position: absolute;
+    top: 415px;
+    left: 700px;
+}
+#start {
+    position: absolute;
+    left: 600px;
+    top: 500px;
+}
