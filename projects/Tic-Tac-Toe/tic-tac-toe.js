@@ -1,7 +1,7 @@
 let value = "x";
 let alternativeValue = "o";
 let extra = "";
-let target = 0;
+let target = 1;
 let score1 = 0;
 let score2 = 0;
 let player = "";
@@ -16,8 +16,17 @@ function clicked (textBoxNumber) {
     alternativeValue = extra;
     player = value === "x" ? "Player 1" : "Player 2";
     document.getElementsByTagName("h2")[0].innerText = "It's " + player + "'s turn";
-    winCondition()
+    winCondition();
 }
+
+function isFilled () {
+    for (let i = 1; i < 10; i++) {
+        let textBox = "textBox" + i.toString();
+        if (document.getElementById(textBox).value === "Click") return false;
+    }
+    return true;
+}
+
 function winCondition() {
     let data = [];
     for (var rows = 0; rows < 3; rows++) {
@@ -68,16 +77,16 @@ function winCondition() {
         if (data[0][2] === "x" && data[1][1] === "x" && data[2][0] === "x" || data[0][2] === "o" && data[1][1] === "o" && data[2][0] === "o" ){
             target--
             if (target === 0){
-                winScreen()
+                score1 = 0;
+                score2 = 0;
+                winScreen();
             }
             resetBoard()
             return;
         }
     }
     else{
-        //doesnt quite work
-        //drawscreen()
-        return true;
+        if (isFilled()) drawscreen();
     }
 }
 
@@ -89,6 +98,7 @@ function resetBoard() {
         let textBox = "textBox" + i.toString()
         document.getElementById(textBox).value = "Click";
         document.getElementById(textBox).disabled = false;
+
     }
 }
 function drawscreen(){
@@ -104,8 +114,6 @@ function winScreen() {
     document.getElementById("WinscreenTTT").classList.add("showTTT");
     player = value === "o" ? "Player 1" : "Player 2";
     document.getElementsByTagName("p")[0].innerText = "The winner is " + player;
-    resetBoard()
-
 }
 
 function Play() {
@@ -116,14 +124,19 @@ function Play() {
     document.getElementById("MenuTTT").classList.add("hideTTT");
 }
 function Play1() {
+    score1 = score2 = 0;
+    document.getElementsByTagName("h3")[0].innerText = "Score: " + score2 + " : " + score1;
     document.getElementById("gameTTT").classList.remove("hideTTT");
     document.getElementById("gameTTT").classList.add("showTTT");
     document.getElementById("SelectionTTT").classList.remove("showTTT");
     document.getElementById("SelectionTTT").classList.remove("buttonTTT");
     document.getElementById("SelectionTTT").classList.add("hideTTT");
     target = 1;
+
 }
 function Play3() {
+    score1 = score2 = 0;
+    document.getElementsByTagName("h3")[0].innerText = "Score: " + score2 + " : " + score1;
     document.getElementById("gameTTT").classList.remove("hideTTT");
     document.getElementById("gameTTT").classList.add("showTTT");
     document.getElementById("SelectionTTT").classList.remove("showTTT");
@@ -132,6 +145,8 @@ function Play3() {
     target = 3;
 }
 function Play5() {
+    score1 = score2 = 0;
+    document.getElementsByTagName("h3")[0].innerText = "Score: " + score2 + " : " + score1;
     document.getElementById("gameTTT").classList.remove("hideTTT");
     document.getElementById("gameTTT").classList.add("showTTT");
     document.getElementById("SelectionTTT").classList.remove("showTTT");
@@ -150,7 +165,7 @@ function QuitGame(){
     document.getElementById("gameTTT").classList.add("hideTTT");
     document.getElementById("MenuTTT").classList.remove("hideTTT");
     document.getElementById("MenuTTT").classList.add("showTTT");
-
+    resetBoard()
 }
 function QuitHelp(){
     document.getElementById("helpTTT").classList.remove("showTTT");
