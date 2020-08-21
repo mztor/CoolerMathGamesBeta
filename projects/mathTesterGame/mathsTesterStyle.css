@@ -51,26 +51,26 @@ h2 {
 }
 
 #readyMenu {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }
 
 #score {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
     font-size: 30px;
 }
 
 #time {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
     font-size: 30px;
 }
 
 #question {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
     font-size: 30px;
 }
 
 #input {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
     margin-top: 30px;
     border: 2px solid;
     border-radius: 5px;
@@ -81,21 +81,21 @@ h2 {
 }
 
 #output {
-    display: none;
+    display: none; /*output is set to nothing, no need to hide it*/
     font-size: 20px;
     margin-bottom: 10px;
 }
 
 #answer {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }
 
 #playAgain {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }
 
 #helpMenu {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }
 
 #helpText {
@@ -104,5 +104,5 @@ h2 {
 }
 
 #back {
-    display: none;
+    display: none; /*element is not supposed to be showing on the menu*/
 }

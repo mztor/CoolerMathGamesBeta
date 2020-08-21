@@ -1,0 +1,28 @@
+.gameMenu{
+    width: 800px;
+    height: 500px;
+    margin: 159px auto;
+    text-align: center;
+    border: gold 2px solid;
+    background-color: beige;
+    opacity: 80%;
+    border-radius: 10%;
+}
+
+#buttonMenu{
+    margin: 5px auto;
+    border-radius: 10%;
+    width:100px;
+    height: 50px;
+    background-color: rgb(177, 245, 140);
+    border: black 1px dot-dash;
+}
+
+.buttonMenu:hover{
+    background-color: aquamarine;
+    border:black 1px  solid;
+}
+
+#hideMP{
+    display: none;
+}
