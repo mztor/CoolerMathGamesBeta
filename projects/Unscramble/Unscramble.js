@@ -29,21 +29,30 @@ function toGameplay() {
     document.getElementById("gameTitle").classList.remove("hide")
     document.getElementById("gameplay").classList.remove("hide")
     document.getElementById("quit").classList.remove("hide")
-
-
 }
 
-function checkGuess(word1, word2, word3, score) {
+function checkGuess(word, score) {
 
-    if (document.getElementById("guess").value === word1.textContent) {
-        document.getElementById("mark").textContent = "✓"
-        document.getElementById("score").textContent = score + 10
+    if (document.getElementById("guess").value === word) {
+        document.getElementById("mark").textContent = " ✓"
+        score = score + 10
+        document.getElementById("scoreTotal").textContent = score
     } else {
-        document.getElementById("s_word").textContent = word1
+        document.getElementById("s_word").textContent = word
+        document.getElementById("mark").textContent = " ✗"
 
     }
     document.getElementById("nextRound").classList.remove("hide")
-    document.getElementById("submit").classList.add("hide")
+    document.getElementById("mark").classList.remove("hide")
+    if (words_1.includes(word)) {
+        document.getElementById("submit_1").classList.add("hide")
+    }
+    else if (words_2.includes(word)) {
+        document.getElementById("submit_2").classList.add("hide")
+    }
+    else if (words_3.includes(word)) {
+        document.getElementById("submit_3").classList.add("hide")
+    }
 }
 
 function generateWord(difficulty, index) {
@@ -52,7 +61,7 @@ function generateWord(difficulty, index) {
     if (difficulty === "L1") {
         newWord = words_1[index]
         shuffledWord = shuffleWord(newWord)
-        return [newWord, shuffledWord] }
+        return shuffledWord }
     else if (difficulty === "L2") {
         newWord = words_2[index]
         shuffledWord = shuffleWord(newWord)
@@ -79,7 +88,7 @@ words_3 = ["catch", "hedge", "light", "heavy", "where", "block", "guess", "lunch
 
 let rounds = 10;
 let wordIndex = 0;
-let score = 0o00
+let score = 0
 // Main Program
 //    function startGame(difficulty) {
 //        score = 0o00
@@ -88,22 +97,30 @@ let score = 0o00
 function resetOnQuit() {
     rounds = 10;
     wordIndex = 0;
-    score = 0o00
+    score = 0;
+    document.getElementById("scoreTotal").textContent = "00"
 }
 
 function getNextWord(difficulty) {
     if (rounds > 0) {
         document.getElementById("nextRound").classList.add("hide")
-        document.getElementById("submit").classList.remove("hide")
+        document.getElementById("mark").classList.add("hide")
+        if (difficulty === "L1") {
+            document.getElementById("submit_1").classList.remove("hide")
+        }
+        else if (difficulty === "L2") {
+            document.getElementById("submit_2").classList.remove("hide")
+        }
+        else if (difficulty === "L3") {
+            document.getElementById("submit_3").classList.remove("hide")
+        }
         document.getElementById("s_word").textContent = generateWord(difficulty, wordIndex)
-        // document.getElementById("submit").onclick = function() {checkGuess(words_1[wordIndex], score)}
         wordIndex = wordIndex + 1
         rounds = rounds - 1
     }
     else {
         document.getElementById("gameplay").classList.add("hide")
         document.getElementById("nextRound").classList.add("hide")
-
         }
 }
 
