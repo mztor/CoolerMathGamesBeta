@@ -17,7 +17,7 @@
 <div id="buttons" class="hide">
     <button id="easyMode">Easy</button>
     <button id="standardMode">Standard</button>
-    <button id="expertMode">Expert</button>
+    <button id="expertMode" onclick="{ document.getElementById('tester-canvas').classList.remove('hide'); runHard(); hideDifficulty() }">Expert</button>
 </div>
 
 <script src="aimgame.js"></script>
