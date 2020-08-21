@@ -11,6 +11,7 @@ function nameGrabber(name) {
 
 function generateQuestion(difficulty){
     if (questionsLeft > 0){
+        document.getElementById('questionScreen').style = 'display:block;';
         switch(difficulty){
             case 'easy':
                 document.getElementById('difficultyScreen').style = 'display:none';

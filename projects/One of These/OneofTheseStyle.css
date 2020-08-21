@@ -6,6 +6,10 @@
     background-color: red;
 }
 
+#questionScreen{
+    display:none;
+}
+
 #quitButton{
     text-align: center;
     position: absolute;
