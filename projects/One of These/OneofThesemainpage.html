@@ -10,11 +10,11 @@
 
 <div id="nameScreen">
     <input type="text" id="Name" placeholder="Please enter name">
-    <button onclick="x(document.getElementById('Name').value)">Begin</button>
+    <button onclick="nameGrabber(document.getElementById('Name').value)">Select Difficulty</button>
 </div>
 
 <div id="difficultyScreen" align="center">
-    <p id="nameDisplay">Hi there , Welcome to One of These!</p>
+    <h1 id="nameDisplay"></h1>
     <button onclick="generateQuestion('easy')">Easy</button>
     <button onclick="generateQuestion('medium')">Medium</button>
     <button onclick="generateQuestion('hard')">Hard</button>
@@ -22,8 +22,26 @@
 </div>
 
 <div id="questionScreen" align="center">
+    <p>Please select the number that doesn't quite belong :)</p>
+    <button id="incAns1" onclick="displayAnswerScreen('incorrect')"></button>
+    <button id="incAns2" onclick="displayAnswerScreen('incorrect')"></button>
+    <button id="incAns3" onclick="displayAnswerScreen('incorrect')"></button>
+    <button id="corAns" onclick="displayAnswerScreen('correct')"></button>
 
 </div>
+
+<div id="correctAnswerScreen" class="hiddenScreen">
+    <p>That answer was correct :)</p>
+    <button class="nextButton">Next Question</button>
+</div>
+
+<div id="incorrectAnswerScreen" class="hiddenScreen">
+    <p>That answer was incorrect :(</p>
+    <button class="nextButton">Next Question</button>
+
+</div>
+
+<button id="quitButton" onclick=quit()>QUIT</button>
 
 </body>
 </html>
