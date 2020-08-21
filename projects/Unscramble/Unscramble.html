@@ -55,11 +55,11 @@
             <input id="guess" type="text"><span id="mark"></span><br>
 
         </form>
-        <button id="submit" class="blueButtons" onclick="checkGuess(words_1[wordIndex], score)">Submit</button>
-        <button id="nextRound" class="blueButtons hide" onclick="getNextWord()">Next Round</button>
+        <button id="submit" class="blueButtons" onclick="checkGuess(words_1[wordIndex - 1], score)">Submit</button>
+        <button id="nextRound" class="blueButtons hide" onclick="getNextWord('L1'); document.getElementById('guess').value = ''">Next Round</button>
     </div>
 
     <!-- Quit Button -->
-    <a id="quit" class="blueButtons hide" onclick="toTitlePage()">Quit</a>
+    <a id="quit" class="blueButtons hide" onclick="toTitlePage(); resetOnQuit()">Quit</a>
 </body>
 </html>
