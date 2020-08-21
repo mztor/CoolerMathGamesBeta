@@ -16,7 +16,7 @@ a {
     height: 50px;
     position: fixed;
     overflow: hidden;
-    background: cornflowerblue;
+    background: #3aa6dd;
     z-index: 2;
 }
 
@@ -65,5 +65,5 @@ ul li a {
 #content {
     width: 100vw;
     height: 100vh;
-    background: #6080f2;
+    background: #59b8ea;
 }

@@ -30,15 +30,6 @@ testButton.addEventListener("click", function() {
     difficultyText.innerHTML="Difficulty: <strong>Test Mode</strong>"
     difficulty = "test"
 })
-startButton.addEventListener("click", function() {
-    startButton.disabled = true
-    if (difficulty === "easy" || difficulty === "hard") {
-        clickSetUp()
-        playGame()
-    } else if (difficulty === "test") {
-        playTest()
-    }
-})
 
 function createHardTimer(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
@@ -89,6 +80,7 @@ function playTest() {
         moles[prevNum].style.visibility="hidden"
     }
     if (counter < 1) {
+        moles[prevNum].style.visibility = "hidden"
         loadFinish()
     }
     number = selectCell()
@@ -151,5 +143,16 @@ function loadFinish() {
 function resetGame() {
     counter = 10
     score = 0
+    scoreText.innerText = score.toString()
+    remainingText.innerText = counter.toString()
     startButton.disabled = false
+}
+function startGame() {
+    startButton.disabled = true
+    if (difficulty === "easy" || difficulty === "hard") {
+        clickSetUp()
+        playGame()
+    } else if (difficulty === "test") {
+        playTest()
+    }
 }

@@ -29,14 +29,17 @@ function toGameplay() {
     document.getElementById("gameTitle").classList.remove("hide")
     document.getElementById("gameplay").classList.remove("hide")
     document.getElementById("quit").classList.remove("hide")
+
+
 }
 
-function checkGuess(word, score) {
-    if (document.getElementById("guess").value === word.textContent) {
+function checkGuess(word1, word2, word3, score) {
+
+    if (document.getElementById("guess").value === word1.textContent) {
         document.getElementById("mark").textContent = "✓"
         document.getElementById("score").textContent = score + 10
     } else {
-        document.getElementById("s_word").textContent = word
+        document.getElementById("s_word").textContent = word1
 
     }
     document.getElementById("nextRound").classList.remove("hide")
@@ -73,21 +76,35 @@ words_1 = ["bug", "fix", "ice", "spy", "pie", "sky", "sun", "toy", "oil", "shy"]
 words_2 = ["eggs", "exit", "edge", "have", "then", "when", "here", "word", "area", "find"]
 words_3 = ["catch", "hedge", "light", "heavy", "where", "block", "guess", "lunch", "month", "round"]
 
+
 let rounds = 10;
 let wordIndex = 0;
-score = 0o00
+let score = 0o00
 // Main Program
 //    function startGame(difficulty) {
 //        score = 0o00
 //    }
 
+function resetOnQuit() {
+    rounds = 10;
+    wordIndex = 0;
+    score = 0o00
+}
+
 function getNextWord(difficulty) {
     if (rounds > 0) {
+        document.getElementById("nextRound").classList.add("hide")
+        document.getElementById("submit").classList.remove("hide")
         document.getElementById("s_word").textContent = generateWord(difficulty, wordIndex)
         // document.getElementById("submit").onclick = function() {checkGuess(words_1[wordIndex], score)}
         wordIndex = wordIndex + 1
         rounds = rounds - 1
     }
+    else {
+        document.getElementById("gameplay").classList.add("hide")
+        document.getElementById("nextRound").classList.add("hide")
+
+        }
 }
 
 
