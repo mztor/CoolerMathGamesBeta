@@ -47,7 +47,7 @@
 
     <!-- Gameplay Screens -->
     <div id="gameplay" class="hide">
-        <span id="score">Score: <span id="scoreTotal">000</span></span><br>
+        <span id="score">Score: <span id="scoreTotal">00</span></span><br>
         <span id="s_word">xxx</span>
 
         <form>
@@ -55,7 +55,9 @@
             <input id="guess" type="text"><span id="mark"></span><br>
 
         </form>
-        <button id="submit" class="blueButtons" onclick="checkGuess(words_1[wordIndex - 1], score)">Submit</button>
+        <button id="submit_1" class="blueButtons hide" onclick="checkGuess(words_1[wordIndex - 1], score)">Submit</button>
+        <button id="submit_2" class="blueButtons hide" onclick="checkGuess(words_2[wordIndex - 1], score)">Submit</button>
+        <button id="submit_3" class="blueButtons hide" onclick="checkGuess(words_3[wordIndex - 1], score)">Submit</button>
         <button id="nextRound" class="blueButtons hide" onclick="getNextWord('L1'); document.getElementById('guess').value = ''">Next Round</button>
     </div>
 
