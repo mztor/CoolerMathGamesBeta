@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="numberSequence.css">
+    <script>
+        function load_game() {
+            document.getElementById("difficulty_screen").classList.add("invisibleStuff");
+            document.getElementById("questionScreen").classList.remove("invisibleStuff");
+        }
+    </script>
+</head>
+
+<body>
+<h1 id="title">Number Sequence</h1>
+
+<div class="buttonHolder" id="difficulty_screen">
+    <button type="button" id="Kindergarten" class="difficultyButton" title="Aimed towards Kindergarten students." onclick=load_game()>Difficulty 1: Easy</button><br>
+    <button type="button" id="Year1" class="difficultyButton" title="Aimed towards Year 1 students.">Difficulty 2: Medium</button><br>
+    <button type="button" id="Year2" class="difficultyButton" title="Aimed towards Year 2 students">Difficulty 3: Hard</button>
+</div>
+
+<div id="questionScreen" class="invisibleStuff">
+    <h3 id="scoreCounter">Score: </h3>
+    <p id="Question"><span id="FirstPlaceholder"></span>, <span id="SecondPlaceholder"></span>, <span id="ThirdPlaceholder">, ___?</span></p><br>
+    <label for="answerField">Answer Here: </label>
+    <input id="answerField" type="text" maxlength="7" value="Answer">
+</div>
+
+<div id="finalScreen" class="invisibleStuff">
+    <p id="winMessage">Congratulations! Your score was <span id="finalScore">*Score Here*</span></p>
+    <p id="perfectMessage">Congratulations! Perfect score!</p>
+    <p id="loseMessage">Keep trying to improve. Your score was <span id="loseScore">*Score Here*</span></p>
+    <button type="button" id="replay">Play Again?</button>
+</div>
+
+</body>
+</html>

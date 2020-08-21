@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Tic-Tac-Toe.css">
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+<div class="EverythingTTT">
+
+<div id="gameTTT" class="hideTTT">
+
+    <h2>Who's turn</h2>
+    <h1>Who will win?</h1>
+    <h3>Score</h3>
+
+    <br>
+
+    <input type = "text" id ="textBox1" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(1)"/>
+
+    <input type = "text" id="textBox2" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(2)">
+
+    <input type = "text" id="textBox3" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(3)">
+    <br>
+    <input type = "text" id="textBox4" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(4)">
+
+    <input type = "text" id="textBox5" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(5)">
+
+    <input type = "text" id="textBox6" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(6)">
+    <br>
+    <input type = "text" id="textBox7" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(7)">
+
+    <input type = "text" id="textBox8" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(8)">
+
+    <input type = "text" id="textBox9" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(9)">
+    <br>
+    <button class="buttonTTT" onclick="QuitGame()">Quit</button>
+</div>
+
+<div id="MenuTTT" class="showTTT">
+    <h1>Welcome to Tic-Tac-Toes!</h1>
+    <button class="buttonTTT" onclick="Play()">Begin</button>
+    <br><br><br><br><br>
+    <button class="buttonTTT" onclick="Help()">Help</button>
+    <br><br><br><br><br><br>
+    <button class="buttonTTT" onclick="Quit()">Quit</button>
+</div>
+
+<div id="helpTTT" class="hideTTT">
+    <h1>This is the help menu</h1>
+    <br><br><br><br><br><br>
+    <button class="buttonTTT" onclick="QuitHelp()">Quit</button>
+</div>
+
+<div id="SelectionTTT" class="hideTTT">
+<h1>Welcome to Tic-Tac-Toes!</h1>
+<button class="buttonTTT" onclick="Play1()">One game</button>
+<br><br><br><br><br><br><br>
+<button class="buttonTTT" onclick="Play3()">Three games</button>
+<br><br><br><br><br><br><br>
+<button class="buttonTTT" onclick="Play5()">Five games</button>
+</div>
+
+<div id="WinscreenTTT" class="hideTTT">
+    <p class="wintextTTT">Winner</p>
+    <button class="buttonTTT" onclick="replay()">Play again</button>
+    <br><br><br><br><br><br>
+    <button class="buttonTTT" onclick="QuitFinal()">Quit</button>
+</div>
+    <div id="DrawscreenTTT" class="hideTTT">
+        <p>Lmao draw</p>
+</div>
+
+<script src="tic-tac-toe.js"></script>
+
+</body>
+</html>
