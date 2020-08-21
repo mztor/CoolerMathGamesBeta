@@ -14,7 +14,7 @@
 </div>
 
 <div id="difficultyScreen" align="center">
-    <p id="nameDisplay"></p>
+    <h1 id="nameDisplay"></h1>
     <button onclick="generateQuestion('easy')">Easy</button>
     <button onclick="generateQuestion('medium')">Medium</button>
     <button onclick="generateQuestion('hard')">Hard</button>
@@ -23,19 +23,21 @@
 
 <div id="questionScreen" align="center">
     <p>Please select the number that doesn't quite belong :)</p>
-    <button id="incAns1" onclick="displayAnswerScreen(incorrect)"></button>
-    <button id="incAns2" onclick=displayAnswerScreen(incorrect)></button>
-    <button id="incAns3" onclick=displayAnswerScreen(incorrect)></button>
-    <button id="corAns" onclick=displayAnswerScreen(correct)></button>
+    <button id="incAns1" onclick="displayAnswerScreen('incorrect')"></button>
+    <button id="incAns2" onclick="displayAnswerScreen('incorrect')"></button>
+    <button id="incAns3" onclick="displayAnswerScreen('incorrect')"></button>
+    <button id="corAns" onclick="displayAnswerScreen('correct')"></button>
 
 </div>
 
-<div id="correctAnswerScreen">
-    <p>That answer was incorrect :(</p>
+<div id="correctAnswerScreen" class="hiddenScreen">
+    <p>That answer was correct :)</p>
     <button class="nextButton">Next Question</button>
 </div>
 
-<div id="incorrectAnswerScreen">
+<div id="incorrectAnswerScreen" class="hiddenScreen">
+    <p>That answer was incorrect :(</p>
+    <button class="nextButton">Next Question</button>
 
 </div>
 

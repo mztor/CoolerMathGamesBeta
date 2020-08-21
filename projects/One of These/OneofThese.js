@@ -13,6 +13,8 @@ function generateQuestion(difficulty){
     if (questionsLeft > 0){
         switch(difficulty){
             case 'easy':
+                document.getElementById('difficultyScreen').style = 'display:none';
+                // The line above removes the difficulty screen upon generating your first question, signalling the start of the game
                 incorrectAnswerOne = Math.floor(Math.random() * 10) + 1;
                 incorrectAnswerTwo = incorrectAnswerOne + 1;
                 incorrectAnswerThree = incorrectAnswerTwo + 1;
@@ -57,13 +59,15 @@ function generateQuestion(difficulty){
 
 
 function displayAnswerScreen(answer){
-    if (answer == correct) {
+    if (answer === "correct") {
         score += 1
-
+        document.getElementById('correctAnswerScreen').style = 'display:block;';
+        document.getElementById('questionScreen').style = 'display:none;';
         questionsLeft -= 1
     }
-    else{
-
+    if (answer === "incorrect"){
+        document.getElementById('incorrectAnswerScreen').style = 'display:block;';
+        document.getElementById('questionScreen').style = 'display:none;';
         questionsLeft -= 1
     }
 }

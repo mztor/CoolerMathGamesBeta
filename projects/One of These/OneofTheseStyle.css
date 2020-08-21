@@ -14,3 +14,17 @@
     right: 50%;
 
 }
+
+.nextButton{
+    left: 80%;
+    top: 200px;
+}
+
+#correctAnswerScreen{
+    display: none;
+}
+
+#incorrectAnswerScreen{
+    display: none;
+    text-align: center;
+}
