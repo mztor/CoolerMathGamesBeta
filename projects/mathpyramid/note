@@ -1,3 +1,0 @@
-web page size:1024*768px
-random code in JS:
-randomNum = Math.floor((Math.random() * max) + 1)

@@ -6,34 +6,44 @@
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
+<div class="EverythingTTT">
 
 <div id="gameTTT" class="hideTTT">
 
     <h2>Who's turn</h2>
-    <h1>Title</h1>
+    <h1>Who will win?</h1>
     <h3>Score</h3>
 
     <br>
 
-    <input type = "text" id ="textBox1" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(1)"/>
+    <input type = "text" id ="textBox1" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(1)"/>
 
-    <input type = "text" id="textBox2" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(2)">
+    <input type = "text" id="textBox2" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(2)">
 
-    <input type = "text" id="textBox3" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(3)">
+    <input type = "text" id="textBox3" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(3)">
     <br>
-    <input type = "text" id="textBox4" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(4)">
+    <input type = "text" id="textBox4" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(4)">
 
-    <input type = "text" id="textBox5" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(5)">
+    <input type = "text" id="textBox5" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(5)">
 
-    <input type = "text" id="textBox6" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(6)">
+    <input type = "text" id="textBox6" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(6)">
     <br>
-    <input type = "text" id="textBox7" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(7)">
+    <input type = "text" id="textBox7" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(7)">
 
-    <input type = "text" id="textBox8" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(8)">
+    <input type = "text" id="textBox8" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(8)">
 
-    <input type = "text" id="textBox9" value="Enter turn" maxlength="1" size="1" class="inputTTT" onclick="clicked(9)">
+    <input type = "text" id="textBox9" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(9)">
     <br>
     <button class="buttonTTT" onclick="QuitGame()">Quit</button>
+</div>
+
+<div id="MenuTTT" class="showTTT">
+    <h1>Welcome to Tic-Tac-Toes!</h1>
+    <button class="buttonTTT" onclick="Play()">Begin</button>
+    <br><br><br><br><br>
+    <button class="buttonTTT" onclick="Help()">Help</button>
+    <br><br><br><br><br><br>
+    <button class="buttonTTT" onclick="Quit()">Quit</button>
 </div>
 
 <div id="helpTTT" class="hideTTT">
@@ -42,90 +52,26 @@
     <button class="buttonTTT" onclick="QuitHelp()">Quit</button>
 </div>
 
-
-<div id="MenuTTT" class="showTTT">
-    <h1>Welcome to Tic-Tac-Toes!</h1>
-    <button class="buttonTTT" onclick="Play()">Begin</button>
-    <br><br>
-    <button class="buttonTTT" onclick="Help()">Help</button>
-    <br><br><br><br><br><br>
-    <button class="buttonTTT" onclick="Quit()">Quit</button>
-</div>
-
 <div id="SelectionTTT" class="hideTTT">
-    <h1>Welcome to Tic-Tac-Toes!</h1>
-    <button class="buttonTTT" onclick="Play1()">One game</button>
-    <br><br>
-    <button class="buttonTTT" onclick="Play3()">Three games</button>
-    <br><br>
-    <button class="buttonTTT" onclick="Play5()">Five games</button>
+<h1>Welcome to Tic-Tac-Toes!</h1>
+<button class="buttonTTT" onclick="Play1()">One game</button>
+<br><br><br><br><br><br><br>
+<button class="buttonTTT" onclick="Play3()">Three games</button>
+<br><br><br><br><br><br><br>
+<button class="buttonTTT" onclick="Play5()">Five games</button>
 </div>
 
+<div id="WinscreenTTT" class="hideTTT">
+    <p class="wintextTTT">Winner</p>
+    <button class="buttonTTT" onclick="replay()">Play again</button>
+    <br><br><br><br><br><br>
+    <button class="buttonTTT" onclick="QuitFinal()">Quit</button>
+</div>
+    <div id="DrawscreenTTT" class="hideTTT">
+        <p>Lmao draw</p>
+</div>
 
-<script>
-    let value = "x";
-    let alternativeValue = "o";
-    let extra = "";
+<script src="tic-tac-toe.js"></script>
 
-    function clicked (textBoxNumber) {
-        let textBox = "textBox" + textBoxNumber.toString()
-        document.getElementById(textBox).value = value
-        document.getElementById(textBox).disabled = true
-        extra = value;
-        value = alternativeValue;
-        alternativeValue = extra;
-    }
-
-    function Play() {
-        document.getElementById("SelectionTTT").classList.remove("hideTTT");
-        document.getElementById("SelectionTTT").classList.add("showTTT");
-        document.getElementById("MenuTTT").classList.remove("showTTT");
-        document.getElementById("MenuTTT").classList.remove("buttonTTT");
-        document.getElementById("MenuTTT").classList.add("hideTTT");
-    }
-    function Play1() {
-        document.getElementById("gameTTT").classList.remove("hideTTT");
-        document.getElementById("gameTTT").classList.add("showTTT");
-        document.getElementById("SelectionTTT").classList.remove("showTTT");
-        document.getElementById("SelectionTTT").classList.remove("buttonTTT");
-        document.getElementById("SelectionTTT").classList.add("hideTTT");
-    }
-    function Play3() {
-        document.getElementById("gameTTT").classList.remove("hideTTT");
-        document.getElementById("gameTTT").classList.add("showTTT");
-        document.getElementById("SelectionTTT").classList.remove("showTTT");
-        document.getElementById("SelectionTTT").classList.remove("buttonTTT");
-        document.getElementById("SelectionTTT").classList.add("hideTTT");
-    }
-    function Play5() {
-        document.getElementById("gameTTT").classList.remove("hideTTT");
-        document.getElementById("gameTTT").classList.add("showTTT");
-        document.getElementById("SelectionTTT").classList.remove("showTTT");
-        document.getElementById("SelectionTTT").classList.remove("buttonTTT");
-        document.getElementById("SelectionTTT").classList.add("hideTTT");
-    }
-    function Help() {
-        document.getElementById("MenuTTT").classList.remove("showTTT");
-        document.getElementById("MenuTTT").classList.add("hideTTT");
-        document.getElementById("helpTTT").classList.remove("hideTTT");
-        document.getElementById("helpTTT").classList.add("showTTT");
-    }
-    function QuitGame(){
-        document.getElementById("gameTTT").classList.remove("showTTT");
-        document.getElementById("gameTTT").classList.add("hideTTT");
-        document.getElementById("MenuTTT").classList.remove("hideTTT");
-        document.getElementById("MenuTTT").classList.add("showTTT");
-
-    }
-    function QuitHelp(){
-        document.getElementById("helpTTT").classList.remove("showTTT");
-        document.getElementById("helpTTT").classList.add("hideTTT");
-        document.getElementById("MenuTTT").classList.remove("hideTTT");
-        document.getElementById("MenuTTT").classList.add("showTTT");
-    }
-
-
-
-</script>
 </body>
 </html>
