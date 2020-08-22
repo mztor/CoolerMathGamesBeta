@@ -118,7 +118,8 @@ input[type=text] {
     margin: 30px 0;
     box-sizing: border-box;
     text-transform: lowercase;
-    font-size: 40px;
+    font-size: 50px;
+    text-align: center;
 }
 
 
