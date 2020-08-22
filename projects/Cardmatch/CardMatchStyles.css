@@ -1,0 +1,64 @@
+body {
+    font-family: "Comic Sans MS", "sans-serif";
+}
+head {
+    font-family: "Comic Sans MS", "sans-serif";
+}
+h1 {
+    font-size: 60px;
+    color: hotpink;
+    font-family: "Comic Sans MS", "sans-serif";
+    text-align: center;
+}
+
+.gameInformationContainer {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gameContainer {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.card{
+    position: relative;
+    height: 175px;
+    width: 125px;
+}
+.card:hover .cardBack{
+    transform: rotateY(-180deg);
+}
+
+.card:hover .cardFront{
+    transform: rotateY(0)
+}
+
+.cardFace {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    transition: transform 500ms ease-in-out;
+}
+
+.cardBack {
+    background: midnightblue;
+    border-color: black;
+}
+.cardFront {
+    background: lightblue;
+    transform: rotateY(180deg);
+}

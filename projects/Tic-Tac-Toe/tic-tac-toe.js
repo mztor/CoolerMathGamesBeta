@@ -5,6 +5,7 @@ let target = 1;
 let score1 = 0;
 let score2 = 0;
 let player = "";
+let draw = false
 
 
 function clicked (textBoxNumber) {
@@ -24,6 +25,7 @@ function isFilled () {
         let textBox = "textBox" + i.toString();
         if (document.getElementById(textBox).value === "Click") return false;
     }
+    target--;
     return true;
 }
 
@@ -86,13 +88,29 @@ function winCondition() {
         }
     }
     else{
-        if (isFilled()) drawscreen();
+        if (isFilled()){
+            if (target === 0) {
+
+                resetBoard();
+                drawscreen();
+            }
+            else{
+                target--;
+                draw = true;
+                resetBoard();
+            }
+        }
     }
 }
 
 function resetBoard() {
-    score1 += value === "x" ? 1 : 0;
-    score2 += value === "o" ? 1 : 0;
+    if (draw === true){
+        isFilled();
+    }
+    else{
+        score1 += value === "x" ? 1 : 0;
+        score2 += value === "o" ? 1 : 0;
+    }
     document.getElementsByTagName("h3")[0].innerText = "Score: " + score2 + " : " + score1;
     for (let i = 1; i < 10; i++) {
         let textBox = "textBox" + i.toString()
@@ -186,4 +204,18 @@ function QuitFinal(){
     document.getElementById("WinscreenTTT").classList.add("hideTTT");
     document.getElementById("MenuTTT").classList.remove("hideTTT");
     document.getElementById("MenuTTT").classList.add("showTTT");
+}
+function QuitDraw(){
+    document.getElementById("DrawscreenTTT").classList.remove("showTTT");
+    document.getElementById("DrawscreenTTT").classList.remove("buttonTTT");
+    document.getElementById("DrawscreenTTT").classList.add("hideTTT");
+    document.getElementById("MenuTTT").classList.remove("hideTTT");
+    document.getElementById("MenuTTT").classList.add("showTTT");
+}
+function replayDraw(){
+    document.getElementById("SelectionTTT").classList.remove("hideTTT");
+    document.getElementById("SelectionTTT").classList.add("showTTT");
+    document.getElementById("DrawscreenTTT").classList.remove("showTTT");
+    document.getElementById("DrawscreenTTT").classList.remove("buttonTTT");
+    document.getElementById("DrawscreenTTT").classList.add("hideTTT");
 }
