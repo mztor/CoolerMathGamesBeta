@@ -52,7 +52,7 @@ function hardBoundary(){
     player.y = 800 * Math.random();
 }
 
-function runHard () { // function that runs the target game.
+function run () { // function that runs the target game.
     var loop = function () {
         /*updateHard();*/
         render();
@@ -75,3 +75,7 @@ function render() {
     ctx.arc(player.x, player.y, 50, 0, 2 * Math.PI)
     ctx.fill();
 }
+
+/*function loadEndScreen() {
+    if
+}*/
