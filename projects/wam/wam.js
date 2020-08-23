@@ -17,6 +17,8 @@ let prevNum = null
 let number = null
 let easyTimer = 1000
 let hardTimer = createHardTimer(750, 1000)
+let waitEasyTimer = null
+let waitHardTimer = null
 
 easyButton.addEventListener("click", function() {
     difficultyText.innerHTML="Difficulty: <strong>Easy</strong>"
@@ -69,9 +71,9 @@ function playGame() {
     counter -= 1
     remainingText.innerText = counter.toString()
     if (difficulty === "easy") {
-        setTimeout(playGame, easyTimer)
+        waitEasyTimer = setTimeout(playGame, easyTimer)
     } else if (difficulty === "hard") {
-        setTimeout(playGame, hardTimer)
+        waitHardTimer = setTimeout(playGame, hardTimer)
     }
 }
 
@@ -80,7 +82,7 @@ function playTest() {
         moles[prevNum].style.visibility="hidden"
     }
     if (counter < 1) {
-        moles[prevNum].style.visibility = "hidden"
+        moles[number].style.visibility = "hidden"
         loadFinish()
     }
     number = selectCell()
@@ -140,13 +142,23 @@ function loadFinish() {
         highScoreText.innerHTML = "Try to beat your high score of " + highScore.toString()
     }
 }
+
 function resetGame() {
+    for (let i = 0; i < moles.length; i++) {
+        moles[i].style.visibility = "hidden"
+    }
     counter = 10
     score = 0
     scoreText.innerText = score.toString()
     remainingText.innerText = counter.toString()
     startButton.disabled = false
+    if (difficulty === "easy") {
+        clearTimeout(waitEasyTimer)
+    } else if (difficulty === "hard") {
+        clearTimeout(waitHardTimer)
+    }
 }
+
 function startGame() {
     startButton.disabled = true
     if (difficulty === "easy" || difficulty === "hard") {
