@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,37 +5,69 @@
     <link rel="stylesheet" href="rockpaperscissors.css">
 </head>
 <body>
-<div id="Startbutton">
-    <button id="start">start</button>
+<div id="TitleScreen">
+    <div class="StartButtons">
+        <div id="Startbutton">
+            <button id="start">start</button>
+        </div>
+        <div id="standardbutton">
+            <button id="standardgamemode">Standard</button>
+        </div>
+        <div id="hardbutton">
+            <button id="hardgamemode">Hard</button>
+        </div>
+    </div>
 </div>
-<div id="standardbutton">
-    <button id="standardgamemode">Standard</button>
+<div id="StartStandard">
+    <div id="button2">
+        <button id="playagain">Play Again</button>
+    </div>
+    <h5 id="changethis">Change This</h5>
+    <div id="responses">
+        <button id="rock" type="button">Rock</button>
+        <button id="paper" type="button">Paper</button>
+        <button id="scissors" type="button">Scissors</button>
+    </div>
+    <div class="DisplayedResults">
+        <h1 id="response">Computer</h1>
+        <h2 id="response2">You</h2>
+    </div>
+    <div class="ScoreTally">
+        <div id="playerscore">
+            <h3>Player</h3>
+            <p id="playerscorechange">0</p>
+        </div>
+        <div id="computerscore">
+            <h3>Computer</h3>
+            <p id="computerscorechange">0</p>
+        </div>
+    </div>
 </div>
-<div id="hardbutton">
-    <button id="hardgamemode">Hard</button>
+<div id="HardGame">
+
 </div>
-<h5 id="changethis">Change This</h5>
-<div id="responses">
-    <button id="rock" type="button">Rock</button>
-    <button id="paper" type="button">Paper</button>
-    <button id="scissors" type="button">Scissors</button>
-</div>
-<div id="button2">
-    <button id="playagain">Play Again</button>
-</div>
-<figure>
-    <h1 id="response">Computer</h1>
-    <h2 id="response2">You</h2>
-</figure>
-<div id="playerscore">
-    <h3>Player</h3>
-    <p id="playerscorechange">0</p>
+<div id="WinnerEndScreen">
+    <h4>YOU WIN</h4>
+    <div id="restartWin">
+        <button id="restartgame">Play Again</button>
+    </div>
+    <div id="addwinstreak">
+        <h6>Winstreak</h6>
+        <p id="winstreakchange">0</p>
+    </div>
 </div>
 
-<div id="computerscore">
-    <h3>Computer</h3>
-    <p id="computerscorechange">0</p>
+<div id="LoserEndScreen">
+    <h4>You LOSE</h4>
+    <div id="restartLoss">
+        <button id="restartgame">Play Again</button>
+    </div>
+    <div id="takeawaywinstreak">
+        <h6>Winstreak</h6>
+        <p id="winstreakchange">0</p>
+    </div>
 </div>
+
 <script src="rockpaperscissors.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <script src="Unscramble.js"></script>
 </head>
 <body>
-    <!-- Game Title -->
+    <!-- Game Title [UNSCRAMBLE] -->
     <h1 id="gameTitle">Unscramble</h1>
 
     <!-- Title Page -->
@@ -26,7 +26,7 @@
             <button id="L2" class="LButtons" onclick="toGameplay(); getNextWord(this.id)">Level 2</button><br>
             <button id="L3" class="LButtons" onclick="toGameplay(); getNextWord(this.id)">Level 3</button>
         </p>
-        <a id="helpButton" onclick="toHelp()">?</a>
+        <a id="helpButton" title="Help" onclick="toHelp()">?</a>
     </div>
 
     <!-- Help menu page -->
@@ -36,7 +36,6 @@
         <ul id="instructionsList">
             <li>Type in what you think the original word is.</li>
             <li>Unscramble the words correctly to gain points.</li>
-            <li>If you guess 3 words incorrectly, you'll run out of lives and will have to try again.</li>
             <li>Get as many words correct as you can to win!</li>
         </ul>
         <p>
@@ -47,7 +46,7 @@
 
     <!-- Gameplay Screens -->
     <div id="gameplay" class="hide">
-        <span id="score">Score: <span id="scoreTotal">000</span></span><br>
+        <span id="score">Score: <span id="scoreTotal">00</span></span><br>
         <span id="s_word">xxx</span>
 
         <form>
@@ -55,11 +54,20 @@
             <input id="guess" type="text"><span id="mark"></span><br>
 
         </form>
-        <button id="submit" class="blueButtons" onclick="checkGuess(words_1[wordIndex], score)">Submit</button>
-        <button id="nextRound" class="blueButtons hide" onclick="getNextWord()">Next Round</button>
+        <button id="submit_1" class="blueButtons hide" onclick="checkGuess(words_1[wordIndex - 1])">Submit</button>
+        <button id="submit_2" class="blueButtons hide" onclick="checkGuess(words_2[wordIndex - 1])">Submit</button>
+        <button id="submit_3" class="blueButtons hide" onclick="checkGuess(words_3[wordIndex - 1])">Submit</button>
+        <button id="nextRound_1" class="blueButtons hide" onclick="getNextWord('L1'); document.getElementById('guess').value = ''">Next Round</button>
+        <button id="nextRound_2" class="blueButtons hide" onclick="getNextWord('L2'); document.getElementById('guess').value = ''">Next Round</button>
+        <button id="nextRound_3" class="blueButtons hide" onclick="getNextWord('L3'); document.getElementById('guess').value = ''">Next Round</button>
     </div>
 
-    <!-- Quit Button -->
-    <a id="quit" class="blueButtons hide" onclick="toTitlePage()">Quit</a>
+    <!-- Standard Win Screen -->
+    <div id="winScreen" class="hide">
+        <h2><span id="wellDone">Well done!</span><br>Your score was <span id="finalScore"></span>.</h2>
+        <button id="playGameAgain" class="blueButtons" onclick="resetOnQuit(); toTitlePage()">Play Again</button>
+    </div>
+
+    <button id="quit" class="blueButtons hide" onclick="resetOnQuit(); toTitlePage()">Quit</button>
 </body>
 </html>
