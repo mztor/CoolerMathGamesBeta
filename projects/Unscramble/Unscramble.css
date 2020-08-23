@@ -50,9 +50,9 @@ body {
 
 #helpButton {
     position: absolute;
+    display: flex;
     bottom: 30px;
     right: 30px;
-    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -64,6 +64,10 @@ body {
     font-weight: bold;
     background-color: #83bbe5;
     color: white;
+}
+
+#helpButton:hover {
+    background-color: #3aa6dd;
 }
 
 #instructionsTitle {
@@ -104,6 +108,10 @@ body {
     right: 60px;
 }
 
+#mark {
+    font-weight: bold;
+}
+
 #s_word {
     font-size: 50px;
 }
@@ -114,10 +122,9 @@ input[type=text] {
     margin: 30px 0;
     box-sizing: border-box;
     text-transform: lowercase;
-    font-size: 40px;
+    font-size: 50px;
+    text-align: center;
 }
-
-
 
 #quit {
     padding: 15px 30px;
@@ -131,7 +138,4 @@ input[type=text] {
     display: none;
 }
 
-.show {
-    display: block;
-}
 
