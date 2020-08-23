@@ -50,9 +50,9 @@ body {
 
 #helpButton {
     position: absolute;
+    display: flex;
     bottom: 30px;
     right: 30px;
-    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -64,6 +64,10 @@ body {
     font-weight: bold;
     background-color: #83bbe5;
     color: white;
+}
+
+#helpButton:hover {
+    background-color: #3aa6dd;
 }
 
 #instructionsTitle {

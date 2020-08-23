@@ -3,12 +3,17 @@ let wordIndex = 0;
 let score = 0;
 let highScore = 0;
 
+// hides all possible screens from quit from then shows the Title page
+// Used by quit and play again buttons
 function toTitlePage() {
+    // Pages hidden
     document.getElementById("helpMenu").classList.add("hide")
     document.getElementById("gameplay").classList.add("hide")
     document.getElementById("difficultySelect").classList.add("hide");
     document.getElementById("winScreen").classList.add("hide");
     document.getElementById("quit").classList.add("hide");
+
+    // hide Submit and Next Round buttons in case they haven't been hidden yet (during gameplay)
     document.getElementById("submit_1").classList.add("hide")
     document.getElementById("nextRound_1").classList.add("hide")
     document.getElementById("submit_2").classList.add("hide")
@@ -16,20 +21,25 @@ function toTitlePage() {
     document.getElementById("submit_3").classList.add("hide")
     document.getElementById("nextRound_3").classList.add("hide")
 
+    // UNSCRAMBLE title and Title page shown
     document.getElementById("gameTitle").classList.remove("hide")
     document.getElementById("titlePage").classList.remove("hide")
 }
 
+// function directing to help page from difficulty selection page
 function toHelp() {
     document.getElementById("gameTitle").classList.add("hide");
     document.getElementById("difficultySelect").classList.add("hide");
+
     document.getElementById("helpMenu").classList.remove("hide")
 }
 
+// function directing to difficulty selection page
 function toDifficulty() {
     document.getElementById("titlePage").classList.add("hide")
     document.getElementById("helpMenu").classList.add("hide")
     document.getElementById("gameplay").classList.add("hide")
+
     document.getElementById("quit").classList.remove("hide");
     document.getElementById("gameTitle").classList.remove("hide");
     document.getElementById("difficultySelect").classList.remove("hide")
@@ -38,13 +48,13 @@ function toDifficulty() {
 function toGameplay() {
     document.getElementById("difficultySelect").classList.add("hide")
     document.getElementById("helpMenu").classList.add("hide")
+
     document.getElementById("gameTitle").classList.remove("hide")
     document.getElementById("gameplay").classList.remove("hide")
     document.getElementById("quit").classList.remove("hide")
 }
 
 function checkGuess(word) {
-
     if (document.getElementById("guess").value === word) {
         document.getElementById("mark").textContent = " ✓"
         score = score + 10
@@ -95,16 +105,21 @@ function shuffleWord(originalWord) {
     return shuffled;
 }
 
+// Arrays are the original words used for each of the levels.
+// words_1 for level 1, each word 3 letters long
+// words_2 for level 2, each word 4 letters long
+// words_3 for level 3, each word 5 letters long
 words_1 = ["bug", "fix", "ice", "spy", "pie", "new", "sun", "toy", "oil", "shy"]
 words_2 = ["eggs", "exit", "edge", "have", "then", "when", "here", "word", "area", "find"]
 words_3 = ["catch", "hedge", "light", "heavy", "where", "block", "guess", "lunch", "month", "round"]
 
+// Resets values when user quits or decides to play again
 function resetOnQuit() {
-    rounds = 10;
+    rounds = 10; // resets the number of rounds left in gameplay to 10
     wordIndex = 0;
-    score = 0;
-    document.getElementById("scoreTotal").textContent = "00"
-
+    score = 0; // resets the gameplay score to 0, without affecting the high score
+    document.getElementById("scoreTotal").textContent = "00" // Sets the displayed score to 00 in gameplay
+    document.getElementById('guess').value = '' // clears the input box for the guesses
 }
 
 function getNextWord(difficulty) {
