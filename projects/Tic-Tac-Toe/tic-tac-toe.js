@@ -25,6 +25,7 @@ function isFilled () {
         let textBox = "textBox" + i.toString();
         if (document.getElementById(textBox).value === "Click") return false;
     }
+    winCondition()
     target--;
     return true;
 }
@@ -219,3 +220,11 @@ function replayDraw(){
     document.getElementById("DrawscreenTTT").classList.remove("buttonTTT");
     document.getElementById("DrawscreenTTT").classList.add("hideTTT");
 }
+function QuitSelection(){
+    document.getElementById("MenuTTT").classList.remove("hideTTT");
+    document.getElementById("MenuTTT").classList.add("showTTT");
+    document.getElementById("SelectionTTT").classList.remove("showTTT");
+    document.getElementById("SelectionTTT").classList.remove("buttonTTT");
+    document.getElementById("SelectionTTT").classList.add("hideTTT");
+}
+
