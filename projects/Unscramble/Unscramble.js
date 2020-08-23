@@ -1,6 +1,24 @@
 let rounds = 10;
 let wordIndex = 0;
 let score = 0;
+let highScore = 0;
+
+function toTitlePage() {
+    document.getElementById("helpMenu").classList.add("hide")
+    document.getElementById("gameplay").classList.add("hide")
+    document.getElementById("difficultySelect").classList.add("hide");
+    document.getElementById("winScreen").classList.add("hide");
+    document.getElementById("quit").classList.add("hide");
+    document.getElementById("submit_1").classList.add("hide")
+    document.getElementById("nextRound_1").classList.add("hide")
+    document.getElementById("submit_2").classList.add("hide")
+    document.getElementById("nextRound_2").classList.add("hide")
+    document.getElementById("submit_3").classList.add("hide")
+    document.getElementById("nextRound_3").classList.add("hide")
+
+    document.getElementById("gameTitle").classList.remove("hide")
+    document.getElementById("titlePage").classList.remove("hide")
+}
 
 function toHelp() {
     document.getElementById("gameTitle").classList.add("hide");
@@ -25,12 +43,12 @@ function toGameplay() {
     document.getElementById("quit").classList.remove("hide")
 }
 
-function checkGuess(word, score) {
+function checkGuess(word) {
 
     if (document.getElementById("guess").value === word) {
         document.getElementById("mark").textContent = " ✓"
         score = score + 10
-        document.getElementById("scoreTotal").textContent = score
+        document.getElementById("scoreTotal").textContent = score.toString()
     } else {
         document.getElementById("mark").textContent = " ✗"
 
@@ -86,6 +104,7 @@ function resetOnQuit() {
     wordIndex = 0;
     score = 0;
     document.getElementById("scoreTotal").textContent = "00"
+
 }
 
 function getNextWord(difficulty) {
@@ -109,8 +128,15 @@ function getNextWord(difficulty) {
     }
     else {
         document.getElementById("gameplay").classList.add("hide")
-        document.getElementById("nextRound").classList.add("hide")
         document.getElementById("winScreen").classList.remove("hide")
+        if (score > highScore) {
+            document.getElementById("wellDone").textContent = "High Score!"
+            highScore = score
+        }
+        else {
+            document.getElementById("wellDone").textContent = "Well Done!"
+        }
+        document.getElementById("finalScore").textContent = score.toString()
         }
 }
 

@@ -122,8 +122,6 @@ input[type=text] {
     text-align: center;
 }
 
-
-
 #quit {
     padding: 15px 30px;
 
@@ -136,7 +134,4 @@ input[type=text] {
     display: none;
 }
 
-.show {
-    display: block;
-}
 

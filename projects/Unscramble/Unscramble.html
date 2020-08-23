@@ -55,21 +55,20 @@
             <input id="guess" type="text"><span id="mark"></span><br>
 
         </form>
-        <button id="submit_1" class="blueButtons hide" onclick="checkGuess(words_1[wordIndex - 1], score)">Submit</button>
-        <button id="submit_2" class="blueButtons hide" onclick="checkGuess(words_2[wordIndex - 1], score)">Submit</button>
-        <button id="submit_3" class="blueButtons hide" onclick="checkGuess(words_3[wordIndex - 1], score)">Submit</button>
-        <button id="nextRound_1" class="blueButtons hide" onclick="getNextWord('L1'); document.getElementById('guess').value = ''">Next Round</button>
-        <button id="nextRound_2" class="blueButtons hide" onclick="getNextWord('L2'); document.getElementById('guess').value = ''">Next Round</button>
-        <button id="nextRound_3" class="blueButtons hide" onclick="getNextWord('L3'); document.getElementById('guess').value = ''">Next Round</button>
+        <button id="submit_1" class="blueButtons hide submitButtons" onclick="checkGuess(words_1[wordIndex - 1])">Submit</button>
+        <button id="submit_2" class="blueButtons hide submitButtons" onclick="checkGuess(words_2[wordIndex - 1])">Submit</button>
+        <button id="submit_3" class="blueButtons hide submitButtons" onclick="checkGuess(words_3[wordIndex - 1])">Submit</button>
+        <button id="nextRound_1" class="blueButtons hide nextRoundButtons" onclick="getNextWord('L1'); document.getElementById('guess').value = ''">Next Round</button>
+        <button id="nextRound_2" class="blueButtons hide nextRoundButtons" onclick="getNextWord('L2'); document.getElementById('guess').value = ''">Next Round</button>
+        <button id="nextRound_3" class="blueButtons hide nextRoundButtons" onclick="getNextWord('L3'); document.getElementById('guess').value = ''">Next Round</button>
     </div>
 
-    <!-- Win Screen -->
+    <!-- Standard Win Screen -->
     <div id="winScreen" class="hide">
-        <h1 id="wellDone">Well done!<br>Your score was <span id="finalScore"></span></h1>
-        <button id="playGameAgain" class="blueButtons" onclick="resetOnQuit()"></button>
+        <h2><span id="wellDone">Well done!</span><br>Your score was <span id="finalScore"></span>.</h2>
+        <button id="playGameAgain" class="blueButtons" onclick="resetOnQuit(); toTitlePage()">Play Again</button>
     </div>
 
-    <!-- Quit Button -->
-    <button id="quit" class="blueButtons hide" onclick="window.location.reload()">Quit</button>
+    <button id="quit" class="blueButtons hide" onclick="resetOnQuit(); toTitlePage()">Quit</button>
 </body>
 </html>
