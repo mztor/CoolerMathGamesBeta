@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="SpellingGames.css">
+    <script src="SpellingGame.js"></script>
     <title>SpellingGame</title>
 </head>
 <body>
 <h1>Welcome to the spelling challenge!</h1>
 
-<div id="userscreen"></div>
-<input type="text" placeholder="Enter Username"><input>
-<button class="button" id="enter" onclick="ToDifficulty"></button>
+<div id="UserScreen">
+<input type="text" placeholder="Enter Username">
+<button class="button" id="Enter" onclick="ClearUser()">Enter to Continue</button>
+</div>
 
-<div id="DifficultySelection" class=""></div>
-<div>
+<div id="DifficultySelectionScreen" class="">
+
     <h2>Choose your difficulty</h2>
+
+    <button class="button" id="Kindy" onclick="Loadkindy('Kindy')">Kindy</button>
+<br><br>
+    <button class="button" id="Year1" onclick="LoadYear1('Year1')">Year 1</button>
+<br><br>
+    <button class="button" id="Year2" onclick="LoadYear2('Year2')">Year 2</button>
+<br><br>
+    <button class="button" id="help" onclick="LoadHelp('Help')">Help</button>
 </div>
-<div>
-    <button class="button" id="Kindy" onclick="Startkindy">Kindy</button>
-</div>
-<div>
-    <button class="button" id="Year1" onclick="(StartYear1)">Year 1</button>
-</div>
-<div>
-    <button class="button" id="Year2" onclick="StartYear2">Year 2</button>
-</div>
-<br>
-<div>
-    <button class="button" id="help" onclick="StartHelp">Help</button>
+
+<div id="HelpScreen">
+    <h1>Welcome to the Help screen</h1>
+    <br>
+    <p></p>
 </div>
 <br>
 <div>
