@@ -21,7 +21,6 @@ scissors.onclick = scissorschoice;
 function Check() {
     var random = ability[Math.floor(Math.random()*ability.length)];
     response.textContent = random;
-    console.log(response2.textContent, random);
     if (response2.textContent === random) {
         changethis.textContent = "You Tie";
     }
@@ -63,12 +62,12 @@ function Check() {
     }
     document.getElementById("computerscorechange").textContent = computerboard;
     document.getElementById("playerscorechange").textContent = playerboard;
-    if (computerboard === 10) {
+    if (computerboard === 3) {
         document.getElementById("StartStandard").style.display = "none";
         document.getElementById("LoserEndScreen").style.display = "block";
         winstreak = 0;
     }
-    if (playerboard === 10) {
+    if (playerboard === 3) {
         document.getElementById("StartStandard").style.display = "none";
         document.getElementById("WinnerEndScreen").style.display = "block";
         winstreak++;
@@ -92,28 +91,105 @@ function standardmode2() {
     document.getElementById("standardbutton").style.display = "none";
     document.getElementById("hardbutton").style.display = "none";
     document.getElementById("responses").style.display = "block";
-    document.getElementById("response").style.display = "block"
-    document.getElementById("response2").style.display = "block"
-    document.getElementById("StartStandard").style.display = "block"
+    document.getElementById("response").style.display = "block";
+    document.getElementById("response2").style.display = "block";
+    document.getElementById("StartStandard").style.display = "block";
+    document.getElementById("button2").style.display = "none";
+    document.getElementById("changethis").style.display = "none";
+    computerboard = 0;
+    playerboard = 0;
+    document.getElementById("computerscorechange").textContent = computerboard;
+    document.getElementById("playerscorechange").textContent = playerboard;
 }
 standardbutton.onclick = standardmode2;
 
 function reset() {
-    document.getElementById("responses").style.display = "block"
-    document.getElementById("button2").style.display = "none"
-    document.getElementById("changethis").style.display = "none"
+    document.getElementById("responses").style.display = "block";
+    document.getElementById("button2").style.display = "none";
+    document.getElementById("changethis").style.display = "none";
     response2.textContent = "You";
     response.textContent = "Computer";
 }
 button2.onclick = reset;
 function restartgamefromloss() {
-    document.getElementById("LoserEndScreen").style.display = "none"
-    document.getElementById("Startbutton").style.display = "block"
+    document.getElementById("LoserEndScreen").style.display = "none";
+    document.getElementById("standardbutton").style.display = "block";
+    document.getElementById("hardbutton").style.display = "block";
 }
 restartLoss.onclick = restartgamefromloss;
 
 function restartgamefromwin() {
-    document.getElementById("WinnerEndScreen").style.display = "none"
-    document.getElementById("Startbutton").style.display = "block"
+    document.getElementById("WinnerEndScreen").style.display = "none";
+    document.getElementById("standardbutton").style.display = "block";
+    document.getElementById("hardbutton").style.display = "block";
 }
 restartWin.onclick = restartgamefromwin;
+
+
+// function Check2() {
+//     // var rock = ['Rock', 'Paper', 'Paper', 'Scissors'];
+//     // var scissors = ['Rock', 'Rock', 'Paper', 'Scissors'];
+//     // var paper = ['Rock', 'Paper', 'Scissors', 'Scissors'];
+//     // var randomRock = rock[Math.floor(Math.random()*rock.length)];
+//     // var randomScissors = scissors[Math.floor(Math.random()*scissors.length)];
+//     // var randomPaper = paper[Math.floor(Math.random()*paper.length)];
+//     response.textContent = random;
+//     if (response2.textContent === random) {
+//         changethis.textContent = "You Tie";
+//     }
+//     if (response2.textContent === "Rock") {
+//         if (response.textContent === "Paper") {
+//             changethis.textContent = "You Lose";
+//             computerboard++;
+//         }
+//     }
+//     if (response2.textContent === "Rock") {
+//         if (response.textContent === "Scissors") {
+//             changethis.textContent = "You win";
+//             playerboard++;
+//         }
+//     }
+//     if (response2.textContent === "Paper") {
+//         if (response.textContent === "Scissors") {
+//             changethis.textContent = "You Lose";
+//             computerboard++;
+//         }
+//     }
+//     if (response2.textContent === "Paper") {
+//         if (response.textContent === "Rock") {
+//             changethis.textContent = "You win";
+//             playerboard++;
+//         }
+//     }
+//     if (response2.textContent === "Scissors") {
+//         if (response.textContent === "Paper") {
+//             changethis.textContent = "You Win";
+//             playerboard++;
+//         }
+//     }
+//     if (response2.textContent === "Scissors") {
+//         if (response.textContent === "Rock") {
+//             changethis.textContent = "You Lose";
+//             computerboard++;
+//         }
+//     }
+//     document.getElementById("computerscorechange").textContent = computerboard;
+//     document.getElementById("playerscorechange").textContent = playerboard;
+//     if (computerboard === 10) {
+//         document.getElementById("StartStandard").style.display = "none";
+//         document.getElementById("LoserEndScreen").style.display = "block";
+//         winstreak = 0;
+//     }
+//     if (playerboard === 10) {
+//         document.getElementById("StartStandard").style.display = "none";
+//         document.getElementById("WinnerEndScreen").style.display = "block";
+//         winstreak++;
+//     }
+//     document.getElementById("responses").style.display = "none";
+//     document.getElementById("button2").style.display = "block";
+//     document.getElementById("changethis").style.display = "block";
+//     document.getElementById("playerscore").style.display = "block";
+//     document.getElementById("computerscore").style.display = "block";
+//     document.getElementById("winstreakchange").textContent = winstreak;
+// }
+// responses.onclick = Check2;
