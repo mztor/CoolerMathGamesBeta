@@ -1,28 +1,44 @@
-let user;
-let apiURL = "https://sheetsu.com/apis/v1.0su/ff1114550f8e";
+/* defines the value of the API key used by the gAPI for authentification of any API requests */
+const CLIENT_ID = "28754738977-0ssjcguk1kkdcogqvkmu8r8v8uhvqucq.apps.googleusercontent.com";
+/* defines the value of the API key used by the gAPI for authentification of any API requests */
+const API_KEY = "AIzaSyBUuoufVI0aiQcZ4KbwIkMaRe7z1pwQT5U";
+/* defines the URL/s of the document/s that identify machine-readable
+specifications for describing and consuming RESTful APIs known as
+Discovery Documents */
+const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+const SCOPES = "https://www.googleapis.com/auth/spreadsheets";
 
-function errFunc (e) { throw new Error(e) }
-function successFunc () { console.log("you idea is good and you should feel good :)") }
+function handleClientLoading () {
+    gapi.load("client:auth2", initClient);
+}
+
+function initClient () {
+    gapi.client.init({
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
+        discoveryDocs: DISCOVERY_DOCS,
+        scope: SCOPES
+    }).then(function () {
+        let auth2 = gapi.auth2.getAuthInstance();
+        auth2.isSignedIn.listen(getUserData);
+        getUserData(auth2.isSignedIn.get());
+    }, function (error) {
+        throw new Error(error);
+    });
+}
 
 function onSignIn (googleUser) {
     let profile = googleUser.getBasicProfile();
-
-    console.table([{attribute: 'Email', value: profile.getEmail()}]);
-
-    Sheetsu.read(apiURL, {search: {email: profile.getEmail()}})
-        .then(function (data) {
-            user = {...data[0]};
-            console.log(user);
-        }, errFunc);
+    console.log(profile.getEmail());
 }
 
 function signOut() {
     let auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('User signed out.');
-    });
+    auth2.signOut().then(function () { console.log('User signed out.'); });
 }
 
-function newHighScore (user, id, score) {
+function getUserData (isSignedIn) {
+    if (isSignedIn) {
 
+    }
 }
