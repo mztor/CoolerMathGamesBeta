@@ -19,7 +19,7 @@ h1 {
 
 .gameContainer {
     display: grid;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: repeat(4,auto);
     grid-gap: 10px;
     margin: 50px;
     justify-content: center;
@@ -93,7 +93,7 @@ h1 {
     }
     to {
         background-color: rgba(0, 0, 0, .8);
-        font-size: 10em;
+        font-size: 8em;
     }
 
 }
