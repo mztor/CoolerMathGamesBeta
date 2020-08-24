@@ -1,4 +1,4 @@
-.gameMenu{
+.gameMain{
     width: 800px;
     height: 500px;
     margin: 159px auto;
@@ -9,7 +9,7 @@
     border-radius: 10%;
 }
 
-#buttonMenu{
+.buttonMain{
     margin: 5px auto;
     border-radius: 10%;
     width:100px;
@@ -18,11 +18,39 @@
     border: black 1px dot-dash;
 }
 
-.buttonMenu:hover{
+.buttonMain:hover{
     background-color: aquamarine;
     border:black 1px  solid;
 }
 
-#hideMP{
+.gameMain\.game{
+    width: 800px;
+    height: 500px;
+    margin: 159px auto;
+    text-align: center;
+    border: gold 2px solid;
+    background-color: beige;
+    opacity: 80%;
+    border-radius: 10%;
     display: none;
 }
+
+.gameMain\.help{
+    width: 800px;
+    height: 500px;
+    margin: 159px auto;
+    text-align: center;
+    border: gold 2px solid;
+    background-color: beige;
+    opacity: 80%;
+    border-radius: 10%;
+    display: none;
+}
+
+.gameLayers{
+    border: black 2px solid;
+    margin: 0 auto;
+    text-align: center;
+    width:100px;
+}
+
