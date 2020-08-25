@@ -1,92 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- This meta data defines the character set and AASCI values utilised by the website-->
     <meta charset="UTF-8">
+    <!-- This meta data is utilised by the Google Sign In API to determine the validity
+         of the oAuth 2.0 request sent by the website when people attempt to sign in (this is checked by the unique clientID) -->
+    <meta name="google-signin-client_id"
+          content="28754738977-0ssjcguk1kkdcogqvkmu8r8v8uhvqucq.apps.googleusercontent.com">
+    <!-- Creates the title element of the webpage -->
+    <title>Cooler Math Games Beta</title>
+    <!-- These tags load the CSS files that create the uniform web pages as well as define
+         the styling attached specifically to homepage (denoted by their filenames) -->
     <link rel="stylesheet" href="Tic-Tac-Toe.css">
-    <title>Tic-Tac-Toe</title>
+
+    <style>
+        /* This style sheet is for Will only! Please do not make any alterations */
+
+        * {
+            font-family: "Lucida Sans Unicode", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #nav {
+            width: 100vw;
+            height: 50px;
+            position: fixed;
+            overflow: hidden;
+            background: #3aa6dd;
+            z-index: 2;
+        }
+
+        #nav .menu {
+            width: 90%;
+            height: 100%;
+            margin: 0 auto 0 auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            float: right;
+            text-align: center;
+            padding: 10px 20px 0 20px;
+            height: 50px;
+            /* width: 10%; */
+            transition-duration: 0.5s;
+        }
+
+        .sign-in {
+            padding-top: 5px;
+        }
+
+        .sign-in:hover {
+            background: cornflowerblue;
+        }
+
+        ul li:hover {
+            background: #ca9aff;
+        }
+
+        .banner {
+            padding: 0;
+            width: fit-content;
+            float: left;
+        }
+
+        ul li a {
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        #content {
+            width: 100vw;
+            height: 100vh;
+            background: #59b8ea;
+        }
+    </style>
 </head>
 <body>
-<div class="EverythingTTT">
-
-<div id="gameTTT" class="hideTTT">
-
-    <h2>Who's turn</h2>
-    <h1>Who will win?</h1>
-    <h3 id="score">Score</h3>
-
-    <br>
-
-    <input type = "text" id ="textBox1" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(1)"/>
-
-    <input type = "text" id="textBox2" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(2)">
-
-    <input type = "text" id="textBox3" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(3)">
-    <br>
-    <input type = "text" id="textBox4" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(4)">
-
-    <input type = "text" id="textBox5" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(5)">
-
-    <input type = "text" id="textBox6" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(6)">
-    <br>
-    <input type = "text" id="textBox7" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(7)">
-
-    <input type = "text" id="textBox8" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(8)">
-
-    <input type = "text" id="textBox9" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(9)">
-    <br>
-    <button class="buttonTTT" onclick="QuitGame()">Quit</button>
+<!-- This HTML document is for Will only! Please do not make any alterations to this! -->
+<div id="nav">
+    <div class="menu">
+        <nav>
+            <ul>
+                <li class="banner"><img src="http://www.placehold.it/430x50" alt="CoolerMathsGames"></li>
+                <li class="sign-in"><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Scoreboard</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
+<div id="content">
+    <div class="EverythingTTT">
+        //the game element of the code, initially not seen due to class element
+        <div id="gameTTT" class="hideTTT">
+            <br><br><br>
+            <h2>Who's turn</h2>
+            <br>
+            <h1>Who will win?</h1>
+            <br>
+            <h3 id="score">Score</h3>
 
-<div id="MenuTTT" class="showTTT">
-    <h1>Welcome to Tic-Tac-Toes!</h1>
-    <button class="buttonTTT" onclick="Play()">Begin</button>
-    <br><br><br><br><br>
-    <button class="buttonTTT" onclick="Help()">Help</button>
-    <br><br><br><br><br><br>
-    <button class="buttonTTT" onclick="Quit()">Quit</button>
+            <br>
+            <!Boxes which display game>
+            <input type = "text" id ="textBox1" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(1)"/>
+
+            <input type = "text" id="textBox2" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(2)">
+
+            <input type = "text" id="textBox3" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(3)">
+            <br>
+            <input type = "text" id="textBox4" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(4)">
+
+            <input type = "text" id="textBox5" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(5)">
+
+            <input type = "text" id="textBox6" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(6)">
+            <br>
+            <input type = "text" id="textBox7" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(7)">
+
+            <input type = "text" id="textBox8" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(8)">
+
+            <input type = "text" id="textBox9" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(9)">
+            <br>
+            <!Quit button which goes to>
+            <button class="buttonTTT" onclick="QuitGame()">Quit</button>
+        </div>
+
+        <div id="MenuTTT" class="showTTT">
+            <! first thing that users see>
+            <br><br><br>
+            <h1>Welcome to Tic-Tac-Toes!</h1>
+            <button class="buttonTTT" onclick="Play()">Begin</button><!goes to selection screen>
+            <br><br><br><br><br>
+            <button class="buttonTTT" onclick="Help()">Help</button><!goes to help screen>
+            <br><br><br><br><br><br>
+            <button class="buttonTTT" onclick="Quit()">Quit</button><!hasn't been written yet but will go back to which game they want to play>
+        </div>
+
+        <div id="SelectionTTT" class="hideTTT">
+            <br><br><br>
+            <h1>Select how many games to play!</h1>
+            <br><br>
+            <!Allows user to choose how many games they want to play, this sets the variable of the target>
+            <button class="buttonTTT" onclick="Play1()">One game</button>
+            <br><br><br><br><br><br><br>
+            <button class="buttonTTT" onclick="Play3()">Three games</button>
+            <br><br><br><br><br><br><br>
+            <button class="buttonTTT" onclick="Play5()">Five games</button>
+            <br><br><br><br><br><br><br>
+            <button class="buttonTTT" onclick="QuitSelection()">Quit</button>
+        </div>
+
+        <div id="WinscreenTTT" class="hideTTT">
+            <br><br><br>
+            <p class="wintextTTT">Winner</p>
+            <button class="buttonTTT" onclick="replay()">Play again</button>
+            <br><br><br><br><br><br>
+            <button class="buttonTTT" onclick="QuitFinal()">Quit</button>
+        </div>
+
+        <div id="helpTTT" class="hideTTT">
+            <br><br><br>
+            <h1>This is the help menu</h1>
+            <br>
+            <p>1. The game is played on a grid that's 3 squares by 3 squares.</p>
+            <br>
+            <p>2. Player 1 is X and Player 2 is O. Players take turns putting their marks in empty squares.<p>
+            <br>
+            <p>3. The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.<p>
+            <br>
+            <p>4. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.</p>
+            <br><br><br><br><br><br>
+            <button class="buttonTTT" onclick="QuitHelp()">Quit</button>
+        </div>
+
+        <div id="DrawscreenTTT" class="hideTTT">
+            <br><br><br>
+            <h1>A draw!!!!!</h1>
+            <button class="buttonTTT" onclick="QuitDraw()">Quit</button>
+            <br><br><br><br><br>
+            <button class="buttonTTT" onclick="replayDraw()">Play again</button>
+
+        </div>
 </div>
-
-<div id="SelectionTTT" class="hideTTT">
-    <h1>Welcome to Tic-Tac-Toes!</h1>
-    <button class="buttonTTT" onclick="Play1()">One game</button>
-    <br><br><br><br><br><br><br>
-    <button class="buttonTTT" onclick="Play3()">Three games</button>
-    <br><br><br><br><br><br><br>
-    <button class="buttonTTT" onclick="Play5()">Five games</button>
-    <br><br><br><br><br><br><br>
-    <button class="buttonTTT" onclick="QuitSelection()">Quit</button>
-</div>
-
-<div id="WinscreenTTT" class="hideTTT">
-    <p class="wintextTTT">Winner</p>
-    <button class="buttonTTT" onclick="replay()">Play again</button>
-    <br><br><br><br><br><br>
-    <button class="buttonTTT" onclick="QuitFinal()">Quit</button>
-</div>
-
-<div id="helpTTT" class="hideTTT">
-<h1>This is the help menu</h1>
-<br>
-<p>1. The game is played on a grid that's 3 squares by 3 squares.</p>
-<br>
-<p>2. Player 1 is X and Player 2 is O. Players take turns putting their marks in empty squares.<p>
-<br>
-<p>3. The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.<p>
-<br>
-<p>4. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.</p>
-<br><br><br><br><br><br>
-<button class="buttonTTT" onclick="QuitHelp()">Quit</button>
-</div>
-
-<div id="DrawscreenTTT" class="hideTTT">
-<h1>A draw!!!!!</h1>
-<button class="buttonTTT" onclick="QuitDraw()">Quit</button>
-<br><br><br><br><br>
-<button class="buttonTTT" onclick="replayDraw()">Play again</button>
-
-</div>
-
 <script src="tic-tac-toe.js"></script>
-
+<script src="js/script.js"></script>
+<script src="https://apis.google.com/js/api.js" async defer onload="handleClientLoading()"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <script src="mathPyramidScript.js"></script>
 </head>
 <body>
-    <div id="menuMP" class="gameMenu">
+    <div id="menuMP" class="gameMain">
         <div>
             <h1>Welcome to Math Pyramid!</h1>
         </div>
@@ -15,20 +15,20 @@
             <h2>Choose your difficulties</h2>
         </div><br>
         <div>
-            <button class="buttonMenu" onclick="toGame(1)">Easy</button>
+            <button class="buttonMain" onclick="toGame(1)">Easy</button>
         </div>
         <div>
-            <button class="buttonMenu" onclick="toGame(2)">Medium</button>
+            <button class="buttonMain" onclick="toGame(2)">Medium</button>
         </div>
         <div>
-            <button class="buttonMenu" onclick="toGame(3)">Hard</button>
+            <button class="buttonMain" onclick="toGame(3)">Hard</button>
         </div><br>
         <div>
-            <button class="buttonMenu" onclick="toHelp()">Help</button>
+            <button class="buttonMain" onclick="toHelp()">Help</button>
         </div>
     </div>
 
-    <div id="gameMP" class="hideMP">
+    <div id="gameMP" class="hidden">
         <input id="input" type="text"><br>
         <p id="L2First"></p>
         <p id="L2Second"></p><br>
@@ -37,8 +37,9 @@
         <p id="L3Third"></p>
     </div>
 
-    <div id="HelpMP">
+    <div id="helpMP" class="hidden">
         <p>This is a help page.</p>
     </div>
+    <div id="back" onclick="toMenu()">Back</div>
 </body>
 </html>
