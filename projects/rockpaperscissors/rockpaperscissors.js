@@ -162,6 +162,7 @@ function StartHardGame() {
     document.getElementById("ComputerResponse").style.display = "block";
     document.getElementById("yourResponse").style.display = "block";
 
+
 }
 hardbutton.onclick = StartHardGame;
 function Irockchoice() {
