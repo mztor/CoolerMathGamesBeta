@@ -27,14 +27,17 @@ function toMenu(){
     document.getElementById("menuMP").classList.add("gameMain")
     document.getElementById("gameMP").classList.remove("gameMain")
     document.getElementById("gameMP").classList.add("hidden");
-    document.getElementById("helpMP").classList.remove("hidden");
-    document.getElementById("helpMP").classList.add("gameMain");
+    document.getElementById("helpMP").classList.remove("gameMain");
+    document.getElementById("helpMP").classList.add("hidden");
 }
 
 function toGame(n){
-    document.getElementById("menuMP").style.display = "none";
-    document.getElementById("gameMP").style.display = "";
-    document.getElementById("helpMP").style.display = "none";
+    document.getElementById("menuMP").classList.remove("hidden")
+    document.getElementById("menuMP").classList.add("gameMain")
+    document.getElementById("gameMP").classList.remove("gameMain")
+    document.getElementById("gameMP").classList.add("hidden");
+    document.getElementById("helpMP").classList.remove("gameMain");
+    document.getElementById("helpMP").classList.add("hidden");
 }
 
 function toHelp(){
@@ -47,14 +50,20 @@ function toHelp(){
 }
 
 function nextGame(){
-    menu.style.display = "none";
-    help.style.display = "none";
-    game.style.display = "block";
+    document.getElementById("menuMP").classList.remove("hidden")
+    document.getElementById("menuMP").classList.add("gameMain")
+    document.getElementById("gameMP").classList.remove("gameMain")
+    document.getElementById("gameMP").classList.add("hidden");
+    document.getElementById("helpMP").classList.remove("gameMain");
+    document.getElementById("helpMP").classList.add("hidden");
 }
 
 function reasult(){
-    menu.style.display = "none";
-    help.style.display = "none";
-    game.style.display = "block";
+    document.getElementById("menuMP").classList.remove("hidden")
+    document.getElementById("menuMP").classList.add("gameMain")
+    document.getElementById("gameMP").classList.remove("gameMain")
+    document.getElementById("gameMP").classList.add("hidden");
+    document.getElementById("helpMP").classList.remove("gameMain");
+    document.getElementById("helpMP").classList.add("hidden");
 }
 
