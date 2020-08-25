@@ -1,10 +1,10 @@
 var points = 0;
+
 function loadEasy() {
-	var question = 1;
     document.getElementById("difficulty_screen").classList.remove('buttonHolder');
     document.getElementById("difficulty_screen").classList.add('invisibleStuff');
     document.getElementById("questionScreen").classList.toggle("invisibleStuff");
-    var operation = Math.floor((Math.random() * 10) + 1);
+    const operation = Math.floor((Math.random() * 10) + 1);
     if (operation > 5) {
         easyAddition()
     } else {
@@ -12,7 +12,6 @@ function loadEasy() {
     }
 }
 function easyAddition() {
-    while (question < 6) {
         var base = Math.floor((Math.random() * 10) + 1);
         var number = Math.floor((Math.random() * 10) + 1);
         document.getElementById("FirstPlaceholder").textContent = number;
@@ -20,11 +19,9 @@ function easyAddition() {
         document.getElementById("SecondPlaceholder").textContent = number;
         number = number + base;
         document.getElementById("ThirdPlaceholder").textContent = number;
-    }
 }
 
 function easySubtraction() {
-	while (question < 6) {
 		var base = Math.floor((Math.random() * 10) + 1);
         var number = Math.floor((Math.random() * 10) + 1);
         document.getElementById("FirstPlaceholder").textContent = number;
@@ -32,20 +29,20 @@ function easySubtraction() {
         document.getElementById("SecondPlaceholder").textContent = number;
         number = number - base;
         document.getElementById("ThirdPlaceholder").textContent = number;
-	}
 }
 
 function answerCheck() {
-	if (int(document.getElementById("SecondPlaceholder").textContent()) > int(document.getElementById("FirstPlaceholder").textcontent())) {
-		if (document.getElementById("operation").value = "addition") {
-			if (int(document.getElementById("answerField").value) == (int(document.getElementById("SecondPlaceholder").textContent()) - int(document.getElementById("FirstPlaceholder").textcontent())) {
+    question = question + 1;
+	if (Number(document.getElementById("SecondPlaceholder").value) > Number(document.getElementById("FirstPlaceholder").value)) {
+		if (document.getElementById("operation").value === "addition") {
+			if (Number(document.getElementById("answerField").value) === (Number(document.getElementById("SecondPlaceholder").value) - Number(document.getElementById("FirstPlaceholder").value))) {
 				points = points + 10;
-				document.getElementById("score").textContent = score;
+				document.getElementById("score").textContent = points;
 			}
 		}
-	} else if (int(document.getElementById("SecondPlaceholder").textContent()) < int(document.getElementById("FirstPlaceholder").textcontent())) {
-		if (document.getElementById("operation").value = "subtraction") {
-			if (int(document.getElementById("SecondPlaceholder")) + int(document.getElementById("answerField").value) == int(document.getElementById("FirstPlaceholder").textContent)){
+	} else if (Number(document.getElementById("SecondPlaceholder").value) < Number(document.getElementById("FirstPlaceholder").value)) {
+		if (document.getElementById("operation").value === "subtraction") {
+			if (Number(document.getElementById("SecondPlaceholder").value) + Number(document.getElementById("answerField").value) === Number(document.getElementById("FirstPlaceholder").value)){
 				points = points + 10;
 				document.getElementById("score").textContent = score;
 			}
