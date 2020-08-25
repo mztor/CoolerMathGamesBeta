@@ -8,16 +8,16 @@
 </head>
 <body>
     <div class="gameMain">
-        <div><p id="questionNum">Question:0</p> <p id="score">score:0</p></div>
+        <div style="float: start"><h2 id="questionNum" style="float: left;margin-left: 50px">Question:0</h2> <h2 id="score" style="float: right;margin-left: 50px">score:0</h2></div><br>
         <div>
-            <div class="gameLayers"><div><p id="OPL11">1</p></div></div>
-            <div class=""><div class="gameLayers"><p id="L21">1</p></div><div class="gameLayers"><p id="L22">1</p></div></div>
-            <div><div class="gameLayers"><p id="L31">1</p></div><div class="gameLayers"><p id="L32">1</p></div><div class="gameLayers"><p id="L33">1</p></div></div>
+            <div style="float: none"><div><p id="OPL11">1</p></div></div><br>
+            <p id="L21">1</p><p id="L22">1</p><br>
+            <div style="float: none"><p id="L31">1</p><p id="L32">1</p><p id="L33">1</p><br>
             <input id="userInput">
             <div><p id="result"></p></div>
         </div>
-        <div><button onclick="toMenu()" class="buttonMain">Back</button> <button onclick="reasult()" class="buttonMain">Check</button>
-            <button onclick="nextGame()" class="buttonMain">Next</button>
+        <div><button onclick="toMenu()" class="buttonMain">Back</button> <button onclick="reasult()" class="buttonMain" style="float: right;position: relative">Check</button>
+            <button onclick="nextGame()" class="buttonMain" style="float: right;position: absolute">Next</button>
         </div>
     </div>
 </body>
