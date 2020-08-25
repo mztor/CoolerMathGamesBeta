@@ -64,9 +64,20 @@ h1 {
 }
 
 .card.matched .cardValue {
-
+    animation: dance 1s linear infinite 500ms;
 }
 
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0)
+    }
+    25% {
+        transform: rotate(0);
+    }
+    75% {
+        transform: rotate(0);
+    }
+}
 .overlayText {
     display: none;
     position: fixed;

@@ -14,9 +14,15 @@ function hideDifficulty() {
 
 }
 
+
 let targetHits = 0;
-let targetAmountHard = 0;
+let targetAmountHard = 30;
+
+let accuracy = 0;
+
+
 document.getElementById("targetHit").textContent = targetHits;
+document.getElementById("targetHit").classList.remove('hide');
 
 
 const player = { // making sure the the 1st target will always appear in the middle of the screen.
@@ -24,7 +30,7 @@ const player = { // making sure the the 1st target will always appear in the mid
     y: 490,
     colour: "cornflowerblue"
 }
-window.addEventListener("mousedown", onclick);
+canvas.addEventListener("mousedown", onclick);
 
 function onclick (e) {
     let el = e.target;
@@ -33,14 +39,20 @@ function onclick (e) {
     if ((player.x -px)**2 + (player.y - py)**2 < 50**2) {
         console.log("hit");
         targetHits = targetHits + 1;
-        targetAmountHard = targetAmountHard + 1
-        document.getElementById("targetHit").textContent = targetHits;
+        targetAmountHard = targetAmountHard - 1
+        document.getElementById("targetHit").textContent = targetHits.toString();
         hardBoundary();
+        console.log(targetAmountHard);
+        console.log(targetHits);
+        accuracy = ((targetHits / targetAmountHard) * 100);
     }
     else {
         console.log("you're cringe.");
         hardBoundary();
-        targetAmountHard = targetAmountHard + 1
+        targetAmountHard = targetAmountHard - 1
+        console.log(targetAmountHard);
+        console.log(targetHits);
+        accuracy = ((targetHits / targetAmountHard) * 100);
     }
 
 
@@ -54,20 +66,13 @@ function hardBoundary(){
 
 function run () { // function that runs the target game.
     var loop = function () {
-        /*updateHard();*/
         render();
         window.requestAnimationFrame(loop);
 
     }
     window.requestAnimationFrame(loop);
 }
-/*function updateHard() {
-        if (keys[32]) {
-            player.x = 1600 * Math.random();
-            player.y = 950 * Math.random();
 
-        }
-}*/
 function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "cornflowerblue";
@@ -76,6 +81,4 @@ function render() {
     ctx.fill();
 }
 
-/*function loadEndScreen() {
-    if
-}*/
+document.getElementById("accuracyHard").textContent = accuracy.toString();
