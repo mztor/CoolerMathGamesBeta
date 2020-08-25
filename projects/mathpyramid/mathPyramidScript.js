@@ -23,9 +23,12 @@ function gameReady(n) {
 }
 
 function toMenu(){
-    document.getElementById("menuMP").style.display = "";
-    document.getElementById("gameMP").style.display = "none";
-    document.getElementById("helpMP").style.display = "none";
+    document.getElementById("menuMP").classList.remove("hidden")
+    document.getElementById("menuMP").classList.add("gameMain")
+    document.getElementById("gameMP").classList.remove("gameMain")
+    document.getElementById("gameMP").classList.add("hidden");
+    document.getElementById("helpMP").classList.remove("hidden");
+    document.getElementById("helpMP").classList.add("gameMain");
 }
 
 function toGame(n){
@@ -35,9 +38,12 @@ function toGame(n){
 }
 
 function toHelp(){
-    document.getElementById("menuMP").style.display = "none";
-    document.getElementById("gameMP").style.display = "none";
-    document.getElementById("helpMP").style.display = "";
+    document.getElementById("menuMP").classList.remove("gameMain")
+    document.getElementById("menuMP").classList.add("hidden")
+    document.getElementById("gameMP").classList.remove("gameMain")
+    document.getElementById("gameMP").classList.add("hidden");
+    document.getElementById("helpMP").classList.remove("hidden");
+    document.getElementById("helpMP").classList.add("gameMain");
 }
 
 function nextGame(){
