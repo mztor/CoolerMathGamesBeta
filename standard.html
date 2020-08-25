@@ -110,6 +110,8 @@
 <!-- These tags load in the script files for access to the necessary Google APIs
          as well as the in-house developed JS code -->
 <script>
+    /* This user object holds the email address and all the logged high scores for each game */
+    let user = {};
     /* defines the value of the API key used by the gAPI for authentification of any API requests */
     const CLIENT_ID = "28754738977-0ssjcguk1kkdcogqvkmu8r8v8uhvqucq.apps.googleusercontent.com";
     /* defines the value of the API key used by the gAPI for authentification of any API requests */
@@ -118,14 +120,23 @@
     specifications for describing and consuming RESTful APIs known as
     Discovery Documents */
     const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+    /* This scope document defines what is an allowable request to be made to the API from this clientID.
+    * This gAPI link allows all read and write methods to be applied to the spreadsheet */
     const SCOPES = "https://www.googleapis.com/auth/spreadsheets";
+    /* This variable holds the string known as the spreadsheetID. This identifies the sheet from which data is read/written */
     const SPREADSHEET_ID = "15FQUZjBWVqvfw-KirtgWvak5QkzgCYtPcIZ2xlbBhqU";
+    /* This variable holds the email address of the Signed In user. It is initialised as an empty string as
+    * the code has not yet ascertained the identity of the user. However, it is altered when the user signs in */
     let eAddress = "";
 
+    /* This function loads the Oauth 2 API when the its script files have been imported */
     function handleClientLoading () {
         gapi.load("client:auth2", initClient);
     }
 
+    /* Initalises the client entity under the gAPI which allows for further calls to Google's RESTful
+    APIs to be undertaken with a definitive series of scopes, identities, and protocols.
+     */
     function initClient () {
         gapi.client.init({
             apiKey: API_KEY,
@@ -133,11 +144,15 @@
             discoveryDocs: DISCOVERY_DOCS,
             scope: SCOPES
         }).then(function () {
-            console.log('initialisation functioning...')
+            /* This then function waits for the init function to return a promise and THEN gets a Google authorisation
+            instance which uses a listener function to wait until the user has signed in. It then parses a boolean value to
+            the listener function (a boolean function that as a boolean parameter)
+             */
             let auth2 = gapi.auth2.getAuthInstance();
             auth2.isSignedIn.listen(getUserData);
             getUserData(auth2.isSignedIn.get());
         }, function (error) {
+            /* Error catching function that simply throws an error when the function fails */
             throw new Error(error);
         });
     }
@@ -158,7 +173,11 @@
                 spreadsheetId: SPREADSHEET_ID,
                 range: "Sheet1"
             }).then(function (response){
-                console.log(response.result);
+                let values = response.result.values;
+                for (let rows of Object.entries(values)) {
+                    values["0"].forEach((key, i) => user[key] = rows[1][i])
+                    console.log(user);
+                }
             }, function (e){
                 throw new Error(e);
             })
