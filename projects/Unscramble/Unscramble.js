@@ -45,26 +45,33 @@ function toDifficulty() {
     document.getElementById("difficultySelect").classList.remove("hide")
 }
 
+// function directing to gameplay pages
 function toGameplay() {
+    // hides difficulty selection page and help icon
     document.getElementById("difficultySelect").classList.add("hide")
     document.getElementById("helpMenu").classList.add("hide")
 
+    // shows gameplay screen
     document.getElementById("gameTitle").classList.remove("hide")
     document.getElementById("gameplay").classList.remove("hide")
     document.getElementById("quit").classList.remove("hide")
 }
 
+// check and marks user's guess; hides and shows submit and next round buttons
 function checkGuess(word) {
+    // checks if user's guess is the same as the original word
     if (document.getElementById("guess").value === word) {
-        document.getElementById("mark").textContent = " ✓"
+        document.getElementById("mark").textContent = " ✓" // marks user's guess correct
         score = score + 10
-        document.getElementById("scoreTotal").textContent = score.toString()
+        document.getElementById("scoreTotal").textContent = score.toString() // displays updated score
     } else {
-        document.getElementById("mark").textContent = " ✗"
+        document.getElementById("mark").textContent = " ✗" // marks user's guess incorrect
 
     }
-    document.getElementById("s_word").textContent = word
-    document.getElementById("mark").classList.remove("hide")
+    document.getElementById("s_word").textContent = word // changes displayed scrambled word to the original word for the user to compare to
+    document.getElementById("mark").classList.remove("hide") // displays mark
+
+    // hides submit buttons and shows next round buttons
     if (words_1.includes(word)) {
         document.getElementById("submit_1").classList.add("hide")
         document.getElementById("nextRound_1").classList.remove("hide")
@@ -97,6 +104,7 @@ function generateWord(difficulty, index) {
     }
 }
 
+// reorders the the letters of original word
 function shuffleWord(originalWord) {
     let shuffled = originalWord.split("").sort(function(){return 0.5-Math.random()}).join("");
     while (shuffled === originalWord) {
