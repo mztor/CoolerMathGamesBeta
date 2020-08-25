@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +6,8 @@
 </head>
 <body>
 <div id="TitleScreen">
-    <div class="StartButtons">
+    <h11>ROCK          PAPER        SCISSORS</h11>
+    <div id="StartButtons">
         <div id="Startbutton">
             <button id="start">start</button>
         </div>
@@ -33,7 +33,7 @@
         <h1 id="response">Computer</h1>
         <h2 id="response2">You</h2>
     </div>
-    <div class="ScoreTally">
+    <div id="ScoreTally">
         <div id="playerscore">
             <h3>Player</h3>
             <p id="playerscorechange">0</p>
@@ -43,27 +43,45 @@
             <p id="computerscorechange">0</p>
         </div>
     </div>
+    <div id="DirectionButtons">
+        <button id="Quit">Main Menu</button>
+    </div>
 </div>
-<div id="HardGame">
 
-</div>
 <div id="WinnerEndScreen">
     <h4>YOU WIN</h4>
     <div id="restartWin">
         <button id="restartgame">Play Again</button>
     </div>
+    <div id="addwinstreak">
+        <h6>Winstreak</h6>
+        <p id="winstreakchange">0</p>
+    </div>
 </div>
-<div id="addwinstreak">
-    <h6>Winstreak</h6>
-    <p id="winstreakchange">0</p>
-</div>
+
 <div id="LoserEndScreen">
     <h4>You LOSE</h4>
     <div id="restartLoss">
         <button id="restartgame">Play Again</button>
     </div>
+    <div id="takeawaywinstreak">
+        <h6>Winstreak</h6>
+        <p id="winstreakchange">0</p>
+    </div>
 </div>
 
+<div id="HardGame">
+    <h6 id="Ichangethis">????</h6>
+    <div id="impossibleResponses">
+        <button id="Irock" type="button">Rock</button>
+        <button id="Ipaper" type="button">Paper</button>
+        <button id="Iscissors" type="button">Scissors</button>
+    </div>
+    <div id="ImpossibleResults">
+        <h8 id="yourResponse">You</h8>
+        <h7 id="ComputerResponse">Computer</h7>
+    </div>
+</div>
 <script src="rockpaperscissors.js"></script>
 </body>
 </html>

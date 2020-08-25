@@ -109,4 +109,29 @@ h5 {
 #TitleScreen {
     display: block;
 }
+#impossibleResponses {
+    display: none;
+}
+#ComputerResponse {
+    display: none;
+}
+#yourResponse {
+    display: none;
+}
+#Quit {
+    display: none;
+    position: absolute;
+    left: 1200px;
+    top: 700px;
+}
+h11 {
+    font-size: 96px;
+    position: absolute;
+    left: 150px;
+    font-family: Arial, sans-serif;
+}
+#Ichangethis {
+    display: none;
+}
+
 
