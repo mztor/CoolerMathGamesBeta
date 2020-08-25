@@ -75,7 +75,7 @@ h5 {
 }
 #hardgamemode {
     position: absolute;
-    left: 700px;
+    left: 670px;
     top: 450px;
 }
 #computerscore {
@@ -93,12 +93,12 @@ h5 {
 #standardgamemode {
     position: absolute;
     top: 415px;
-    left: 700px;
+    left: 670px;
 }
 #start {
     position: absolute;
-    left: 600px;
-    top: 500px;
+    left: 45%;
+    top: 60%;
 }
 #LoserEndScreen {
     display: none;
@@ -133,5 +133,14 @@ h11 {
 #Ichangethis {
     display: none;
 }
-
+#GameSelector {
+    position: absolute;
+    left: 5%;
+    top: 700px;
+}
+#HowToPlay {
+    position: absolute;
+    left: 85%;
+    top: 700px;
+}
 

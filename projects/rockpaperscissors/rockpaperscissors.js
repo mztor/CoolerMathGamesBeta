@@ -86,6 +86,8 @@ function startbutton() {
     document.getElementById("standardbutton").style.display = "block";
     document.getElementById("hardbutton").style.display = "block";
     document.getElementById("Quit").style.display = "block";
+    document.getElementById("GameSelector").style.display = "none"
+    document.getElementById("HowToPlay").style.display = "none"
 }
 Startbutton.onclick = startbutton;
 
@@ -161,7 +163,8 @@ function StartHardGame() {
     document.getElementById("impossibleResponses").style.display = "block";
     document.getElementById("ComputerResponse").style.display = "block";
     document.getElementById("yourResponse").style.display = "block";
-
+    document.getElementById("HardGame").style.display = "block";
+    document.getElementById("Quit").style.display = "block";
 
 }
 hardbutton.onclick = StartHardGame;
@@ -230,7 +233,6 @@ function ImpossibleResponses() {
     }
     document.getElementById("Ichangethis").style.display = "block";
 }
-
 impossibleResponses.onclick = ImpossibleResponses;
 
 function quit() {
@@ -243,5 +245,14 @@ function quit() {
     document.getElementById("TitleScreen").style.display = "block";
     document.getElementById("Startbutton").style.display = "block";
     document.getElementById("playagain").style.display = "block";
+    document.getElementById("Quit").style.display = "none";
+    document.getElementById("GameSelector").style.display = "block"
+    document.getElementById("HowToPlay").style.display = "block"
 }
 Quit.onclick = quit;
+
+function GameSelectorPage() {
+    document.getElementById("TitleScreen").style.display = "none";
+    document.getElementById("GameSelector").style.display = "none";
+}
+GameSelector.onclick = GameSelectorPage;
