@@ -1,4 +1,5 @@
 var points = 0;
+var question = 0;
 
 function loadEasy() {
     document.getElementById("difficulty_screen").classList.remove('buttonHolder');
@@ -32,32 +33,29 @@ function easySubtraction() {
 }
 
 function answerCheck() {
-    question = question + 1;
-	if (Number(document.getElementById("SecondPlaceholder").value) > Number(document.getElementById("FirstPlaceholder").value)) {
-		if (document.getElementById("operation").value === "addition") {
-			if (Number(document.getElementById("answerField").value) === (Number(document.getElementById("SecondPlaceholder").value) - Number(document.getElementById("FirstPlaceholder").value))) {
-				points = points + 10;
-				document.getElementById("score").textContent = points;
-			}
-		}
-	} else if (Number(document.getElementById("SecondPlaceholder").value) < Number(document.getElementById("FirstPlaceholder").value)) {
-		if (document.getElementById("operation").value === "subtraction") {
-			if (Number(document.getElementById("SecondPlaceholder").value) + Number(document.getElementById("answerField").value) === Number(document.getElementById("FirstPlaceholder").value)){
-				points = points + 10;
-				document.getElementById("score").textContent = score;
-			}
-		}
-	}
+    var first = parseInt(document.getElementById("FirstPlaceholder").value);
+    var second = parseInt(document.getElementById("SecondPlaceholder").value);
+    var operation = document.getElementById("operation").value;
+    var guess = parseInt(document.getElementById("answerField").value);
+
+	if (second > first) {
+	    var answer = second - first;
+        if (operation === "addition" && guess === answer) {
+            points = points + 10;
+            document.getElementById("score").textContent = points;
+        }
+    }
+
+	if (question <= 5) {
+        question += 1;
+        loadEasy();
+    } else {
+	    final();
+    }
 }
 
-function load_game2() {
-    document.getElementById("difficulty_screen").classList.remove('buttonHolder');
-    document.getElementById("difficulty_screen").classList.add('invisibleStuff');
-    document.getElementById("questionScreen").classList.toggle("invisibleStuff");
-}
-
-function load_game3() {
-    document.getElementById("difficulty_screen").classList.remove('buttonHolder');
-    document.getElementById("difficulty_screen").classList.add('invisibleStuff');
-    document.getElementById("questionScreen").classList.toggle("invisibleStuff");
+function final() {
+    document.getElementById("difficulty_screen").classList.add("invisibleStuff");
+    document.getElementById("questionScreen").classList.add("invisibleStuff");
+    document.getElementById("finalScreen").classList.remove("invisibleStuff");
 }
