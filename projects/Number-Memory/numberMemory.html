@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="main.css" rel="stylesheet">
+<script src="js.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Number memory game</title>
+</head>
+<body>
+<div id="difficulty_select">
+    <h1>Welcome to the Number Memory Game</h1>
+    <h2>Choose your difficulty</h2>
+    <button id="but_easy" onclick="SetDifficulty(1)">Easy</button>
+    <button id="but_medium" onclick="SetDifficulty(0.8)">Medium</button>
+    <button id="but_hard" onclick="SetDifficulty(0.6)">Hard</button>
+</div>
+<div id="showNumber"></div>
+<div id="showGuess"></div>
+<label id="guessNumber"></label>
+</body>
+<script>
+
+
+    //random number
+    var Answer;Answer = ( GenerateNumber(amount));
+    document.getElementById("GuessNumber").innerHTML = Answer;
+
+</script>
+
+</html>

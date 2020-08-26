@@ -41,7 +41,7 @@ button {
 #button2 {
     display: none;
     position: absolute;
-    top: 600px;
+    top: 400px;
     left: 628px;
 }
 #homeplay {
@@ -67,7 +67,7 @@ button {
 }
 h5 {
     display: none;
-    font-family: Arial;
+    font-family: "Arial", serif;
     font-size: 50px;
     position: absolute;
     left: 600px;
@@ -75,7 +75,7 @@ h5 {
 }
 #hardgamemode {
     position: absolute;
-    left: 700px;
+    left: 670px;
     top: 450px;
 }
 #computerscore {
@@ -93,12 +93,12 @@ h5 {
 #standardgamemode {
     position: absolute;
     top: 415px;
-    left: 700px;
+    left: 670px;
 }
 #start {
     position: absolute;
-    left: 600px;
-    top: 500px;
+    left: 45%;
+    top: 60%;
 }
 #LoserEndScreen {
     display: none;
@@ -109,3 +109,38 @@ h5 {
 #TitleScreen {
     display: block;
 }
+#impossibleResponses {
+    display: none;
+}
+#ComputerResponse {
+    display: none;
+}
+#yourResponse {
+    display: none;
+}
+#Quit {
+    display: none;
+    position: absolute;
+    left: 85%;
+    top: 700px;
+}
+h11 {
+    font-size: 96px;
+    position: absolute;
+    left: 150px;
+    font-family: Arial, sans-serif;
+}
+#Ichangethis {
+    display: none;
+}
+#GameSelector {
+    position: absolute;
+    left: 5%;
+    top: 700px;
+}
+#HowToPlay {
+    position: absolute;
+    left: 85%;
+    top: 700px;
+}
+
