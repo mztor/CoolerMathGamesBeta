@@ -1,3 +1,4 @@
+let playarray
 var kindywordsarray = [
     { name: 'Bat', image: 'Bat.png' },
     { name: 'Cat', image: 'Cat.png' },
@@ -24,25 +25,31 @@ function ClearUser(){
     document.getElementById('UserScreen').style = 'display:none;'
     document.getElementById('DifficultySelectionScreen').style = 'display:block';
 }
+function LoadArray(difficulty) {
+    switch(difficulty){
+        case 'Kindy':
+            playarray=kindywordsarray
+        case 'Year1':
+            playarray=Year1wordsarray
+        case 'Year2':
+            playarray=Year2wordsarray
+    }}
 
 function Loadkindy(kindy){
 // alert(kindy)
     document.getElementById('DifficultySelectionScreen').style = 'display:none;'
     document.getElementById('Kindypage').style = 'display:block';
-    for (var i = 0; i < boldStuffs.length; i += 1) {
-        var word = getRandomItem(kindywordsarray);
-        [i].innerHTML = word.name + '<img src="'+fruit.image+'">';
-    }
-
-
 }
 
 function LoadYear1 (Year1) {
-    alert(Year1)
+    // alert(Year1)
+    document.getElementById('DifficultySelectionScreen').style = 'display:none;'
+    document.getElementById('Year1page').style = 'display:block';
 }
 
 function LoadYear2 (Year2) {
-    alert(Year2)
+    document.getElementById('DifficultySelectionScreen').style = 'display:none;'
+    document.getElementById('Year2page').style = 'display:block';
 }
 
 function LoadHelp (Help) {
@@ -63,3 +70,13 @@ function ReturnDifficulty (difficulty) {
     document.getElementById('DifficultySelectionScreen').style = 'display:block';
 
 }
+
+function ReturnDifficultyY1 (difficulty){
+    document.getElementById('Year1page').style = 'display:none;'
+    document.getElementById('DifficultySelectionScreen').style = 'display:block';
+}
+
+function ReturnDifficultyY2(difficulty) {
+    document.getElementById('Year2page').style = 'display:none;'
+    document.getElementById('DifficultySelectionScreen').style = 'display:block';
+    }

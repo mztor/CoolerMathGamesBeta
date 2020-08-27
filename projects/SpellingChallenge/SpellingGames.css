@@ -1,6 +1,7 @@
 .button {
+    font-size: 18px;
     background-color: powderblue;
-    padding: 40px;
+    padding: 15px;
     display: inline-block;}
 .input {
     margin: 40px;
@@ -26,5 +27,13 @@
 }
 
 #Kindypage{
+    display:none;
+}
+
+#Year1page{
+    display:none;
+}
+
+#Year2page{
     display:none;
 }
