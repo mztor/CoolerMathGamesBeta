@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="mathPyramidStyle.css">
+    <script src="mathPyramidScript.js"></script>
+</head>
+<body>
+    <div class="gameMain">
+        <div><h2 id="questionNum" class="questionNum">Question:0</h2>&nbsp;<h2 id="score" class="score">score:0</h2></div><br>
+
+        <table style="height: 10px"> </table>
+
+        <div style="margin-top: 50px">
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="OPL11">1</p></div>
+            </div>
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="OPL21" >1</p></div><div  class="divGame1"><p id="OPL22">1</p></div>
+            </div>
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="OPL31">1</p></div><div class="divGame1"><p id="OPL32">1</p></div><div class="divGame1"><p id="OPL33">1</p></div>
+            </div>
+
+            <div style="margin-top: 10px">
+                <input id="userInput" style="height: 45px;margin-right: 10px">
+            </div>
+            <div><p id="result"></p></div>
+        </div>
+
+        <div style="margin-top: 50px">
+            <button id="back" onclick="toMenu()" class="buttonMain" style="float:left;margin-left: 50px">Back</button>
+            <button id="next" onclick="nextGame()" class="buttonMain" style="float: right;margin-right: 50px;position: absolute;z-index: -1;right: 560px">Next</button>
+            <button id="check" onclick="getResult()" class="buttonMain"  style="float: right;margin-right: 50px;position: relative">Check</button></div>
+    </div>
+</body>
+</html>

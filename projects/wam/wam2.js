@@ -39,13 +39,13 @@ function createHardTimer(min, max) {
 
 function clickSetUp() {
     for (let i = 0; i < moles.length; i++) {
-        moles[i].onclick = function () {
+        moles[i].addEventListener("click", function () {
             if (i === number) {
                 score++
                 scoreText.innerText = score.toString()
                 moles[number].style.visibility = "hidden"
             }
-        }
+        })
     }
 }
 
@@ -80,7 +80,7 @@ function playGame() {
 
 function playTest() {
     if (prevNum !== null) {
-        moles[prevNum].style.visibility = "hidden"
+        moles[prevNum].style.visibility="hidden"
     }
     if (counter < 1) {
         moles[number].style.visibility = "hidden"
@@ -88,7 +88,7 @@ function playTest() {
     }
     number = selectCell()
     prevNum = number
-    moles[number].style.visibility = "visible"
+    moles[number].style.visibility="visible"
     counter -= 1
     remainingText.innerText = counter.toString()
     for (let i = 0; i < moles.length; i++) {
@@ -103,7 +103,6 @@ function playTest() {
         }
     }
 }
-
 
 function loadGame() {
     resetGame()

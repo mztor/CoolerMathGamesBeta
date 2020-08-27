@@ -17,9 +17,11 @@
 <div id="buttons" class="hide">
     <button id="easyMode">Easy</button>
     <button id="standardMode">Standard</button>
-    <button id="expertMode">Expert</button>
+    <button id="expertMode" onclick="{ document.getElementById('tester-canvas').classList.remove('hide'); run(); hideDifficulty();  }">Expert</button>
 </div>
-
+<div id="accuracyDesc">Accuracy : </div>
+<div id="accuracyHard"></div>
 <script src="aimgame.js"></script>
 </body>
 </html>
+

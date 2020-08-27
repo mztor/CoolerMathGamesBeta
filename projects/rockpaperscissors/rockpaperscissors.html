@@ -6,7 +6,8 @@
 </head>
 <body>
 <div id="TitleScreen">
-    <div class="StartButtons">
+    <h11><strong>ROCK          PAPER        SCISSORS</strong></h11>
+    <div id="StartButtons">
         <div id="Startbutton">
             <button id="start">start</button>
         </div>
@@ -32,7 +33,7 @@
         <h1 id="response">Computer</h1>
         <h2 id="response2">You</h2>
     </div>
-    <div class="ScoreTally">
+    <div id="ScoreTally">
         <div id="playerscore">
             <h3>Player</h3>
             <p id="playerscorechange">0</p>
@@ -43,13 +44,18 @@
         </div>
     </div>
 </div>
-<div id="HardGame">
-
+<div id="DirectionButtons">
+    <button id="Quit">Homepage</button>
+    <button id="HowToPlay">How To Play</button>
 </div>
 <div id="WinnerEndScreen">
     <h4>YOU WIN</h4>
     <div id="restartWin">
         <button id="restartgame">Play Again</button>
+    </div>
+    <div id="addwinstreak">
+        <h6>Winstreak</h6>
+        <p id="winstreakchange">0</p>
     </div>
 </div>
 
@@ -58,8 +64,50 @@
     <div id="restartLoss">
         <button id="restartgame">Play Again</button>
     </div>
+    <div id="takeawaywinstreak">
+        <h6>Winstreak</h6>
+        <p id="winstreakchange">0</p>
+    </div>
 </div>
 
+<div id="HardGame">
+    <h6 id="Ichangethis">????</h6>
+    <div id="impossibleResponses">
+        <button id="Irock" type="button">Rock</button>
+        <button id="Ipaper" type="button">Paper</button>
+        <button id="Iscissors" type="button">Scissors</button>
+    </div>
+    <div id="ImpossibleResults">
+        <h8 id="yourResponse">You</h8>
+        <h7 id="ComputerResponse">Computer</h7>
+    </div>
+    <div id="HardTally">
+<!--        <div id="IMwinstreak">-->
+<!--            <h13>winstreak</h13>-->
+<!--            <p id="IMwinstreakchange">0</p>-->
+<!--        </div>-->
+        <div id="IMplayerscore">
+            <h3>Player</h3>
+            <p id="IMplayerscorechange">0</p>
+        </div>
+        <div id="IMcomputerscore">
+            <h3>Computer</h3>
+            <p id="IMcomputerscorechange">0</p>
+        </div>
+    </div>
+</div>
+<div id="HARDrestartwin">
+    <button id="IMrestartwin">Play Again</button>
+</div>
+<div id="IMwinscreen">
+    <h12>You Won!</h12>
+</div>
+<div id="IMlossscreen">
+    <h12>You Lost!</h12>
+</div>
+<div id="Leavegame">
+    <button id="GameSelector">Game Selector</button>
+</div>
 <script src="rockpaperscissors.js"></script>
 </body>
 </html>

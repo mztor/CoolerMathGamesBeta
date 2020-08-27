@@ -19,7 +19,7 @@ h1 {
 
 .gameContainer {
     display: grid;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: repeat(4,auto);
     grid-gap: 10px;
     margin: 50px;
     justify-content: center;
@@ -31,11 +31,11 @@ h1 {
     height: 175px;
     width: 125px;
 }
-.card:hover .cardBack{
+.card.visible .cardBack{
     transform: rotateY(-180deg);
 }
 
-.card:hover .cardFront{
+.card.visible .cardFront{
     transform: rotateY(0)
 }
 
@@ -62,3 +62,54 @@ h1 {
     background: lightblue;
     transform: rotateY(180deg);
 }
+
+.card.matched .cardValue {
+    animation: dance 1s linear infinite 500ms;
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0)
+    }
+    25% {
+        transform: rotate(0);
+    }
+    75% {
+        transform: rotate(0);
+    }
+}
+.overlayText {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: hotpink;
+}
+
+.overlayText.visible {
+    display: flex;
+    flex-direction: column;
+    animation: overlayGrow 500ms forwards;
+}
+
+@keyframes overlayGrow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(0, 0, 0, .8);
+        font-size: 8em;
+    }
+
+}
+
+.afterText {
+    font-size: .3em;
+}
+

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This meta data defines the character set and AASCI values utilised by the website-->
+    <meta charset="UTF-8">
+    <!-- This meta data is utilised by the Google Sign In API to determine the validity
+         of the oAuth 2.0 request sent by the website when people attempt to sign in (this is checked by the unique clientID) -->
+    <meta name="google-signin-client_id"
+          content="28754738977-0ssjcguk1kkdcogqvkmu8r8v8uhvqucq.apps.googleusercontent.com">
+    <!-- Creates the title element of the webpage -->
+    <title>Cooler Math Games Beta</title>
+    <!-- These tags load the CSS files that create the uniform web pages as well as define
+         the styling attached specifically to homepage (denoted by their filenames) -->
+    <link rel="stylesheet" href="styles/homepage.css">
+    <style>
+        /* This style sheet is for Will only! Please do not make any alterations */
+
+        * {
+            font-family: "Lucida Sans Unicode", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #nav {
+            width: 100vw;
+            height: 50px;
+            position: fixed;
+            overflow: hidden;
+            background: #3aa6dd;
+            z-index: 2;
+        }
+
+        #nav .menu {
+            width: 90%;
+            height: 100%;
+            margin: 0 auto 0 auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            float: right;
+            text-align: center;
+            padding: 10px 20px 0 20px;
+            height: 50px;
+            /* width: 10%; */
+            transition-duration: 0.5s;
+        }
+
+        .sign-in {
+            padding-top: 5px;
+        }
+
+        .sign-in:hover {
+            background: cornflowerblue;
+        }
+
+        ul li:hover {
+            background: #ca9aff;
+        }
+
+        .banner {
+            padding: 0;
+            width: fit-content;
+            float: left;
+        }
+
+        ul li a {
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        #content {
+            width: 100vw;
+            height: 100vh;
+            background: #59b8ea;
+        }
+    </style>
+</head>
+<body>
+<!-- This HTML document is for Will only! Please do not make any alterations to this! -->
+<div id="nav">
+    <div class="menu">
+        <nav>
+            <ul>
+                <li class="banner"><img src="http://www.placehold.it/430x50" alt="CoolerMathsGames"></li>
+                <li class="sign-in"><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Scoreboard</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div id="content"></div>
+<!-- <div id="footer">
+    <h1>If you wish to <a href="#"><em>contact</em></a> us or learn more <a href="#"><em>about us</em></a>. Use the following social media platforms or continue to peruse our site.</h1>
+    <a href="https://www.github.com/mztor/CoolerMathGamesBeta" target="_blank"><img src="images/svg/github.svg" width="75px"/></a>
+    <a href="mailto:theawesomew@gmail.com"><img src="images/svg/mail.svg" width="75px"/></a>
+    <a href="https://www.twitter.com" target="_blank"><img src="images/svg/twitter.svg" width="75px"/></a>
+</div> -->
+<!-- These tags load in the script files for access to the necessary Google APIs
+         as well as the in-house developed JS code -->
+<script>
+    /* This user object holds the email address and all the logged high scores for each game */
+    //let users = {};
+    /* defines the value of the API key used by the gAPI for authentification of any API requests */
+    const CLIENT_ID = "28754738977-0ssjcguk1kkdcogqvkmu8r8v8uhvqucq.apps.googleusercontent.com";
+    /* defines the value of the API key used by the gAPI for authentification of any API requests */
+    const API_KEY = "AIzaSyBUuoufVI0aiQcZ4KbwIkMaRe7z1pwQT5U";
+    /* defines the URL/s of the document/s that identify machine-readable
+    specifications for describing and consuming RESTful APIs known as
+    Discovery Documents */
+    const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+    /* This scope document defines what is an allowable request to be made to the API from this clientID.
+    * This gAPI link allows all read and write methods to be applied to the spreadsheet */
+    const SCOPES = "https://www.googleapis.com/auth/spreadsheets";
+    /* This variable holds the string known as the spreadsheetID. This identifies the sheet from which data is read/written */
+    const SPREADSHEET_ID = "15FQUZjBWVqvfw-KirtgWvak5QkzgCYtPcIZ2xlbBhqU";
+    /* This variable holds the email address of the Signed In user. It is initialised as an empty string as
+    * the code has not yet ascertained the identity of the user. However, it is altered when the user signs in */
+    let eAddress = "";
+    let labels = [];
+
+
+    /* This function loads the Oauth 2 API when the its script files have been imported */
+    function handleClientLoading () {
+        gapi.load("client:auth2", initClient);
+    }
+
+    /* Initalises the client entity under the gAPI which allows for further calls to Google's RESTful
+    APIs to be undertaken with a definitive series of scopes, identities, and protocols.
+     */
+    function initClient () {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            /* This then function waits for the init function to return a promise and THEN gets a Google authorisation
+            instance which uses a listener function to wait until the user has signed in. It then parses a boolean value to
+            the listener function (a boolean function that as a boolean parameter)
+             */
+            //let auth2 = gapi.auth2.getAuthInstance();
+            //auth2.isSignedIn.listen(getUserData);
+            //getUserData(auth2.isSignedIn.get());
+            console.log('Client initialisation successful...');
+        }, function (error) {
+            /* Error catching function that simply throws an error when the function fails */
+            throw new Error(error);
+        });
+    }
+
+    function onSignIn (googleUser) {
+        let profile = googleUser.getBasicProfile();
+        eAddress = profile.getEmail();
+    }
+
+    function signOut() {
+        let auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+
+    async function getUserData (isSignedIn) {
+        if (isSignedIn) {
+            return gapi.client.sheets.spreadsheets.values.get({
+                spreadsheetId: SPREADSHEET_ID,
+                range: "Sheet1"
+            }).then(function (response){
+                return new Promise((resolve) => {
+                    let values = Object.entries(response.result.values);
+                    let users = {};
+                    for (let rows = 0; rows < values.length; rows++) {
+                        if (rows === 0) {
+                            labels.push(...values[rows][1].slice(1));
+                            continue;
+                        }
+                        let scores = {};
+                        labels.forEach((key, i) => scores[key] = Number((values[rows][1].slice(1))[i]));
+                        users[values[rows][1][0]] = scores;
+                    }
+                    resolve(users);
+                });
+            }, function (e){
+                throw new Error(e);
+            });
+        } else {
+            return {};
+        }
+    }
+
+    async function getHighScore(game, score) {
+        let auth2 = gapi.auth2.getAuthInstance();
+        let users = await getUserData(auth2.isSignedIn.get());
+        if (!(eAddress in users)) {
+            console.log('not found');
+        } else {
+            console.log('found');
+        }
+    }
+</script>
+<script src="https://apis.google.com/js/api.js" async defer onload="handleClientLoading()"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+</body>
+</html>
