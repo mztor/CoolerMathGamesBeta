@@ -35,10 +35,15 @@ function LoadArray(difficulty) {
             playarray=Year2wordsarray
     }}
 
+}
 function Loadkindy(kindy){
 // alert(kindy)
     document.getElementById('DifficultySelectionScreen').style = 'display:none;'
     document.getElementById('Kindypage').style = 'display:block';
+    for (var i = 0; i < length; i += 1) {
+        var fruit = getRandomItem(kindywordsarray);
+        [i].innerHTML = word.name + '<img src="'+word.image+'">';
+    }
 }
 
 function LoadYear1 (Year1) {
