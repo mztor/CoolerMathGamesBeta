@@ -3,22 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-        <link rel="stylesheet" href="mathPyramidStyle.css">
-        <script src="mathPyramidScript.js"></script>
+    <link rel="stylesheet" href="mathPyramidStyle.css">
+    <script src="mathPyramidScript.js"></script>
 </head>
 <body>
     <div class="gameMain">
-        <div style="float: start"><h2 id="questionNum" style="float: left;margin-left: 50px">Question:0</h2> <h2 id="score" style="float: right;margin-left: 50px">score:0</h2></div><br>
-        <div>
-            <div style="float: none"><div><p id="OPL11">1</p></div></div><br>
-            <p id="L21">1</p><p id="L22">1</p><br>
-            <div style="float: none"><p id="L31">1</p><p id="L32">1</p><p id="L33">1</p><br>
-            <input id="userInput">
+        <div><h2 id="questionNum" class="questionNum">Question:0</h2>&nbsp;<h2 id="score" class="score">score:0</h2></div><br>
+
+        <table style="height: 10px"> </table>
+
+        <div style="margin-top: 50px">
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="OPL11">1</p></div>
+            </div>
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="OPL21" >1</p></div><div  class="divGame1"><p id="OPL22">1</p></div>
+            </div>
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="OPL31">1</p></div><div class="divGame1"><p id="OPL32">1</p></div><div class="divGame1"><p id="OPL33">1</p></div>
+            </div>
+
+            <div style="margin-top: 10px">
+                <input id="userInput" style="height: 45px;margin-right: 10px">
+            </div>
             <div><p id="result"></p></div>
         </div>
-        <div><button onclick="toMenu()" class="buttonMain">Back</button> <button onclick="reasult()" class="buttonMain" style="float: right;position: relative">Check</button>
-            <button onclick="nextGame()" class="buttonMain" style="float: right;position: absolute">Next</button>
-        </div>
+
+        <div style="margin-top: 50px">
+            <button id="back" onclick="toMenu()" class="buttonMain" style="float:left;margin-left: 50px">Back</button>
+            <button id="next" onclick="nextGame()" class="buttonMain" style="float: right;margin-right: 50px;position: absolute;z-index: -1;right: 560px">Next</button>
+            <button id="check" onclick="getResult()" class="buttonMain"  style="float: right;margin-right: 50px;position: relative">Check</button></div>
     </div>
 </body>
 </html>
