@@ -14,41 +14,49 @@ function gameReady(n) {
     }else {
         max = 500
     }
+}
+
+function toMenu(){
+    document.getElementById("menuMP").classList.remove("hidden")
+    document.getElementById("menuMP").classList.add("gameMain")
+    document.getElementById("gameMP").classList.remove("gameMain")
+    document.getElementById("gameMP").classList.add("hidden");
+    document.getElementById("helpMP").classList.remove("gameMain");
+    document.getElementById("helpMP").classList.add("hidden");
+}
+
+function toGame(n){
+    document.getElementById("menuMP").classList.remove("hidden")
+    document.getElementById("menuMP").classList.add("gameMain")
+    document.getElementById("gameMP").classList.remove("gameMain")
+    document.getElementById("gameMP").classList.add("hidden");
+    document.getElementById("helpMP").classList.remove("gameMain");
+    document.getElementById("helpMP").classList.add("hidden");
     L31 = math.floor(math.random()*max)-1
-    L32 = math.floor(math.random()*(max-L31))+1
+    L32 = math.floor(math.random()*(max-L31))
     L33 = math.floor(math.random()*(max-L31-L32))+1
     L21 = L31 + L32;
     L22 = L32 +L33;
     L11 = L21 + L22;
-}
-
-function toMenu(){
-    document.getElementById("menuMP").style.display = "";
-    document.getElementById("gameMP").style.display = "none";
-    document.getElementById("helpMP").style.display = "none";
-}
-
-function toGame(n){
-    document.getElementById("menuMP").style.display = "none";
-    document.getElementById("gameMP").style.display = "";
-    document.getElementById("helpMP").style.display = "none";
+    document.getElementById("L31").
 }
 
 function toHelp(){
-    document.getElementById("menuMP").style.display = "none";
-    document.getElementById("gameMP").style.display = "none";
-    document.getElementById("helpMP").style.display = "";
+    document.getElementById("menuMP").classList.remove("gameMain")
+    document.getElementById("menuMP").classList.add("hidden")
+    document.getElementById("gameMP").classList.remove("gameMain")
+    document.getElementById("gameMP").classList.add("hidden");
+    document.getElementById("helpMP").classList.remove("hidden");
+    document.getElementById("helpMP").classList.add("gameMain");
 }
 
-function nextGame(){
-    menu.style.display = "none";
-    help.style.display = "none";
-    game.style.display = "block";
+function nextGame() {
+
 }
 
-function reasult(){
-    menu.style.display = "none";
-    help.style.display = "none";
-    game.style.display = "block";
+function getResult() {
+    document.getElementById("check").classList.remove("buttonMain");
+    document.getElementById("check").classList.add("hidden");
+
 }
 

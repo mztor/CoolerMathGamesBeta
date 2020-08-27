@@ -23,34 +23,28 @@
     border:black 1px  solid;
 }
 
-.gameMain\.game{
-    width: 800px;
-    height: 500px;
-    margin: 159px auto;
-    text-align: center;
-    border: gold 2px solid;
-    background-color: beige;
-    opacity: 80%;
-    border-radius: 10%;
-    display: none;
+.questionNum{
+    background: azure;
+    float: left;
+    margin:8px 50px;
 }
 
-.gameMain\.help{
-    width: 800px;
-    height: 500px;
-    margin: 159px auto;
-    text-align: center;
-    border: gold 2px solid;
-    background-color: beige;
-    opacity: 80%;
-    border-radius: 10%;
-    display: none;
+.score{
+    background:azure;
+    float: right;
+    margin:8px 50px;
+}
+.hidden{
+    display:none;
 }
 
-.gameLayers{
-    border: black 2px solid;
+.divGame0{
+    text-align: center;
+}
+
+.divGame1{
     margin: 0 auto;
-    text-align: center;
-    width:100px;
+    width: 200px;
+    display: inline-block;
+    border: black 2px solid;
 }
-
