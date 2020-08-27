@@ -1,6 +1,7 @@
 .button {
+    font-size: 18px;
     background-color: powderblue;
-    padding: 40px;
+    padding: 15px;
     display: inline-block;}
 .input {
     margin: 40px;
@@ -10,4 +11,29 @@
     text-align: center;
     font-size: 64px;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+#DifficultySelectionScreen{
+    display:none;
+}
+
+#HelpScreen{
+    display:none;
+}
+
+.h2{
+    text-align: center;
+    font-size: 32px;
+}
+
+#Kindypage{
+    display:none;
+}
+
+#Year1page{
+    display:none;
+}
+
+#Year2page{
+    display:none;
 }

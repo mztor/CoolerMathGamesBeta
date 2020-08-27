@@ -111,7 +111,7 @@
          as well as the in-house developed JS code -->
 <script>
     /* This user object holds the email address and all the logged high scores for each game */
-    let user = {};
+    //let users = {};
     /* defines the value of the API key used by the gAPI for authentification of any API requests */
     const CLIENT_ID = "28754738977-0ssjcguk1kkdcogqvkmu8r8v8uhvqucq.apps.googleusercontent.com";
     /* defines the value of the API key used by the gAPI for authentification of any API requests */
@@ -128,6 +128,8 @@
     /* This variable holds the email address of the Signed In user. It is initialised as an empty string as
     * the code has not yet ascertained the identity of the user. However, it is altered when the user signs in */
     let eAddress = "";
+    let labels = [];
+
 
     /* This function loads the Oauth 2 API when the its script files have been imported */
     function handleClientLoading () {
@@ -148,9 +150,10 @@
             instance which uses a listener function to wait until the user has signed in. It then parses a boolean value to
             the listener function (a boolean function that as a boolean parameter)
              */
-            let auth2 = gapi.auth2.getAuthInstance();
-            auth2.isSignedIn.listen(getUserData);
-            getUserData(auth2.isSignedIn.get());
+            //let auth2 = gapi.auth2.getAuthInstance();
+            //auth2.isSignedIn.listen(getUserData);
+            //getUserData(auth2.isSignedIn.get());
+            console.log('Client initialisation successful...');
         }, function (error) {
             /* Error catching function that simply throws an error when the function fails */
             throw new Error(error);
@@ -164,23 +167,46 @@
 
     function signOut() {
         let auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () { console.log('User signed out.'); });
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
     }
 
-    function getUserData (isSignedIn) {
+    async function getUserData (isSignedIn) {
         if (isSignedIn) {
-            gapi.client.sheets.spreadsheets.values.get({
+            return gapi.client.sheets.spreadsheets.values.get({
                 spreadsheetId: SPREADSHEET_ID,
                 range: "Sheet1"
             }).then(function (response){
-                let values = response.result.values;
-                for (let rows of Object.entries(values)) {
-                    values["0"].forEach((key, i) => user[key] = rows[1][i])
-                    console.log(user);
-                }
+                return new Promise((resolve) => {
+                    let values = Object.entries(response.result.values);
+                    let users = {};
+                    for (let rows = 0; rows < values.length; rows++) {
+                        if (rows === 0) {
+                            labels.push(...values[rows][1].slice(1));
+                            continue;
+                        }
+                        let scores = {};
+                        labels.forEach((key, i) => scores[key] = Number((values[rows][1].slice(1))[i]));
+                        users[values[rows][1][0]] = scores;
+                    }
+                    resolve(users);
+                });
             }, function (e){
                 throw new Error(e);
-            })
+            });
+        } else {
+            return {};
+        }
+    }
+
+    async function getHighScore(game, score) {
+        let auth2 = gapi.auth2.getAuthInstance();
+        let users = await getUserData(auth2.isSignedIn.get());
+        if (!(eAddress in users)) {
+            console.log('not found');
+        } else {
+            console.log('found');
         }
     }
 </script>
