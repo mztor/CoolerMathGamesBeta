@@ -160,7 +160,6 @@ function restartgamefromwin() {
     document.getElementById("playerscorechange").textContent = playerboard;
     response.textContent = "Computer";
     response2.textContent = "You";
-
 }
 restartWin.onclick = restartgamefromwin;
 
@@ -251,18 +250,18 @@ function ImpossibleResponses() {
         document.getElementById("HardGame").style.display = "none";
         document.getElementById("IMlossscreen").style.display = "block";
         document.getElementById("IMwinstreak").style.display = "block";
+        document.getElementById("IMrestartwin").style.display = "block";
         IMwinstreak = 0;
         document.getElementById("IMwinstreakchange").textContent = IMwinstreak;
         document.getElementById("IMwinstreak").style.display = "block";
-        document.getElementById("IMrestartwin").style.display = "block";
     }
     if (IMplayerboard === 3) {
         document.getElementById("HardGame").style.display = "none";
         document.getElementById("IMwinscreen").style.display = "block";
         document.getElementById("IMwinstreak").style.display = "block";
+        document.getElementById("IMrestartwin").style.display = "block";
         IMwinstreak++;
         document.getElementById("IMwinstreakchange").textContent = IMwinstreak;
-        document.getElementById("IMrestartwin").style.display = "block";
     }
 }
 impossibleResponses.onclick = ImpossibleResponses;
