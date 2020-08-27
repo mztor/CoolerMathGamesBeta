@@ -8,7 +8,7 @@ class matchingCard {
         this.chances = document.getElementById('lives')
     }
 
-    startGame() {
+    startGame(card) {
         this.cardToCheck = null; //The card that has been flipped.
         this.totalScore = 0; //Score
         this.totalLives = 5;
@@ -19,7 +19,8 @@ class matchingCard {
             this.shuffleCard(this.cardsArray);
             this.countDown = this.startCountDown();
             this.busy = false;
-        }, 5000)
+            card.classList.add('visible')
+        }, 500)
         this.hideCards();
         this.timer.innerText = this.timeRemaining;
         this.score.innerText = this.totalScore;
@@ -41,12 +42,6 @@ class matchingCard {
     gameOver() {
         clearInterval(this.countDown)
         document.getElementById("gameOverText").classList.add('visible')
-    }
-    showCards(card) {
-        setTimeout(() => {
-            card.classList.add('visible')
-            this.busy = false
-            }, 5000)
 
     }
     startCountDown() {
@@ -63,7 +58,6 @@ class matchingCard {
             card.classList.add('visible');
             if (this.cardToCheck)
                 this.checkForCardMatch(card);
-
             else
                 this.cardToCheck = card;
         }
@@ -118,7 +112,10 @@ class matchingCard {
 
     }
     canFlipCard(card) { //Code for whether the card is flippable or not (e.g. already flipped cards)
-        return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
+        if(!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck)
+            return true
+
+        //return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
         //if this.busy is false and if the cards variable is not in the matched cards list and the card is not the current flipped card it should return as true, allowing the person to flip the card.
     }
 
@@ -129,7 +126,7 @@ function ready() {
     let cards = Array.from(document.getElementsByClassName('card'));
     let game = new matchingCard(100, cards)
 
-    overlays.forEach(overlay =>{
+    overlays.forEach(overlay => {
         overlay.addEventListener('click',() => {
             overlay.classList.remove('visible');
             game.startGame();
@@ -143,8 +140,9 @@ function ready() {
 }
 
 if(document.readyState === 'loading') {
-    document.addEventListener('DomContentLoaded', ready());
-} else {
+    document.addEventListener('DOMContentLoaded', ready);
+}
+else {
     ready();
 }
 
