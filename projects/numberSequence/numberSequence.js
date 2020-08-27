@@ -1,10 +1,10 @@
-var points = 0;
+var points = 1;
 var question = 0;
 
 function loadEasy() {
     document.getElementById("difficulty_screen").classList.remove('buttonHolder');
     document.getElementById("difficulty_screen").classList.add('invisibleStuff');
-    document.getElementById("questionScreen").classList.toggle("invisibleStuff");
+    document.getElementById("questionScreen").classList.remove("invisibleStuff");
     const operation = Math.floor((Math.random() * 10) + 1);
     if (operation > 5) {
         easyAddition()
@@ -13,44 +13,51 @@ function loadEasy() {
     }
 }
 function easyAddition() {
-        var base = Math.floor((Math.random() * 10) + 1);
-        var number = Math.floor((Math.random() * 10) + 1);
-        document.getElementById("FirstPlaceholder").textContent = number;
-        number = number + base;
-        document.getElementById("SecondPlaceholder").textContent = number;
-        number = number + base;
-        document.getElementById("ThirdPlaceholder").textContent = number;
+    var base = Math.floor((Math.random() * 10) + 1);
+    var number = Math.floor((Math.random() * 10) + 1);
+    document.getElementById("FirstPlaceholder").textContent = number;
+    number = number + base;
+    document.getElementById("SecondPlaceholder").textContent = number;
+    number = number + base;
+    document.getElementById("ThirdPlaceholder").textContent = number;
 }
 
 function easySubtraction() {
-		var base = Math.floor((Math.random() * 10) + 1);
-        var number = Math.floor((Math.random() * 10) + 1);
-        document.getElementById("FirstPlaceholder").textContent = number;
-        number = number - base;
-        document.getElementById("SecondPlaceholder").textContent = number;
-        number = number - base;
-        document.getElementById("ThirdPlaceholder").textContent = number;
+    var base = Math.floor((Math.random() * 10) + 1);
+    var number = Math.floor((Math.random() * 10) + 1);
+    document.getElementById("FirstPlaceholder").textContent = number;
+    number = number - base;
+    document.getElementById("SecondPlaceholder").textContent = number;
+    number = number - base;
+    document.getElementById("ThirdPlaceholder").textContent = number;
 }
 
 function answerCheck() {
-    var first = parseInt(document.getElementById("FirstPlaceholder").value);
-    var second = parseInt(document.getElementById("SecondPlaceholder").value);
-    var operation = document.getElementById("operation").value;
-    var guess = parseInt(document.getElementById("answerField").value);
+    var first;
+    first = parseInt(document.getElementById("FirstPlaceholder").textContent, 10);
+    var second;
+    second = parseInt(document.getElementById("SecondPlaceholder").textContent, 10);
+    var operation = document.getElementById("operation").textContent;
+    var guess;
+    guess = parseInt(document.getElementById("answerField").textContent);
 
-	if (second > first) {
-	    var answer = second - first;
-        if (operation === "addition" && guess === answer) {
-            points = points + 10;
-            document.getElementById("score").textContent = points;
+    if (second > first) {
+        var base = second - first;
+        var answer = parseInt(document.getElementById("ThirdPlaceholder").value, 10) + base;
+        if (operation === "addition") {
+            if (guess === answer) {
+                points = points + 10;
+                document.getElementById("score").textContent = points.toString();
+                loadEasy()
+            }
         }
     }
 
-	if (question <= 5) {
+    if (question <= 5) {
         question += 1;
         loadEasy();
     } else {
-	    final();
+        final();
     }
 }
 
