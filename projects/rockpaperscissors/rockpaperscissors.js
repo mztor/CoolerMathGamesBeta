@@ -1,8 +1,12 @@
 let playerboard = 0;
 let computerboard = 0;
 let winstreak = 0;
+let IMplayerboard = 0;
+let IMcomputerboard = 0;
+let IMwinstreak = 0;
 
-var ability = ['Rock', 'Paper', 'Scissors'];
+
+var ability = ['Rock','Paper', 'Scissors'];
 function rockchoice() {
     response2.textContent = "Rock";
 }
@@ -86,8 +90,10 @@ function startbutton() {
     document.getElementById("standardbutton").style.display = "block";
     document.getElementById("hardbutton").style.display = "block";
     document.getElementById("Quit").style.display = "block";
-    document.getElementById("GameSelector").style.display = "none"
-    document.getElementById("HowToPlay").style.display = "none"
+    document.getElementById("GameSelector").style.display = "none";
+    document.getElementById("HowToPlay").style.display = "none";
+    document.getElementById("IMlossscreen").style.display = "none";
+    document.getElementById("IMwinscreen").style.display = "none";
 }
 Startbutton.onclick = startbutton;
 
@@ -165,7 +171,8 @@ function StartHardGame() {
     document.getElementById("yourResponse").style.display = "block";
     document.getElementById("HardGame").style.display = "block";
     document.getElementById("Quit").style.display = "block";
-
+    document.getElementById("IMcomputerscore").style.display = "block";
+    document.getElementById("IMplayerscore").style.display = "block";
 }
 hardbutton.onclick = StartHardGame;
 function Irockchoice() {
@@ -197,9 +204,11 @@ function ImpossibleResponses() {
         console.log(yourResponse.textContent, ComputerResponse.textContent);
         if (ComputerResponse.textContent === "Rock") {
             Ichangethis.textContent = "You Lose";
+            IMcomputerboard++;
         }
         if (ComputerResponse.textContent === "Paper"){
             Ichangethis.textContent = "You Win";
+            IMplayerboard++;
         }
         if (ComputerResponse.textContent === "Scissors") {
             Ichangethis.textContent = "Tie";
@@ -210,12 +219,14 @@ function ImpossibleResponses() {
         console.log(yourResponse.textContent, ComputerResponse.textContent);
         if (ComputerResponse.textContent === "Rock") {
             Ichangethis.textContent = "You Win";
+            IMplayerboard++;
         }
         if (ComputerResponse.textContent === "Paper"){
             Ichangethis.textContent = "Tie";
         }
         if (ComputerResponse.textContent === "Scissors") {
             Ichangethis.textContent = "You Lose";
+            IMcomputerboard++;
         }
     }
     if (yourResponse.textContent === "Rock") {
@@ -226,12 +237,33 @@ function ImpossibleResponses() {
         }
         if (ComputerResponse.textContent === "Paper"){
             Ichangethis.textContent = "You Lose";
+            IMcomputerboard++;
         }
         if (ComputerResponse.textContent === "Scissors") {
             Ichangethis.textContent = "You Win";
+            IMplayerboard++;
         }
     }
     document.getElementById("Ichangethis").style.display = "block";
+    document.getElementById("IMplayerscorechange").textContent = IMplayerboard;
+    document.getElementById("IMcomputerscorechange").textContent = IMcomputerboard;
+    if (IMcomputerboard === 3) {
+        document.getElementById("HardGame").style.display = "none";
+        document.getElementById("IMlossscreen").style.display = "block";
+        document.getElementById("IMwinstreak").style.display = "block";
+        IMwinstreak = 0;
+        document.getElementById("IMwinstreakchange").textContent = IMwinstreak;
+        document.getElementById("IMwinstreak").style.display = "block";
+        document.getElementById("IMrestartwin").style.display = "block";
+    }
+    if (IMplayerboard === 3) {
+        document.getElementById("HardGame").style.display = "none";
+        document.getElementById("IMwinscreen").style.display = "block";
+        document.getElementById("IMwinstreak").style.display = "block";
+        IMwinstreak++;
+        document.getElementById("IMwinstreakchange").textContent = IMwinstreak;
+        document.getElementById("IMrestartwin").style.display = "block";
+    }
 }
 impossibleResponses.onclick = ImpossibleResponses;
 
@@ -248,11 +280,21 @@ function quit() {
     document.getElementById("Quit").style.display = "none";
     document.getElementById("GameSelector").style.display = "block"
     document.getElementById("HowToPlay").style.display = "block"
+    document.getElementById("IMwinscreen").style.display = "none"
+    document.getElementById("IMlossscreen").style.display = "none"
 }
 Quit.onclick = quit;
 
 function GameSelectorPage() {
     document.getElementById("TitleScreen").style.display = "none";
     document.getElementById("GameSelector").style.display = "none";
+    document.getElementById("HowToPlay").style.display = "none"
 }
 GameSelector.onclick = GameSelectorPage;
+
+function Walkthrough() {
+    document.getElementById("TitleScreen").style.display = "none";
+    document.getElementById("GameSelector").style.display = "none";
+    document.getElementById("HowToPlay").style.display = "none"
+}
+HowToPlay.onclick = Walkthrough;
