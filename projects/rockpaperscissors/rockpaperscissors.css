@@ -41,7 +41,7 @@ button {
 #button2 {
     display: none;
     position: absolute;
-    top: 400px;
+    top: 580px;
     left: 628px;
 }
 #homeplay {
@@ -143,4 +143,24 @@ h11 {
     left: 85%;
     top: 700px;
 }
-
+#IMcomputerscore {
+    display: none;
+}
+#IMplayerscore {
+    display: none;
+}
+#IMlossscreen {
+    display: none;
+}
+#IMwinscreen {
+    display: none;
+}
+IMwinstreak {
+    display: none;
+}
+#IMrestartwin {
+    display: none;
+}
+.HardTally {
+    display: none;
+}

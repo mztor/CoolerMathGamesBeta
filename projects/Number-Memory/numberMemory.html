@@ -1,30 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="main.css" rel="stylesheet">
-<script src="js.js"></script>
+<link href="numberMemoryStyle.css" rel="stylesheet">
+<script src="numberMemory.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Number memory game</title>
 </head>
 <body>
+<label id="lives_left"></label>
 <div id="difficulty_select">
-    <h1>Welcome to the Number Memory Game</h1>
-    <h2>Choose your difficulty</h2>
-    <button id="but_easy" onclick="SetDifficulty(1)">Easy</button>
-    <button id="but_medium" onclick="SetDifficulty(0.8)">Medium</button>
-    <button id="but_hard" onclick="SetDifficulty(0.6)">Hard</button>
+    <h1>Welcome to Number Memory</h1>
+    <h3>Select a difficulty to begin</h3>
+    <button id="but_easy" onclick="SetDifficulty(1)">easy</button>
+    <button id="but_medium" onclick="SetDifficulty(0.8)">medium</button>
+    <button id="but_hard" onclick="SetDifficulty(0.6)">hard</button>
 </div>
-<div id="showNumber"></div>
-<div id="showGuess"></div>
-<label id="guessNumber"></label>
+
+<div id="show_number" style="display:none;">
+    <h1 id="display_number">number</h1>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+</div>
+
+<div id="guess_number" style="display:none;">
+    <h1>What was the number?</h1>
+    <h3>
+        <input id="guess" type="text" value="">
+    </h3>
+    <button id="but_submit" onclick="SubmitGuess()">Submit</button>
+</div>
+
+<div id="correct" style="display:none;">
+    <h1>You are correct!</h1>
+    <button id="next" onclick="NextLevel()">Next Level</button>
+</div>
+
+<div id="incorrect" style="display:none;">
+    <h1>Incorrect answer</h1>
+    <label id="your_guess">guess</label>
+    <label id="correct_answer">answer</label>
+</div>
+
+
 </body>
-<script>
-
-
-    //random number
-    var Answer;Answer = ( GenerateNumber(amount));
-    document.getElementById("GuessNumber").innerHTML = Answer;
-
-</script>
-
 </html>
