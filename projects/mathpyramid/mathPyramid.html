@@ -50,17 +50,17 @@
             <div style="margin-top: 10px">
                 <input id="userInput" style="height: 45px;margin-right: 10px">
             </div>
-            <div><p id="result"></p></div>
+            <div><p id="result">&nbsp</p></div>
         </div>
 
-        <div style="margin-top: 100px">
+        <div style="margin-top: 50px">
             <button id="back" onclick="toMenu()" class="buttonMain" style="float:left;margin-left: 50px">Back</button>
-            <button id="next" onclick="nextGame()" class="buttonMain" style="float: right;margin-right: 50px;position: absolute;z-index: -1;right: 560px">Next</button>
-            <button id="check" onclick="getResult()" class="buttonMain"  style="float: right;margin-right: 50px;position: relative">Check</button></div>
+            <button id="next" onclick="game()" class="buttonMain" style="float: right;margin-right: 50px;position: absolute;z-index: -1;right: 560px">Next</button>
+            <button id="check" onclick="checkAnswer()" class="buttonMain"  style="float: right;margin-right: 50px;position: relative">Check</button></div>
     </div>
 
     <div id="helpMP" class="hidden">
-        <div style="text-align: center;margin:100px 0 0 0"><p>This is a help page.</p></div>
+        <div style="text-align: center"><p>This is a help page.</p></div>
         <button id="backHelp" onclick="toMenu()" class="buttonMain" style="float: left;margin: 373px 0 0 50px">Back</button>
     </div>
 </body>
