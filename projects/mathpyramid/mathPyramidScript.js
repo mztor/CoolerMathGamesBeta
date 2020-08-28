@@ -1,5 +1,6 @@
-var max = 0, difficulty = 0, L33 = 0, L32 = 0, L31 = 0, L21 = 0, L22 = 0, L11 = 0, score = 0;
+var max = 0, difficulty = 0, L33 = 0, L32 = 0, L31 = 0, L21 = 0, L22 = 0, L11 = 0, score = 0,answer = 0;
 var QsHidden = 0;
+var QsNumber = 0;
 
 function toGame(n){
     score = 0
@@ -40,12 +41,16 @@ function toMenu(){
 
 function game(n){
     toGame(n)
-    L31 = Math.floor((Math.random()*max)-2)
-    L32 = Math.floor((Math.random()*max)-L31)
-    L33 = Math.floor((Math.random()*max)-L31-L32*2+1)
-    L21 = L31 + L32;
-    L22 = L32 +L33;
-    L11 = L21 + L22;
+    document.getElementById("questionNum").innerHTML = "Question:" + QsNumber;
+    document.getElementById("check").classList.remove("hidden");
+    document.getElementById("check").classList.add("buttonMain");
+    document.getElementById("result").innerHTML = "&nbsp"
+    L11 = Math.floor((Math.random()*max)+1);
+    L21 = Math.floor((Math.random()*(L11 - 2))+1);
+    L22 = L11 - L21;
+    L31 = Math.floor((Math.random()*(L21-1))+1);
+    L32 = L21 - L31;
+    L33 = L22 - L32;
     document.getElementById("L11").innerHTML = L11;
     document.getElementById("L21").innerHTML = L21;
     document.getElementById("L22").innerHTML = L22;
@@ -55,27 +60,33 @@ function game(n){
     QsHidden = Math.floor(Math.random()*6)+1
     if (QsHidden === 1){
         document.getElementById("L11").innerHTML = "&nbsp";
-        var answer = L11;
+         answer = L11;
     } else if(QsHidden===2){
         document.getElementById("L21").innerHTML = "&nbsp";
-        var answer = L21;
+         answer = L21;
     } else if(QsHidden===3){
         document.getElementById("L22").innerHTML = "&nbsp";
-        var answer = L22;
+         answer = L22;
     } else if(QsHidden===4){
         document.getElementById("L31").innerHTML = "&nbsp";
-        var answer = L31;
+        answer = L31;
     } else if(QsHidden===5){
         document.getElementById("L32").innerHTML = "&nbsp";
-        var answer = L32;
+        answer = L32;
     } else if(QsHidden===6){
         document.getElementById("L33").innerHTML = "&nbsp";
-        var answer = L33;
+        answer = L33;
     }
 }
 
 function checkAnswer() {
     document.getElementById("check").classList.remove("buttonMain");
     document.getElementById("check").classList.add("hidden");
-
+    Qsnumber = QsNumber + 1;
+    var input = Number(document.getElementById("userInput").value);
+    if (input === answer){
+        document.getElementById("result").innerHTML = "Correct!"
+    } else {
+        document.getElementById("result").innerHTML = "Incorrect! The answer is " + answer;
+    }
 }
