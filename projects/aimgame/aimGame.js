@@ -21,7 +21,7 @@ function hideDifficulty() {
 
 
 }
-function testHide() {
+function showText() {
     document.getElementById("buttons").style.display = "none";
     document.getElementById("helpText").style.display = "block";
     document.getElementById('backDifficulty').style.display = "block";
