@@ -1,15 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- This meta data defines the character set and AASCI values utilised by the website-->
     <meta charset="UTF-8">
+    <!-- This meta data is utilised by the Google Sign In API to determine the validity
+         of the oAuth 2.0 request sent by the website when people attempt to sign in (this is checked by the unique clientID) -->
     <meta name="google-signin-client_id"
           content="28754738977-0ssjcguk1kkdcogqvkmu8r8v8uhvqucq.apps.googleusercontent.com">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/homepage.css">
+    <!-- Creates the title element of the webpage -->
     <title>Cooler Math Games Beta</title>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="//script.sheetsu.com/"></script>
-    <script src="js/script.js"></script>
+    <!-- These tags load the CSS files that create the uniform web pages as well as define
+         the styling attached specifically to homepage (denoted by their filenames) -->
+    <link rel="stylesheet" href="styles/homepage.css">
+    <style>
+        /* This style sheet is for Will only! Please do not make any alterations */
+
+        * {
+            font-family: "Lucida Sans Unicode", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #nav {
+            width: 100vw;
+            height: 50px;
+            position: fixed;
+            overflow: hidden;
+            background: #3aa6dd;
+            z-index: 2;
+        }
+
+        #nav .menu {
+            width: 90%;
+            height: 100%;
+            margin: 0 auto 0 auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            float: right;
+            text-align: center;
+            padding: 10px 20px 0 20px;
+            height: 50px;
+            /* width: 10%; */
+            transition-duration: 0.5s;
+        }
+
+        .sign-in {
+            padding-top: 5px;
+        }
+
+        .sign-in:hover {
+            background: cornflowerblue;
+        }
+
+        ul li:hover {
+            background: #ca9aff;
+        }
+
+        .banner {
+            padding: 0;
+            width: fit-content;
+            float: left;
+        }
+
+        ul li a {
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        #content {
+            width: 100vw;
+            height: 100vh;
+            background: #59b8ea;
+        }
+    </style>
 </head>
 <body>
 <!-- This HTML document is for Will only! Please do not make any alterations to this! -->
@@ -34,5 +107,10 @@
     <a href="mailto:theawesomew@gmail.com"><img src="images/svg/mail.svg" width="75px"/></a>
     <a href="https://www.twitter.com" target="_blank"><img src="images/svg/twitter.svg" width="75px"/></a>
 </div>
+<!-- These tags load in the script files for access to the necessary Google APIs
+         as well as the in-house developed JS code -->
+<script src="js/script.js"></script>
+<script src="https://apis.google.com/js/api.js" async defer onload="handleClientLoading()"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>

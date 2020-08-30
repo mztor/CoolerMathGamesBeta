@@ -7,7 +7,7 @@
     <script src="mathPyramidScript.js"></script>
 </head>
 <body>
-    <div id="menuMP" class="gameMenu">
+    <div id="menuMP" class="gameMain">
         <div>
             <h1>Welcome to Math Pyramid!</h1>
         </div>
@@ -15,30 +15,53 @@
             <h2>Choose your difficulties</h2>
         </div><br>
         <div>
-            <button class="buttonMenu" onclick="toGame(1)">Easy</button>
+            <button class="buttonMain" onclick="game(1)">Easy</button>
         </div>
         <div>
-            <button class="buttonMenu" onclick="toGame(2)">Medium</button>
+            <button class="buttonMain" onclick="game(2)">Medium</button>
         </div>
         <div>
-            <button class="buttonMenu" onclick="toGame(3)">Hard</button>
+            <button class="buttonMain" onclick="game(3)">Hard</button>
         </div><br>
         <div>
-            <button class="buttonMenu" onclick="toHelp()">Help</button>
+            <button class="buttonMain" onclick="toHelp()">Help</button>
         </div>
     </div>
 
-    <div id="gameMP" class="hideMP">
-        <input id="input" type="text"><br>
-        <p id="L2First"></p>
-        <p id="L2Second"></p><br>
-        <p id="L3First"></p>
-        <p id="L3Second"></p>
-        <p id="L3Third"></p>
+    <div id="gameMP"  class="hidden">
+        <div><h2 id="questionNum" class="questionNum">Question:0</h2>&nbsp;<h2 id="score" class="score">score:0</h2></div><br>
+
+        <table style="height: 10px"> </table>
+
+        <div style="margin-top: 50px">
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="L11">1</p></div>
+            </div>
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="L21">1</p></div><div  class="divGame1"><p id="L22">1</p></div>
+            </div>
+
+            <div class="divGame0">
+                <div class="divGame1"><p id="L31">1</p></div><div class="divGame1"><p id="L32">1</p></div><div class="divGame1"><p id="L33">1</p></div>
+            </div>
+
+            <div style="margin-top: 10px">
+                <input id="userInput" style="height: 45px;margin-right: 10px">
+            </div>
+            <div><p id="result">&nbsp</p></div>
+        </div>
+
+        <div style="margin-top: 50px">
+            <button id="back" onclick="toMenu()" class="buttonMain" style="float:left;margin-left: 50px">Back</button>
+            <button id="next" onclick="game()" class="buttonMain" style="float: right;margin-right: 50px;position: absolute;z-index: -1;right: 560px">Next</button>
+            <button id="check" onclick="checkAnswer()" class="buttonMain"  style="float: right;margin-right: 50px;position: relative">Check</button></div>
     </div>
 
-    <div id="HelpMP">
-        <p>This is a help page.</p>
+    <div id="helpMP" class="hidden">
+        <div style="text-align: center"><p>This is a help page.</p></div>
+        <button id="backHelp" onclick="toMenu()" class="buttonMain" style="float: left;margin: 373px 0 0 50px">Back</button>
     </div>
 </body>
 </html>

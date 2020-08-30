@@ -25,8 +25,8 @@ function isFilled () {
         let textBox = "textBox" + i.toString();
         if (document.getElementById(textBox).value === "Click") return false;
     }
-    winCondition()
     target--;
+
     return true;
 }
 
@@ -40,33 +40,47 @@ function winCondition() {
         }
     }
 
-    for (let rows = 0; rows < 2; rows++) {
-        if (data[rows][0] === data[rows][1] && data[rows][1] === data[rows][2]) {
-            if (data[rows][0] === "x" && data[rows][1] === "x" && data[rows][2] === "x" || data[rows][0] === "o" && data[rows][1] === "o" && data[rows][0] === "o" ) {
-                target--;
-                if (target === 0){
-                    winScreen()
-                }
-                resetBoard()
-                return;
+
+    if (data[0][0] === data[0][1] && data[0][1] === data[0][2] ||
+        data[1][0] === data[1][1] && data[1][1] === data[1][2] ||
+        data[2][0] === data[2][1] && data[2][1] === data[2][2]) {
+        if (data[0][0] === "x" && data[0][1] === "x" && data[0][2] === "x" ||
+            data[1][0] === "x" && data[1][1] === "x" && data[1][2] === "x" ||
+            data[2][0] === "x" && data[2][1] === "x" && data[2][2] === "x" ||
+            data[0][0] === "o" && data[0][1] === "o" && data[0][2] === "o" ||
+            data[1][0] === "o" && data[1][1] === "o" && data[1][2] === "o" ||
+            data[2][0] === "o" && data[2][1] === "o" && data[2][2] === "o") {
+            target--;
+            if (target === 0){
+                winScreen()
             }
+            resetBoard()
+            return;
         }
     }
 
-    for (let cols = 0; cols < 2; cols++) {
-        if (data[0][cols] === data[1][cols] && data[1][cols] === data[2][cols]) {
-            if (data[cols][0] === "x" && data[cols][1] === "x" && data[cols][2] === "x" || data[cols][0] === "o" && data[cols][1] === "o" && data[cols][2] === "o") {
-                target--;
-                if (target === 0){
-                    winScreen()
-                }
-                resetBoard()
-                return;
+
+
+    else if (data[0][0] === data[1][0] && data[1][0] === data[2][0] ||
+        data[0][1] === data[1][1] && data[1][1] === data[2][1] ||
+        data[0][2] === data[1][2] && data[1][2] === data[2][2]) {
+        if (data[0][0] === "x" && data[1][0] === "x" && data[2][0] === "x" ||
+            data[0][1] === "x" && data[1][1] === "x" && data[2][1] === "x" ||
+            data[0][2] === "x" && data[1][2] === "x" && data[2][2] === "x" ||
+            data[0][0] === "o" && data[1][0] === "o" && data[2][0] === "o" ||
+            data[0][1] === "o" && data[1][1] === "o" && data[2][1] === "o" ||
+            data[0][2] === "o" && data[1][2] === "o" && data[2][2] === "o" ){
+            target--;
+            if (target === 0){
+                winScreen()
             }
+            resetBoard()
+            return;
         }
     }
 
-    if (data[0][0] === data[1][1] && data[1][1] === data[2][2]) {
+
+    else if (data[0][0] === data[1][1] && data[1][1] === data[2][2]) {
         if (data[0][0] === "x" && data[1][1] === "x" && data[2][2] === "x" || data[0][0] === "o" && data[1][1] === "o" && data[2][2] === "o" ) {
             target--
             if (target === 0){
