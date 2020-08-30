@@ -1,56 +1,86 @@
-var points = 0;
-var question = 1;
+var points;
+var question;
+var base;
 
-function loadEasy() {
-    document.getElementById("difficulty_screen").classList.remove('buttonHolder');
-    document.getElementById("difficulty_screen").classList.add('invisibleStuff');
-    document.getElementById("questionScreen").classList.remove("invisibleStuff");
-	easyAddition()
+function helptoggle() {
+	document.getElementById("difficulty_screen").classList.add("invisibleStuff");
+	document.getElementById("difficulty_screen").classList.remove("buttonHolder");
+	document.getElementById("helpScreen").classList.remove("invisibleStuff");
 }
 
-function easyAddition() {
-    var base = Math.floor((Math.random() * 10) + 1);
+function initialise() {
+    points = 0;
+    question = 1;
+    document.getElementById("questionNumber").textContent = question;
+    document.getElementById("difficulty_screen").classList.remove("buttonHolder");
+    document.getElementById("difficulty_screen").classList.add('invisibleStuff');
+    document.getElementById("questionScreen").classList.remove('invisibleStuff');
+    load()
+}
+
+function again() {
+    document.getElementById("finalScreen").classList.add("invisibleStuff");
+	initialise()
+}
+
+function load() {
+    base = Math.floor((Math.random() * 10) + 1);
     var number = Math.floor((Math.random() * 10) + 1);
     document.getElementById("FirstPlaceholder").textContent = number;
     number = number + base;
     document.getElementById("SecondPlaceholder").textContent = number;
     number = number + base;
     document.getElementById("ThirdPlaceholder").textContent = number;
+	base = number + base;
 }
 
-function answerCheck() {
-    var first = document.getElementById("FirstPlaceholder").textContent;
-    var second = document.getElementById("SecondPlaceholder").textContent;
-    var guess = document.getElementById("answerField").textContent;
-    var base = second - first;
-    var answer = parseInt(document.getElementById("ThirdPlaceholder").value, 10) + base;
-    if (guess === answer) {
-        points = points + 10;
-        document.getElementById("score").textContent = points;
-		question = question + 1;
-        loadEasy()
-        }
-    }
-    if (question <= 5) {
-        question += 1;
+function answer() {
+    var guess = Number(document.getElementById("answerField").value);
+    if (guess === base) {
+        points = points + 1;
+        document.getElementById("score").innerHTML = points;
+        question = question + 1;
 		document.getElementById("questionNumber").innerHTML = question;
-        loadEasy();
-    } else {
-        final();
-    }
+		if (question == 6) {
+			finalscreen()
+		} else {
+			load()
+		}
+	} 
+	else {
+		document.getElementById("score").innerHTML = points;
+		question = question + 1;
+		document.getElementById("questionNumber").innerHTML = question;
+		if (question == 6) {
+			finalscreen()
+		} else {
+			load()
+		}
+	}
 }
 
-function final() {
+function finalscreen() {
     document.getElementById("difficulty_screen").classList.add("invisibleStuff");
     document.getElementById("questionScreen").classList.add("invisibleStuff");
     document.getElementById("finalScreen").classList.remove("invisibleStuff");
-	if (score < 3) {
-		document.getElementById("loseMessage").classList.remove("invisibleStuff");
-		document.getElementById("loseMessage").innerHTML = points;
-	} else if (score >3 && score < 5) {
-		document.getElementById("winMessage").classList.remove("invisibleStuff");
+	document.getElementById("loseMessage").classList.add('invisibleStuff');
+	document.getElementById("winMessage").classList.add('invisibleStuff');
+	document.getElementById("perfectMessage").classList.add('invisibleStuff');
+	if (points < 3) {
+		document.getElementById("loseMessage").classList.toggle("invisibleStuff");
+		document.getElementById("loseScore").innerHTML = points;
+	} else if (points > 3 && points < 5) {
+		document.getElementById("winMessage").classList.toggle("invisibleStuff");
 		document.getElementById("finalScore").innerHTML = points;
-	} else if (score === 5) {
-		document.getElementById("perfectMessage").classList.remove("invisibleStuff");
+	} else if (points === 5) {
+		document.getElementById("perfectMessage").classList.toggle("invisibleStuff");
 	}
+}
+
+function menu() {
+	document.getElementById('helpScreen').classList.add("invisibleStuff");
+	document.getElementById('questionScreen').classList.add("invisibleStuff");
+	document.getElementById('finalScreen').classList.add('invisibleStuff');
+	document.getElementById('difficulty_screen').classList.remove('invisibleStuff');
+	document.getElementById('difficulty_screen').classList.add("buttonHolder");
 }
