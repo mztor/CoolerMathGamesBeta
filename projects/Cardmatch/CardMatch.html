@@ -11,7 +11,7 @@
 <body>
 <h1 class="pageTitle">Matching Cards</h1>
 
-<button id="flipping" onclick="reveal()" style="display:none">Flipping</button>
+<button id="flipping" onclick="flipping()" style="display: none;">Flipping</button>
 <div class="overlayText visible">
     Click to Start
     <button id="testing" onclick="testing()">Testing mode</button>
@@ -19,6 +19,9 @@
 
 <div id="gameOverText" class="overlayText">
     GAME OVER
+    <div class="overlayScore">
+        Score: <span id="scoreAfter">0</span>
+    </div>
     <span id="Restart" class="afterText">Try Again</span>
 
 </div>

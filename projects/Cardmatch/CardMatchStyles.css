@@ -112,6 +112,9 @@ h1 {
 .afterText {
     font-size: .3em;
 }
+.overlayScore {
+    font-size: .3em;
+}
 #testing {
     position: absolute;
     top: 150px;
@@ -126,3 +129,4 @@ h1 {
     color: white;
     display: none;
 }
+

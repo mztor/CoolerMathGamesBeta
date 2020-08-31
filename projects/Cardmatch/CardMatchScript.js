@@ -1,11 +1,12 @@
 
-class matchingCard {
-    constructor(totalTime, cards) {
-        this.cardsArray = cards;
-        this.totalTime = totalTime;
-        this.timeRemaining = totalTime;
-        this.timer = document.getElementById('timeRemaining')
+class matchingCard { //Class called matching card
+    constructor(totalTime, cards) { // A constructor, basically a blueprint for the whole code. Contains a whole bunch of functions
+        this.cardsArray = cards; //the cards are put into an array
+        this.totalTime = totalTime; //the time taken
+        this.timeRemaining = totalTime; //the time taken
+        this.timer = document.getElementById('timeRemaining') //To be displayed onto
         this.score = document.getElementById('Score')
+        this.overlayScore = document.getElementById('scoreAfter')
         this.chances = document.getElementById('lives')
     }
 
@@ -50,6 +51,7 @@ class matchingCard {
         this.matchedCards = [];
         this.totalScore = this.totalScore + 10;
         this.score.innerText = this.totalScore;
+        this.overlayScore.innerText = this.totalScore;
         setTimeout(() => {
             this.shuffleCard(this.cardsArray);
             this.busy = false;
@@ -100,6 +102,7 @@ class matchingCard {
         card2.classList.add('visible');
         this.totalScore ++;
         this.score.innerText = this.totalScore;
+        this.overlayScore.innerText = this.totalScore;
         if(this.matchedCards.length === this.cardsArray.length)
             this.victory();
 
@@ -143,7 +146,7 @@ class matchingCard {
 
 }
 
-function ready() {
+function ready() { //This is for when the game is ready to start
     let overlays = Array.from(document.getElementsByClassName('overlayText'));
     let cards = Array.from(document.getElementsByClassName('card'));
     let game = new matchingCard(100, cards)
@@ -177,15 +180,7 @@ function testing() {
     }
 }
 
-
-
-function reveal() {
-    let x = document.getElementsByClassName("cardText");
-    if (x.display === "none") {
-        x.display = "block";
-    }
-    else {
-        x.display = "none";
-    }
+function flipping() {
+    let element = document.querySelector('.cardText');
+    element.style.setProperty('display', 'block');
 }
-
