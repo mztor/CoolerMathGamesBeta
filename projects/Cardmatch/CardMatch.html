@@ -10,24 +10,31 @@
 
 <body>
 <h1 class="pageTitle">Matching Cards</h1>
+
+<button id="flipping" onclick="flipping()" style="display: none;">Flipping</button>
 <div class="overlayText visible">
     Click to Start
+    <button id="testing" onclick="testing()">Testing mode</button>
 </div>
 
 <div id="gameOverText" class="overlayText">
     GAME OVER
+    <div class="overlayScore">
+        Score: <span id="scoreAfter">0</span>
+    </div>
     <span id="Restart" class="afterText">Try Again</span>
+
 </div>
 
 <div class="gameContainer">
    <div class="gameInformationContainer">
 
         <div class="gameInfo">
-            Lives: <span id="lives">5</span>
+            Lives: <span id="lives"></span>
         </div>
 
         <div class="gameInfo">
-            Time: <span id="timeRemaining">100</span>
+            Time: <span id="timeRemaining"></span>
         </div>
 
         <div class="gameInfo">
@@ -38,77 +45,101 @@
     </div>
     <div class="card">
         <div class="cardFront cardFace">
-            <img class="cardValue" src="food/KrabbyPatty.jpg" style="width: 100px;">
+            <img class="cardValue" src="food/KrabbyPatty.jpg" style="width: 100px;" alt="burger">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Burger</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/ramen.png" style="width:100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Naruto</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/ramen.png" style="width:100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Naruto</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue"
                  src="food/KrabbyPatty.jpg" style="width: 100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Burger</span>
+        </div>
 
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/glizzy.png" style="width:100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Glizzy</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/glizzy.png" style="width:100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Glizzy</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/Ramsay.jpg" style="width: 100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Ramsay</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/Ramsay.jpg" style="width: 100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Ramsay</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/Cheese.jpg" style="width:100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Cheese</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/Cheese.jpg" style="width:100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Cheese</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/potato.jpg" style="width:100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Potato</span>
+        </div>
     </div>
     <div class="card">
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/potato.jpg" style="width:100px;">
         </div>
-        <div class="cardBack cardFace"></div>
+        <div class="cardBack cardFace">
+            <span class="cardText">Potato</span>
+        </div>
     </div>
 
     </div>
