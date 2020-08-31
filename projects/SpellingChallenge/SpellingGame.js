@@ -63,7 +63,10 @@ function ReturnDifficulty (difficulty) {
     document.getElementById('Kindypage').style = 'display:none;'
     document.getElementById('DifficultySelectionScreen').style = 'display:block;'
     document.getElementById('GameLayoutKindy').style = 'display:none;'
-    document.getElementById('Kindypage').style = 'display:none;'
+    document.getElementById('correctscreen').style = 'display:none;'
+    document.getElementById('incorrectscreen').style = 'display:none;'
+
+
 
 }
 

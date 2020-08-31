@@ -86,6 +86,7 @@ function checkGuess(word) {
     }
 }
 
+// collects words from arrays and sends to shuffleWord function
 function generateWord(difficulty, index) {
     let newWord;
     let shuffledWord;
@@ -130,6 +131,7 @@ function resetOnQuit() {
     document.getElementById('guess').value = '' // clears the input box for the guesses
 }
 
+// Transitions to next round or win screen, replaces scrambled word with original word,
 function getNextWord(difficulty) {
     if (rounds > 0) {
         document.getElementById("mark").classList.add("hide")
@@ -149,12 +151,15 @@ function getNextWord(difficulty) {
         wordIndex = wordIndex + 1
         rounds = rounds - 1
     }
+    // transition to win screen
     else {
         document.getElementById("gameplay").classList.add("hide")
         document.getElementById("winScreen").classList.remove("hide")
+        // checks for high score
         if (score > highScore) {
+            // sets congrats text to "High Score!"
             document.getElementById("wellDone").textContent = "High Score!"
-            highScore = score
+            highScore = score // sets high score to user's score
         }
         else {
             document.getElementById("wellDone").textContent = "Well Done!"
