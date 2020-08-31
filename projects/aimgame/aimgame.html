@@ -15,16 +15,15 @@
     <button id="startDifficulty" onclick="difficultySelection()">Start</button>
 </div>
 
-
+<!--this is the difficulty buttons-->
 <div id="buttons" class="hide">
     <button id="easyMode">Easy</button>
     <button id="standardMode">Standard</button>
     <button id="expertMode" onclick="{ document.getElementById('targetLeft').classList.remove('hide'); run(); hideDifficulty();  }">Expert</button>
     <button id="helpButton" onclick="showText()">Difficulty Help</button>
-
-
 </div>
 
+<!-- this is the difficulty help text that will appear when the button "Difficulty Help" is clicked-->
 <div id="helpText" class="hide">
     <div id="easyText">Easy : 10 targets, the maximum distance between each target is small.
     </div>
@@ -34,10 +33,10 @@
     </div>
 
 </div>
-
+<!-- this is the button to go back to the difficulty Selection page after reading the difficulty help-->
 <button id="backDifficulty" onclick="{ difficultySelection(); document.getElementById('backDifficulty').style.display = 'none' }" class="hide">Go Back.</button>
 
-
+<!--javascript code starts here, look for js file-->
 <script src="aimGame.js"></script>
 </body>
 </html>

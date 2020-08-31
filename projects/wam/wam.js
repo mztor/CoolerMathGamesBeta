@@ -7,7 +7,7 @@ const scoreText = document.querySelector("#score")
 const remainingText = document.querySelector("#remaining")
 const highScoreText = document.querySelector("#highScore")
 const finalScore = document.querySelector("#finalScore")
-const moles = document.querySelectorAll(".mole")
+const moles = document.querySelectorAll(".mole") //create array of moles
 
 let difficulty = null
 let highScore = 0
@@ -15,10 +15,12 @@ let score = 0
 let counter = 10
 let prevNum = null
 let number = null
-let easyTimer = 1000
-let hardTimer = createHardTimer(750, 1000)
 let waitEasyTimer = null
 let waitHardTimer = null
+//define initial variables
+let easyTimer = 1000
+let hardTimer = Math.floor(Math.random() * (250) + 750)
+//set timer lengths randomised hard and fixed easy
 
 easyButton.addEventListener("click", function() {
     difficultyText.innerHTML="Difficulty: <strong>Easy</strong>"
@@ -32,17 +34,14 @@ testButton.addEventListener("click", function() {
     difficultyText.innerHTML="Difficulty: <strong>Test Mode</strong>"
     difficulty = "test"
 })
-
-function createHardTimer(min, max) {
-    return Math.floor(Math.random() * (max - min) + min)
-}
+//display selected difficulty
 
 function clickSetUp() {
     for (let i = 0; i < moles.length; i++) {
         moles[i].onclick = function () {
             if (i === number) {
                 score++
-                scoreText.innerText = score.toString()
+                scoreText.innerText = score.toString() //increment score and display if mole is clicked when visible
                 moles[number].style.visibility = "hidden"
             }
         }
@@ -52,7 +51,7 @@ function clickSetUp() {
 function selectCell() {
     let cell = Math.floor(Math.random() * 6)
     if (cell === prevNum) {
-        return selectCell()
+        return selectCell() //ensure mole is not same twice in succession
     } else {
         return cell
     }
@@ -62,16 +61,16 @@ function playGame() {
     if (prevNum !== null) {
         moles[prevNum].style.visibility="hidden"
     }
-    if (counter < 1) {
+    if (counter < 1) { //game finish (counter reaches zero)
         loadFinish()
         return
     }
-    number = selectCell()
+    number = selectCell() //select a random mole to become visible
     prevNum = number
     moles[number].style.visibility="visible"
     counter--
     remainingText.innerText = counter.toString()
-    if (difficulty === "easy") {
+    if (difficulty === "easy") { //timer based on difficulty
         waitEasyTimer = setTimeout(playGame, easyTimer)
     } else if (difficulty === "hard") {
         waitHardTimer = setTimeout(playGame, hardTimer)
@@ -93,7 +92,7 @@ function playTest() {
     remainingText.innerText = counter.toString()
     for (let i = 0; i < moles.length; i++) {
         moles[i].onclick = function() {
-            if (i === number && score !== 10) {
+            if (i === number) {
                 score++
                 console.log(score)
                 scoreText.innerText = score.toString()
@@ -105,7 +104,7 @@ function playTest() {
 }
 
 
-function loadGame() {
+function loadGame() { //screen transitioning functions
     resetGame()
     document.getElementById("game").classList.remove("hide")
     document.getElementById("game").classList.add("show")
@@ -146,12 +145,13 @@ function loadFinish() {
     }
 }
 
-function resetGame() {
+function resetGame() { //set variables to default value
     for (let i = 0; i < moles.length; i++) {
         moles[i].style.visibility = "hidden"
     }
     counter = 10
     score = 0
+    prevNum = null
     scoreText.innerText = score.toString()
     remainingText.innerText = counter.toString()
     startButton.disabled = false
@@ -165,9 +165,9 @@ function resetGame() {
 function startGame() {
     startButton.disabled = true
     if (difficulty === "easy" || difficulty === "hard") {
+        clickSetUp()
         playGame()
     } else if (difficulty === "test") {
         playTest()
     }
 }
-clickSetUp()

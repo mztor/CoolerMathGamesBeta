@@ -63,7 +63,10 @@ function ReturnDifficulty (difficulty) {
     document.getElementById('Kindypage').style = 'display:none;'
     document.getElementById('DifficultySelectionScreen').style = 'display:block;'
     document.getElementById('GameLayoutKindy').style = 'display:none;'
-    document.getElementById('Kindypage').style = 'display:none;'
+    document.getElementById('correctscreen').style = 'display:none;'
+    document.getElementById('incorrectscreen').style = 'display:none;'
+
+
 
 }
 
@@ -80,6 +83,7 @@ function ReturnToMain(difficulty){
     document.getElementById('finalscorescreen').style = 'display:none;'
     document.getElementById('DifficultySelectionScreen').style = 'display:block;'
     counter=0
+    score=0
 }
 
 function CheckAnswer() {

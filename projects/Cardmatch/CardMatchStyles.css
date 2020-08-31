@@ -15,7 +15,7 @@ h1 {
     grid-column: 1/-1;
     display: flex;
     justify-content: space-between;
-}
+} /*creates the grid for the cards */
 
 .gameContainer {
     display: grid;
@@ -24,7 +24,7 @@ h1 {
     margin: 50px;
     justify-content: center;
     perspective: 500px;
-}
+} /*makes the grip organised*/
 
 .card{
     position: relative;
@@ -63,21 +63,6 @@ h1 {
     transform: rotateY(180deg);
 }
 
-.card.matched .cardValue {
-    animation: dance 1s linear infinite 500ms;
-}
-
-@keyframes dance {
-    0%, 100% {
-        transform: rotate(0)
-    }
-    25% {
-        transform: rotate(0);
-    }
-    75% {
-        transform: rotate(0);
-    }
-}
 .overlayText {
     display: none;
     position: fixed;
@@ -111,5 +96,22 @@ h1 {
 
 .afterText {
     font-size: .3em;
+}
+.overlayScore {
+    font-size: .3em;
+}
+#testing {
+    position: absolute;
+    top: 150px;
+}
+
+#flipping {
+    position: absolute;
+    top: 180px;
+}
+
+.cardText {
+    color: white;
+    display: none;
 }
 
