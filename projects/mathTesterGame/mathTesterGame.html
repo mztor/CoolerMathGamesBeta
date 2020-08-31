@@ -101,19 +101,19 @@
     </div>
 </div>
 <div id="content">
-    <div class="container">
-        <br>
+    <div class="container"> <!--making every element on the page inside the container so the whole game change be changed in css or js-->
+        <br> <!-- moving all the elements down so the website header doesn't cover up the title of the game -->
         <br>
         <br>
         <div>
-            <h1>Maths Tester Game</h1>
+            <h1>Maths Tester Game</h1> <!-- title of the game -->
         </div>
-        <div id="menu"> <!--making every element on the page inside the menu so the whole game change be changed in css or js-->
+        <div id="menu"> <!-- made the difficulty screen in the menu so it is easier to show and hide in the javascript and css -->
             <div>
                 <h2>Choose your difficulty</h2>
             </div>
             <div>
-                <button class="button" id="easy" onclick="toReady(1)">Easy</button>
+                <button class="button" id="easy" onclick="toReady(1)">Easy</button> <!--Buttons for each difficulty and a number in the toReady() to indicate what difficulty in the javascript -->
             </div>
             <div>
                 <button class="button" id="medium" onclick="toReady(2)">Medium</button>
@@ -123,27 +123,27 @@
             </div>
             <br>
             <div>
-                <button class="button" id="help" onclick="toHelp()">Help</button>
+                <button class="button" id="help" onclick="toHelp()">Help</button> <!-- shows the help page -->
             </div>
             <br>
             <div>
-                <button class="button2" id="testing" onclick="testingMode()">Testing mode</button>
+                <button class="button2" id="testing" onclick="testingMode()">Testing mode</button> <!-- testing mode so that the player can get the answers immediately in the console log -->
             </div>
         </div>
         <div id="readyMenu">
             <h2>ARE YOU READY!!!</h2>
-            <button class="button" id="ready" onclick="Test()">Ready!</button>
+            <button class="button" id="ready" onclick="Test()">Ready!</button> <!-- starts the game -->
         </div>
-        <p id="score"></p>
-        <p id="time"></p>
+        <p id="score"></p> <!-- displays the score -->
+        <p id="time"></p> <!-- displays the time -->
         <br>
-        <div id="question"></div>
-        <div><p id="output"></p></div>
+        <div id="question"></div> <!-- displays the question -->
+        <div><p id="output"></p></div> <!-- Displays if the questions is correct or incorrect -->
         <input id="input" type="text" autocomplete="off" onfocus="this.value=''"> <!-- Making the input button reset whatever was inside it when the user clicks on the input -->
-        <button class="button" id="answer" onclick="check()">Answer</button>
+        <button class="button" id="answer" onclick="check()">Answer</button> <!-- checks the answer of the question-->
         <p></p>
-        <button class="button" id="playAgain" onclick="toMenu()">Play Again</button>
-        <div id="helpMenu">
+        <button class="button" id="playAgain" onclick="toMenu()">Play Again</button> <!-- buttons that goes back to the difficulty selection screen -->
+        <div id="helpMenu"> <!-- made this all in the div id to make it easier to show and hide -->
             <h2>Instructions</h2>
             <p id="helpText">
                 Answer the question shown to you when you press ready the game will start immediately, answer the question
