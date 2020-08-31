@@ -37,3 +37,28 @@
 #Year2page{
     display:none;
 }
+#GameLayoutKindy{
+    display:none;
+}
+
+#correctscreen{
+    display: none;
+}
+
+#incorrectscreen{
+    display: none;
+}
+
+#scorescreen{
+    text-align: right;
+    top: 0px;
+    bottom: 300px;
+}
+
+#finalscorescreen{
+    display: none;
+}
+
+#GameLayoutYear1{
+    display: none;
+}
