@@ -1,3 +1,4 @@
+
 class matchingCard {
     constructor(totalTime, cards) {
         this.cardsArray = cards;
@@ -8,20 +9,22 @@ class matchingCard {
         this.chances = document.getElementById('lives')
     }
 
-    startGame(card) {
+    startGame() {
         this.cardToCheck = null; //The card that has been flipped.
         this.totalScore = 0; //Score
         this.totalLives = 5;
         this.timeRemaining = this.totalTime;
         this.matchedCards = []; //list for matched cards
         this.busy = true;
-        setTimeout((card) => {
+        setTimeout(() => {
             this.shuffleCard(this.cardsArray);
             this.countDown = this.startCountDown();
             this.busy = false;
-            card.classList.add('visible')
         }, 500)
-        this.hideCards();
+        this.showCards()
+        setTimeout(()=>{
+            this.hideCards()
+        }, 5000)
         this.timer.innerText = this.timeRemaining;
         this.score.innerText = this.totalScore;
         this.chances.innerText = this.totalLives;
@@ -33,14 +36,32 @@ class matchingCard {
             card.classList.remove('matched');
         });
     }
+    showCards() {
+        this.cardsArray.forEach(card => {
+            card.classList.add('visible');
+        });
+    }
     victory() {
         this.hideCards();
         this.shuffleCard();
         this.cardToCheck = null;
         this.matchedCards = [];
+        this.totalScore = this.totalScore + 10;
+        this.score.innerText = this.totalScore;
+        setTimeout(() => {
+            this.shuffleCard(this.cardsArray);
+            this.busy = false;
+        }, 1000)
+        setTimeout(() =>{
+            this.showCards()
+        },1000)
+        setTimeout(()=>{
+            this.hideCards()
+        }, 6000)
     }
     gameOver() {
         clearInterval(this.countDown)
+
         document.getElementById("gameOverText").classList.add('visible')
 
     }
@@ -62,7 +83,6 @@ class matchingCard {
                 this.cardToCheck = card;
         }
     }
-
 
     checkForCardMatch(card) {
         if (this.getCardType(card) === this.getCardType(this.cardToCheck))
@@ -124,7 +144,7 @@ class matchingCard {
 function ready() {
     let overlays = Array.from(document.getElementsByClassName('overlayText'));
     let cards = Array.from(document.getElementsByClassName('card'));
-    let game = new matchingCard(100, cards)
+    let game = new matchingCard(120, cards)
 
     overlays.forEach(overlay => {
         overlay.addEventListener('click',() => {
@@ -147,4 +167,11 @@ else {
 }
 
 
-
+function hide(div) {
+    let x = document.getElementById(div)
+    x.style.display = "none";
+}
+function show(div) {
+    let x = document.getElementById(div)
+    x.style.display = "block";
+}

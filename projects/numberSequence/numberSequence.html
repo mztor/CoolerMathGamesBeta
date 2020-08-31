@@ -12,31 +12,46 @@
 <body>
 <h1 id="title">Number Sequence</h1>
 
+<!--The following div contains the four buttons present on the main menu, each executing a function when clicked. -->
 <div class="buttonHolder" id="difficulty_screen">
-    <button type="button" id="Kindergarten" class="difficultyButton" title="Aimed towards Kindergarten students." onclick=loadEasy()>Difficulty 1: Easy</button><br>
-    <button type="button" id="Year1" class="difficultyButton" title="Aimed towards Year 1 students." onclick=loadEasy()>Difficulty 2: Medium</button><br>
-    <button type="button" id="Year2" class="difficultyButton" title="Aimed towards Year 2 students" onclick=loadEasy()>Difficulty 3: Hard</button>
+	<button type="button" id="instruction" class="difficultyButton" title="View the instructions for Number Sequence" onclick=helptoggle()>View Instructions</button><br>
+    <button type="button" id="Kindergarten" class="difficultyButton" title="Aimed towards Kindergarten students." onclick=initialise()>Difficulty 1: Easy</button><br>
+    <button type="button" id="Year1" class="difficultyButton" title="Aimed towards Year 1 students." onclick=initialise()>Difficulty 2: Medium</button><br>
+    <button type="button" id="Year2" class="difficultyButton" title="Aimed towards Year 2 students" onclick=initialise()>Difficulty 3: Hard</button>
+</div>	
+
+<div class="invisibleStuff" id="helpScreen">
+	<h2>HELP / INSTRUCTIONS</h2>
+	<p>To start the game, select a difficulty. Upon clicking one of the options, the game will start immediately.</p>
+	<p>If you wish to select another difficulty, simply click on the Menu button at any time, which will return you to the difficulty screen.</p>
+	<p>When presented with a question, simply enter the next number in the displayed sequence of numbers and click on the button marked 'Enter Answer'</p>
+	<p>To return to the menu screen, simply click on the Menu button.</p>
 </div>
 
 <div id="questionScreen" class="invisibleStuff">
-    <h3 id="scoreCounter">Score: <span id="score"></span>/50 </h3><br>
+<!--The following two (2) lines contain the question and score counters, with spans to contain the value of these values. -->
+    <h3 id="questionCounter">Question: <span id="questionNumber"></span>/5</h3>
+    <h3 id="scoreCounter">Score: <span id="score"></span>/5</h3><br>
+	
+<!--This line acts as the question, with placeholders for the random numbers to be generated for the question. -->
     <p id="Question"><span id="FirstPlaceholder"></span>, <span id="SecondPlaceholder"></span>, <span id="ThirdPlaceholder">, </span>, __?</p><br>
-		<label for="operation">Operation: </label>
-		<select name="operation" id="operation">
-			<option value="addition">Addition (+)</option>
-			<option value="subtraction">Subtraction (-)</option>
-		</select><br><br>
-		<label for="answerField">Number Here: </label>
-		<input id="answerField" type="text" maxlength="7" value="Answer"><br><br>
-        <button type="button" id="submit" title="Submit your answer." onclick=answerCheck()>Enter Answer</button>
+	
+<!--The rest of this div acts to secure the user's answer, then to execute a JavaScript function when clicked. -->
+	<label for="answerField">Answer Here</label>
+    <input id="answerField" type="text" maxlength="2" onchange=answer()>
 </div>
 
 <div id="finalScreen" class="invisibleStuff">
-    <p id="winMessage">Congratulations! Your score was <span id="finalScore">*Score Here*</span></p>
-    <p id="perfectMessage">Congratulations! Perfect score!</p>
-    <p id="loseMessage">Keep trying to improve. Your score was <span id="loseScore">*Score Here*</span></p>
-    <button type="button" id="replay">Play Again?</button>
+<!--The following lines are the messages displayed to the player upon completion of the game, which display differently based on the user's performance. -->
+    <p id="winMessage" class="invisibleStuff">Congratulations! Your score was <span id="finalScore"></span></p>
+    <p id="perfectMessage" class="invisibleStuff">Congratulations! Perfect score!</p>
+    <p id="loseMessage" class="invisibleStuff">Keep trying to improve. Your score was <span id="loseScore"></span></p>
+
+<!--The following button allows the game to be reloaded ipon click, returning the user to question 1. -->
+    <button type="button" id="replay" onclick=again()>Play Again?</button>
 </div>
 
+<!--The following button is not in a div (and is thus present on all screens, returning the user to the game's difficulty screen. -->
+<button type="button" id="return" title="Returns you to the menu screen." onclick=menu()>Menu</button>
 </body>
 </html>

@@ -3,38 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="SpellingGames.css">
+    <script src="SpellingGame.js"></script>
     <title>SpellingGame</title>
 </head>
 <body>
 <h1>Welcome to the spelling challenge!</h1>
 
-<div id="userscreen"></div>
-<input type="text" placeholder="Enter Username"><input>
-<button class="button" id="enter" onclick="ToDifficulty"></button>
+<div id="UserScreen">
+    <input type="text" id="xUser" placeholder="Enter Username">
+    <button class="button" id="Enter" onclick="ClearUser()">Enter to Continue</button>
+</div>
 
-<div id="DifficultySelection" class=""></div>
-<div>
-    <h2>Choose your difficulty</h2>
+
+<div id="DifficultySelectionScreen" class="">
+
+    <h2>Choose your level of difficulty</h2>
+
+    <button class="button" id="Kindy" onclick="Loadkindy('Kindy')">Kindy</button>
+    <br><br>
+    <button class="button" id="Year1" onclick="LoadYear1('Year1')">Year 1</button>
+    <br><br>
+    <button class="button" id="Year2" onclick="LoadYear2('Year2')">Year 2</button>
+    <br><br>
+    <button class="button" id="help" onclick="LoadHelp('Help')">Help</button>
 </div>
-<div>
-    <button class="button" id="Kindy" onclick="Startkindy">Kindy</button>
+
+
+
+
+<div id="HelpScreen">
+    <h2>Welcome to the Help screen</h2>
+    <br>
+    <p>The aim of this game is to spell words in correlation to the image displayed</p>
+    <br>
+    <p>Difficulties consist of different length words</p>
+    <p>Kindy = 3 letters</p>
+    <p>Year 1 = 5 letters</p>
+    <p>Year 2 = 7 letters</p>
+    <button class="button" id="ReturntoDifficulty" onclick="LoadDifficultyAfterHelp('Difficulty')">Return</button>
+    <br>
 </div>
-<div>
-    <button class="button" id="Year1" onclick="(StartYear1)">Year 1</button>
-</div>
-<div>
-    <button class="button" id="Year2" onclick="StartYear2">Year 2</button>
-</div>
+
+
+
 <br>
-<div>
-    <button class="button" id="help" onclick="StartHelp">Help</button>
+
+
+
+<div id="Kindypage">
 </div>
-<br>
+
+
+
+<br><br><br>
+
+
+
+<div id="GameLayoutKindy">
+    <input type="text" id="Spelling" placeholder="Enter Correct Spelling">
+    <br><br>
+    <button class="button" id="Enterword" onclick="CheckAnswer('')">Enter</button>
+    <button class="button" id="QuitKindy" onclick="ReturnDifficulty('Difficulty')">Quit</button>
+    <button class="button" id="NextImage" onclick="Next('')">Next</button>
+
+</div>
+
+
+
+<div id="Year1page">
+</div>
+
+<div id="GameLayoutYear1">
+    <input type="text" id="SpellingY1" placeholder="Enter Correct Spelling">
+    <br><br>
+    <button class="button" id="EnterwordY1" onclick="CheckAnswer('')">Enter</button>
+    <button class="button" id="QuitKindyY1" onclick="ReturnDifficulty('Difficulty')">Quit</button>
+    <button class="button" id="NextImageY1" onclick="Next('')">Next</button>
+
+</div>
+
+<div id="Year2page">
+    <button class="button" id="QuitY2" onclick="ReturnDifficultyY2('Difficulty')">Quit</button>
+</div>
+
+<div id="correctscreen">
+    <h2>
+        That's correct !
+    </h2>
+</div>
+<div id="incorrectscreen">
+    <h2>
+        That's incorrect !
+    </h2>
+</div>
 <div>
+    <h1 id="scorescreen">
 
+    </h1>
+</div>
 
+<div id="finalscorescreen">
+    <h1>Difficulty Completed</h1>
+    <p id="Username"></p>
+    <p id="finalscore"></p>
+    <button class="button" id="QuitToMenu" onclick="ReturnToMain('Difficulty')">Quit To Menu</button>
 
+</div>
 
 
 </body>
-</html>
+</html></html>

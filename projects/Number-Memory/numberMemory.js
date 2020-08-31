@@ -1,9 +1,7 @@
 var Difficulty;
 var Answer;
-var Lives;
+var Lives = 2;
 var Level = 1;
-
-
 
 function HideDiv(div){
     var x = document.getElementById(div);
@@ -37,40 +35,41 @@ function GenerateNumber(Level){
 }
 
 function UpdateLives(){
-    var x = document.getElementById("lives_left")
-    x.innerHTML = Lives + "lives left";
+    var x = document.getElementById("lives_left_label")
+    x.innerHTML = "Lives left: " + (Lives + 1);
+    ShowDiv("incorrect");
 }
-
-function factorial (n) {
-    if (n > 0) {
-        return factorial(n - 1) * n;
-    } else {
-        return 1;
-    }
-}
-
-console.log(factorial(5));
 
 function RunTimer(){
     var mil = 10 * (Level + 2) * Difficulty;
     var elem = document.getElementById("myBar");
-    var width = 0;
+    var width = 100;
     var id = setInterval(frame, mil);
     function frame() {
-        if (width === 100) {
+        if (width === 0) {
             clearInterval(id);
             elem.style.width = '10px';
             EnableGuess();
         } else {
-            width++;
+            width--;
             elem.style.width = width + '%';
         }
     }
 }
 
+function isSpacePressed (event) {
+    if (event.keyCode === 13) {
+        document.removeEventListener("keydown", isSpacePressed);
+        SubmitGuess();
+    }
+}
+
 function EnableGuess(){
+    document.addEventListener("keydown", isSpacePressed);
+
     HideDiv("show_number");
     ShowDiv("guess_number");
+    document.getElementById("guess").focus();
 }
 
 function SubmitGuess(){
@@ -80,23 +79,47 @@ function SubmitGuess(){
         Level = Level + 1;
         ShowDiv("correct");
     } else {
-        if (Lives > 1){
+        if (Lives > 0){
             Lives = Lives - 1;
-            var y = document.getElementById("your_guess");
-            y.innerHTML = "Your guess: " + x.value;
-            var z = document.getElementById("correct_answer");
-            z.innerHTML = "Correct answer: " + Answer;
-            ShowDiv("incorrect");
-
+            UpdateLives();
         } else {
-            Lives = Lives - 1;
-
+            GameOver()
         }
     }
     x.value = "";
 }
 
+
 function NextLevel(){
     HideDiv("correct")
     SetDifficulty(Difficulty)
+}
+
+function RetryLevel(){
+    HideDiv("incorrect")
+    SetDifficulty(Difficulty)
+}
+
+function GameOver(){
+    var x = document.getElementById("final_score")
+    score = Level - 1
+    x.innerHTML = "Final score: " + score;
+    ShowDiv("gameOver")
+}
+
+function LoadInstructions(){
+    HideDiv("difficulty_select")
+    ShowDiv("instructions")
+}
+
+function LoadDifficulty(){
+    HideDiv("instructions")
+    ShowDiv("difficulty_select")
+}
+
+function RestartGame(){
+    Lives = 2
+    Level = 1
+    HideDiv("gameOver")
+    ShowDiv("difficulty_select")
 }
