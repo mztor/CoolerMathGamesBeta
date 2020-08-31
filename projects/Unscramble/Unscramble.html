@@ -12,7 +12,10 @@
 
     <!-- Title Page -->
     <div id="titlePage">
-        <button style="font-weight:bold" id="playButton" class="blueButtons" onclick="toDifficulty()">Play Game</button><br>
+        <!-- Play button -->
+        <button style="font-weight:bold" id="playButton" class="blueButtons" onclick="toDifficulty()">Play Game</button>
+        <br>
+        <!-- Leaderboard button -->
         <button id="leaderboardButton" class="blueButtons">Leaderboard</button>
     </div>
 
@@ -22,15 +25,18 @@
             Choose difficulty:
         </p>
         <p>
+            <!-- Level buttons [1,2,3] -->
             <button id="L1" class="LButtons" onclick="toGameplay(); getNextWord(this.id)">Level 1</button><br>
             <button id="L2" class="LButtons" onclick="toGameplay(); getNextWord(this.id)">Level 2</button><br>
             <button id="L3" class="LButtons" onclick="toGameplay(); getNextWord(this.id)">Level 3</button>
         </p>
+        <!--  Help icon -->
         <a id="helpButton" title="Help" onclick="toHelp()">?</a>
     </div>
 
     <!-- Help menu page -->
     <div id="helpMenu" class="hide">
+        <!-- Instructions -->
         <h1 id="instructionsTitle">Instructions</h1>
 
         <ul id="instructionsList">
@@ -39,6 +45,7 @@
             <li>Get as many words correct as you can to win!</li>
         </ul>
         <p>
+            <!-- Back button to previous page (Difficulty selection) -->
             <a class="blueButtons" onclick="toDifficulty()">← Back</a>
         </p>
 
@@ -46,17 +53,21 @@
 
     <!-- Gameplay Screens -->
     <div id="gameplay" class="hide">
+        <!-- Displayed score -->
         <span id="score">Score: <span id="scoreTotal">00</span></span><br>
+        <!-- Where the scrambled word is displayed -->
         <span id="s_word">xxx</span>
 
         <form>
             <label for="guess"></label>
+            <!-- Mark tick/cross -->
             <input id="guess" type="text"><span id="mark"></span><br>
-
         </form>
+        <!-- Different submit for each level -->
         <button id="submit_1" class="blueButtons hide" onclick="checkGuess(words_1[wordIndex - 1])">Submit</button>
         <button id="submit_2" class="blueButtons hide" onclick="checkGuess(words_2[wordIndex - 1])">Submit</button>
         <button id="submit_3" class="blueButtons hide" onclick="checkGuess(words_3[wordIndex - 1])">Submit</button>
+        <!-- Different next round for each level -->
         <button id="nextRound_1" class="blueButtons hide" onclick="getNextWord('L1'); document.getElementById('guess').value = ''">Next Round</button>
         <button id="nextRound_2" class="blueButtons hide" onclick="getNextWord('L2'); document.getElementById('guess').value = ''">Next Round</button>
         <button id="nextRound_3" class="blueButtons hide" onclick="getNextWord('L3'); document.getElementById('guess').value = ''">Next Round</button>
@@ -64,10 +75,13 @@
 
     <!-- Standard Win Screen -->
     <div id="winScreen" class="hide">
+        <!-- Congrats text -->
         <h2><span id="wellDone">Well done!</span><br>Your score was <span id="finalScore"></span>.</h2>
+        <!-- Play again button -->
         <button id="playGameAgain" class="blueButtons" onclick="resetOnQuit(); toTitlePage()">Play Again</button>
     </div>
 
+    <!-- Quit button used in all screens except title -->
     <button id="quit" class="blueButtons hide" onclick="resetOnQuit(); toTitlePage()">Quit</button>
 </body>
 </html>
