@@ -1,30 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="main.css" rel="stylesheet">
-<script src="js.js"></script>
+<link href="numberMemoryStyle.css" rel="stylesheet">
+<script src="numberMemory.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Number memory game</title>
 </head>
 <body>
+<label id="lives_left"></label>
 <div id="difficulty_select">
-    <h1>Welcome to the Number Memory Game</h1>
-    <h2>Choose your difficulty</h2>
-    <button id="but_easy" onclick="SetDifficulty(1)">Easy</button>
-    <button id="but_medium" onclick="SetDifficulty(0.8)">Medium</button>
-    <button id="but_hard" onclick="SetDifficulty(0.6)">Hard</button>
+    <h1>Welcome to Number Memory</h1>
+    <h2>Select a difficulty to begin</h2>
+    <div class="button_position">
+        <button id="but_easy" onclick="SetDifficulty(1)">easy</button>
+        <button id="but_medium" onclick="SetDifficulty(0.8)">medium</button>
+        <button id="but_hard" onclick="SetDifficulty(0.6)">hard</button>
+    </div>
+    <button id="but_instructions" onclick="LoadInstructions()">Instructions</button>
 </div>
-<div id="showNumber"></div>
-<div id="showGuess"></div>
-<label id="guessNumber"></label>
+
+<div id="instructions" style="display:none;">
+    <h1>Number Memory guide</h1>
+    <h3><br><br>You will start off the game by selecting a difficulty. The harder the difficulty, the lower time you have to memorise the number. <br><br> A number will then flash up on the screen and you have to try and memorise the number before the timer runs out. You will then be given a screen which will allow you to type in the number that you memorised. If you get the answer correct, you will be loaded into the next level and will be given a larger number to remember. If you get the number incorrect, you will be subtracted 1 life and will be given the opportunity to retry the level. <br><br> Good Luck!</h3>
+    <button id="difficulty_but" onclick="LoadDifficulty()">Start Game</button>
+</div>
+
+<div id="show_number" style="display:none;">
+    <h1 id="display_number">number</h1>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+</div>
+
+<div id="guess_number" style="display:none;">
+    <h1>What was the number?</h1>
+    <div class="hint">Press enter to submit</div>
+    <h3>
+        <input id="guess" type="text" value="">
+    </h3>
+    <button id="but_submit" onclick="SubmitGuess()">Submit</button>
+</div>
+
+<div id="correct" style="display:none;">
+    <div id="check_mark">✓</div>
+    <h1>Correct answer</h1>
+    <button id="next" onclick="NextLevel()">Next Level</button>
+</div>
+
+<div id="incorrect" style="display:none;">
+    <div id="cross_mark">✗</div>
+    <h1>Incorrect answer</h1>
+    <div id="lives_left_label">lives</div>
+    <button id="retry" onclick="RetryLevel()">Retry Level</button>
+</div>
+
+<div id="gameOver" style="display:none;">
+    <label id="final_score">FinalScore</label>
+    <button id="restart_game" onclick="RestartGame()">Restart</button>
+</div>
+
+
 </body>
-<script>
-
-
-    //random number
-    var Answer;Answer = ( GenerateNumber(amount));
-    document.getElementById("GuessNumber").innerHTML = Answer;
-
-</script>
-
 </html>

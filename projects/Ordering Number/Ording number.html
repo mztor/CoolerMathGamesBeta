@@ -8,38 +8,63 @@
     <script src="Ording%20number.js"></script>
 </head>
 <body>
-<div class="container">
+
     <div>
-        <h1>Ording Number</h1>
-    </div>
-    <div id="difficulty">
+        <h1 id="gameTitle">Ording Number</h1>
+        <!--difficulity selection page-->
+        <div id="difficulty">
         <div>
             <h2>Choose Your Difficulty</h2>
-        </div>
-        <div>
-            <button class="button" id="level1" onclick="toGame()">Level 1</button>
-        </div>
-        <div>
-            <button class="button" id="level2" onclick="toGame()">Level 2</button>
-        </div>
-        <div>
-            <button class="button" id="level3" onclick="toGame()">Level 3</button>
+        <p>
+            <button class="button" id="level1" onclick="toGame1()">Level 1</button><br>
+            <button class="button" id="level2" onclick="toGame2()">Level 2</button><br>
+            <button class="button" id="level3" onclick="toGame3()">Level 3</button>
+        </p>
         </div>
         <br>
         <div>
-            <button class="button" id="help" onclick="toHelp()">?</button>
-        </div>
-       <!-- help menu for instruction-->
-        <div id="helpMenu" class="hide"
-             <h1 id="instruction">Instructions</h1>
-
-             <ul id="instruction">
-                 <li>Choose the difficulty</li>
-                 <li>click the button by order the number from sm allest to biggest/li>
-
-             </ul>
+            <button class="button" id="help" onclick="helpMenu()">?</button>
         </div>
     </div>
+       <!-- help menu for instruction-->
+        <div id="helpMenu" class="hide">
+                    <h1 id="instructionsTitle">Instructions</h1>
+
+                    <ul id="instructionsList">
+                        <li>Click the button by ording number from smallest to largest</li>
+                        <li>Click the correct button to get the point</li>
+                        <li>You have three time to get wrong in one round</li>
+                        <li>Get more correct order to win the game</li>
+                    </ul>
+                    <p>
+                        <a id="backButton" class="button" onclick="toDifficulty()">Back</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button id="quitButton" onclick="quitButton()">Quit</button>
+        </div>
+
+        <!--Level 1 page-->
+        <div id="game1" class="hide" >
+            <a id="scoretext">Score: </a> <span id="score">3</span></span><br>
+            <button id="startButton" onclick="myFunction()" >Start</button>
+        </div>
+        <!--win screen page-->
+        <div id="winscreen" class="hide">
+            <h2><span id="wellDone">Well done!</span></h2>
+        </div>
+        <!--fail screen page-->
+        <div id="failscreen" class="hide">
+            <ul>Fail the Game</ul>
+        </div>
+        <!--highscore page-->
+        <div id="highscorediv" class="hide">
+            Your High Score was <span id="highscore"></span>
+        </div>
+        <div id="playAgain" class="hide" onclick="toDifficulty()">Play Again</div>
 </div>
 </body>
 </html>
+

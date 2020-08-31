@@ -1,39 +1,145 @@
-.container {
-    margin: 0 auto;
+body {
     text-align: center;
+    font-family: sans-serif;
+    font-size: 32px;
 }
 
-h1 {
-    font-size: 70px;
+#gameTitle {
+    color: #6080f2;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 80px;
 }
 
 h2 {
     font-size: 30px;
 }
-
 .button {
     width: 150px;
     height: 55px;
     border-radius: 15px;
     border: 2px solid;
     margin-bottom: 5px;
-    background-color: lightyellow;
+    font-size:25px;
+}
+#level1 {
+    color: #c1e4f7;
+    background-color: #3aa6dd;
+    cursor: pointer;}
+
+#level2 {
+    color: #c1e4f7;
+    background-color: #3aa6dd;
+    cursor: pointer;}
+
+#level3 {
+    color: #c1e4f7;
+    background-color: #3aa6dd;
+    cursor: pointer;
 }
 
-
-#difficulty {
-    display: block;
-}
 
 #help {
-    display: block;
-    border-radius: 50px ;
-    height: 40px ;
-    width: 40px ;
-    font-size: 1em ;
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: skyblue;
+    color: black;
+}
+#instructionsList {
+    text-align: left;
+    line-height: 50px;
+    font-size: 22px;
+    padding: 80px;
+    border: 3px solid black;
+    width: 40%;
+    margin: auto;
+
+}
+#score {
+    position: absolute;
+    right: 60px;
+}
+
+.hide {
+    display:none;
+}
+
+#backButton {
+    width: 150px;
+    height: 55px;
+    border-radius: 15px;
     border: 2px solid;
     margin-bottom: 5px;
-    position: absolute;
-    right: 30px;
-    background-color: lightskyblue;
+    font-size:20px;
+    background-color: #3aa6dd;
+
 }
+#quitButton {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    left:100px;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: skyblue;
+    color: black;
+}
+#scoretext {
+    position:absolute;
+    right:80px;
+}
+#startButton {
+    width: 80px;
+    height: 35px;
+    border-radius: 15px;
+    border: 2px solid;
+    margin-bottom: 5px;
+    font-size:20px;
+    border-color: rgb(201, 45, 57);
+    background-color: rgb(255, 187, 177);
+    color: rgb(201, 45, 57);
+}
+
+#playAgain {
+    width: 150px;
+    height: 35px;
+    border-radius: 15px;
+    border: 2px solid;
+    margin-bottom: 5px;
+    background-color: #c7e8ac;
+    font-size:25px;
+    right: 30px;
+    left:100px;
+}
+#winScreen {
+    text-align: left;
+    line-height: 50px;
+    font-size: 22px;
+    padding: 80px;
+    border: 3px solid black;
+    width: 40%;
+    margin: auto;
+}
+#highscorediv{
+    text-align: left;
+    font-size: 22px;
+    padding: 80px;
+    width: 40%;
+    margin: auto;
+}
+
