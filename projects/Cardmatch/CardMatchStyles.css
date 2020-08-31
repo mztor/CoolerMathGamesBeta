@@ -112,4 +112,17 @@ h1 {
 .afterText {
     font-size: .3em;
 }
+#testing {
+    position: absolute;
+    top: 150px;
+}
 
+#flipping {
+    position: absolute;
+    top: 180px;
+}
+
+.cardText {
+    color: white;
+    display: none;
+}

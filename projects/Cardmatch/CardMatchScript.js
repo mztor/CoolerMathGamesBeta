@@ -21,10 +21,12 @@ class matchingCard {
             this.countDown = this.startCountDown();
             this.busy = false;
         }, 500)
-        this.showCards()
+        setTimeout(() =>{
+            this.showCards()
+        },1000)
         setTimeout(()=>{
             this.hideCards()
-        }, 5000)
+        }, 6000)
         this.timer.innerText = this.timeRemaining;
         this.score.innerText = this.totalScore;
         this.chances.innerText = this.totalLives;
@@ -51,7 +53,7 @@ class matchingCard {
         setTimeout(() => {
             this.shuffleCard(this.cardsArray);
             this.busy = false;
-        }, 1000)
+        }, 500)
         setTimeout(() =>{
             this.showCards()
         },1000)
@@ -144,7 +146,7 @@ class matchingCard {
 function ready() {
     let overlays = Array.from(document.getElementsByClassName('overlayText'));
     let cards = Array.from(document.getElementsByClassName('card'));
-    let game = new matchingCard(120, cards)
+    let game = new matchingCard(100, cards)
 
     overlays.forEach(overlay => {
         overlay.addEventListener('click',() => {
@@ -166,12 +168,24 @@ else {
     ready();
 }
 
+function testing() {
+    let x = document.getElementById("flipping");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
 
-function hide(div) {
-    let x = document.getElementById(div)
-    x.style.display = "none";
+
+
+function reveal() {
+    let x = document.getElementsByClassName("cardText");
+    if (x.display === "none") {
+        x.display = "block";
+    }
+    else {
+        x.display = "none";
+    }
 }
-function show(div) {
-    let x = document.getElementById(div)
-    x.style.display = "block";
-}
+
