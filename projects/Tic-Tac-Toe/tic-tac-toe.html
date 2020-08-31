@@ -103,7 +103,7 @@
 </div>
 <div id="content">
     <div class="EverythingTTT">
-        //the game element of the code, initially not seen due to class element
+<!--        the game element of the code, initially not seen due to class element-->
         <div id="gameTTT" class="hideTTT">
             <br><br><br>
             <h2>Who's turn</h2>
@@ -111,6 +111,7 @@
             <h1>Who will win?</h1>
             <br>
             <h3 id="score">Score</h3>
+
 
             <br>
             <!Boxes which display game>
@@ -132,7 +133,7 @@
 
             <input type = "text" id="textBox9" value="Click" maxlength="1" size="1" class="inputTTT" onclick="clicked(9)">
             <br>
-            <!Quit button which goes to>
+            <!Quit button which goes to main menu>
             <button class="buttonTTT" onclick="QuitGame()">Quit</button>
         </div>
 
@@ -140,14 +141,17 @@
             <! first thing that users see>
             <br><br><br>
             <h1>Welcome to Tic-Tac-Toes!</h1>
-            <button class="buttonTTT" onclick="Play()">Begin</button><!goes to selection screen>
+            <button class="buttonTTT" onclick="Play()">Begin</button><!--goes to selection screen-->
             <br><br><br><br><br>
-            <button class="buttonTTT" onclick="Help()">Help</button><!goes to help screen>
+            <button class="buttonTTT" onclick="Help()">Help</button><!--goes to help screen-->
             <br><br><br><br><br><br>
-            <button class="buttonTTT" onclick="Quit()">Quit</button><!hasn't been written yet but will go back to which game they want to play>
+            <button class="buttonTTT" onclick="Quit()">Quit</button><!--hasn't been written yet but will go
+            back to which game they want to play-->
         </div>
 
         <div id="SelectionTTT" class="hideTTT">
+            <!--This div tag displays the amount of games the user wishes to select which assigns a number to the
+                      variable "target"-->
             <br><br><br>
             <h1>Select how many games to play!</h1>
             <br><br>
@@ -162,6 +166,7 @@
         </div>
 
         <div id="WinscreenTTT" class="hideTTT">
+            <!--  Displays who won once target = 0  -->
             <br><br><br>
             <p class="wintextTTT">Winner</p>
             <button class="buttonTTT" onclick="replay()">Play again</button>
@@ -170,6 +175,7 @@
         </div>
 
         <div id="helpTTT" class="hideTTT">
+            <!-- Displays to the user how tic tac toe works          -->
             <br><br><br>
             <h1>This is the help menu</h1>
             <br>
@@ -185,6 +191,7 @@
         </div>
 
         <div id="DrawscreenTTT" class="hideTTT">
+            <!--  The draw screen is displayed when target=0 and score1=score2          -->
             <br><br><br>
             <h1>A draw!!!!!</h1>
             <button class="buttonTTT" onclick="QuitDraw()">Quit</button>
