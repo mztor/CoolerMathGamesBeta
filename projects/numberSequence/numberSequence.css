@@ -1,3 +1,5 @@
+/*The title ID is the large centered heading of the game, which
+reads 'Number Sequence'*/
 #title {
     font-size: 64px;
     text-align: center;
@@ -5,10 +7,14 @@
     color: #6080f2;
 }
 
+/*The invisibleStuff class is used by various divs and elements
+throughout the files to make the element invisibe*/
 .invisibleStuff {
     display: none;
 }
 
+/*This class is used by the main screen's div to align the buttons
+to the center of the screen*/
 .buttonHolder {
     justify-content: center;
     text-align: center;
@@ -16,6 +22,8 @@
     margin: 0 auto;
 }
 
+/*Applied specifically to the buttons on the difficulty screen, 
+controlling attributes such as their colour, size, and shape*/
 .difficultyButton {
     background-color: #6080f2;
     color: white;
@@ -25,10 +33,14 @@
     width: 200px;
 }
 
+/*Gives the buttons in the section atop a red border when
+hovered over*/
 .difficultyButton:hover {
     border: 5px solid #f44336;
 }
 
+/*The score counter is justified to the right, with a controlled
+font size*/
 #scoreCounter {
     justify-content: right;
     padding: 0;
@@ -36,6 +48,8 @@
     font-size: 32px;
 }
 
+/*Similar to the score counter, however this time to the left,
+and counting the users question*/
 #questionCounter {
     justify-content: left;
     padding: 0;
@@ -43,6 +57,8 @@
     font-size: 32px;
 }
 
+/*The actual question being displayed to the user is a large font
+size, the same colour as the buttons and aligned to the center*/
 #Question {
     font-size: 64px;
     text-align: center;
@@ -50,7 +66,10 @@
     color: #6080f2;
 }
 
-#submit, #return, #replay {
+/*The two IDs are the two buttons which are used to navigate to the main menu,
+and the other to reload the game upon completion. Both of which are styled
+the exact same way, and this saves on space in the document. */
+#return, #replay {
 	text-align: left;
 	justify-content: left;
 	display: block;

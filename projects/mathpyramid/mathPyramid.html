@@ -48,15 +48,15 @@
             </div>
 
             <div style="margin-top: 10px">
-                <label for="userInput"><input id="userInput" style="height: 45px;margin-right: 10px"></label>
+                <input id="userInput" style="height: 45px;margin-right: 10px"><button id="check" onclick="checkAnswer()" class="buttonMain">Check</button>
             </div>
             <div><p id="result">&nbsp</p></div>
         </div>
+
         <div style="margin-top: 50px">
             <button id="back" onclick="toMenu()" class="buttonMain" style="float:left;margin-left: 50px">Back</button>
-            <button id="next" onclick="game()" class="buttonMain" style="float: right;margin-right: 50px;position: absolute;z-index: -1;right: 560px">Next</button>
-            <button id="check" onclick="checkAnswer()" class="buttonMain"  style="float: right;margin-right: 50px;position: relative">Check</button></div>
-    </div>
+            <button id="next" onclick="game()" class="buttonMain" style="float: right;margin-right: 50px">Next</button>
+        </div>
 
     <div id="ResultMP" class="hidden">
         <h1>Your score is</h1>

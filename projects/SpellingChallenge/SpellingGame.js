@@ -83,6 +83,7 @@ function ReturnToMain(difficulty){
     document.getElementById('finalscorescreen').style = 'display:none;'
     document.getElementById('DifficultySelectionScreen').style = 'display:block;'
     counter=0
+    score=0
 }
 
 function CheckAnswer() {

@@ -9,6 +9,9 @@ function difficultySelection() {
     document.getElementById("helpText").style.display = "none";
 }
 
+// this function is called so that when the start button is pressed, the difficulties show up and the start button
+// disappears.
+
 function hideDifficulty() {
     document.getElementById("buttons").style.display = "none";
     document.getElementById("aimTitle").classList.add("hide");
@@ -17,7 +20,7 @@ function hideDifficulty() {
     document.getElementById("targetHit").classList.remove('hide');
     document.getElementById("backDifficulty").style.display = "none";
 
-
+// this function makes that when a difficulty is selected, the difficulty and difficulty help buttons disappear.
 
 
 }
@@ -27,11 +30,15 @@ function showText() {
     document.getElementById('backDifficulty').style.display = "block";
 }
 
+// function that displays the difficulty help text and hides the difficulty selection.
+
 var targetHits = 0;
 var targetAmountHard = 30;
 
 document.getElementById("targetLeft").textContent = "Targets Left: " + targetAmountHard.toString();
 document.getElementById("targetHit").textContent = "Targets Hit: "  + targetHits.toString();
+
+// assigning the targetHit variable value to the textContent of the targetHit id.
 
 
 const player = { // making sure the the 1st target will always appear in the middle of the screen.
@@ -47,7 +54,7 @@ function onclick (e) { // function that checks whether or not the target was cli
     let py = e.clientY - el.offsetTop;
     if ((player.x -px)**2 + (player.y - py)**2 < 50**2) {
         console.log("hit");
-        targetHits = targetHits + 1;
+        targetHits = targetHits + 1; //adding 1 to the targetHits if the user has clicked the target.
         targetAmountHard -= 1;
         console.log(targetAmountHard);
     }
@@ -56,22 +63,23 @@ function onclick (e) { // function that checks whether or not the target was cli
         targetAmountHard -= 1;
         console.log(targetAmountHard);
     }
-    hardBoundary();
+    hardBoundary(); // updates the target coordinates on the canvas.
     document.getElementById("targetLeft").textContent = "Targets Left: " + targetAmountHard.toString();
     document.getElementById("targetHit").textContent = "Targets Hit: "  + targetHits.toString();
-
+    // updating the text value of the targetLeft and targetHit.
 
 }
 
-function hardBoundary(){
+function hardBoundary(){ // the range that the target can spawn within the canvas, this range is for the expert difficulty.
     player.x = 1600 * Math.random();
     player.y = 800 * Math.random();
 }
 
+
+
 function run () { // function that runs the target game.
     var loop = function () {
-        /*updateHard();*/
-        render();
+        render(); //looping the render function.
         window.requestAnimationFrame(loop);
 
     }
@@ -79,10 +87,10 @@ function run () { // function that runs the target game.
 
 }
 
-function render() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+function render() { // drawing the target on the canvas.
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // clears the canvas area.
     ctx.fillStyle = "cornflowerblue";
     ctx.beginPath();
-    ctx.arc(player.x, player.y, 50, 0, 2 * Math.PI)
+    ctx.arc(player.x, player.y, 50, 0, 2 * Math.PI) // drawing the circle target.
     ctx.fill();
 }
