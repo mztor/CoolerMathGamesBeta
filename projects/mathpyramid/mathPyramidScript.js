@@ -94,14 +94,19 @@ function game(){
             document.getElementById("L33").innerHTML = "&nbsp";
             answer = L33;
         }
-        document.getElementById("output").innerHTML = "";
+        document.getElementById("userInput").innerHTML = "";
+        document.getElementById("next").classList.remove("buttonMain");
+        document.getElementById("next").classList.add("hidden");
     }
+
 }
 
 //Checking the correctness of input
 function checkAnswer() {
     document.getElementById("check").classList.remove("buttonMain");
     document.getElementById("check").classList.add("hidden");
+    document.getElementById("next").classList.remove("hidden");
+    document.getElementById("next").classList.add("buttonMain");
     var input = Number(document.getElementById("userInput").value);
     if (input === answer){
         document.getElementById("result").innerHTML = "Correct!"

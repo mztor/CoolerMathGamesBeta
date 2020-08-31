@@ -7,6 +7,7 @@
     <script src="mathPyramidScript.js"></script>
 </head>
 <body>
+    <!--Menu page-->
     <div id="menuMP" class="gameMain">
         <div>
             <h1>Welcome to Math Pyramid!</h1>
@@ -27,12 +28,13 @@
             <button class="buttonMain" onclick="toHelp()">Help</button>
         </div>
     </div>
-
-    <div id="gameMP"  class="hidden"> <!-- -->
+    <!--Game page-->
+    <div id="gameMP"  class="hidden">
+        <!--Teh score and the question number in the top-->
         <div><h2 id="questionNum" class="questionNum">Question:0</h2>&nbsp;<h2 id="score" class="score">score:0</h2></div><br>
 
         <table style="height: 10px"> </table>
-
+        <!--Main game-->
         <div style="margin-top: 50px">
 
             <div class="divGame0">
@@ -52,18 +54,20 @@
             </div>
             <div><p id="result">&nbsp</p></div>
         </div>
-
+        <!--Button in the bottom-->
         <div style="margin-top: 50px">
             <button id="back" onclick="toMenu()" class="buttonMain" style="float:left;margin-left: 50px">Back</button>
-            <button id="next" onclick="game()" class="buttonMain" style="float: right;margin-right: 50px">Next</button>
+            <button id="next" onclick="game()" class="hidden" style="float: right;margin-right: 50px">Next</button>
         </div>
+    </div>
 
+    <!--Result page-->
     <div id="ResultMP" class="hidden">
         <h1>Your score is</h1>
         <h1 id="TScore"></h1>
         <button id="backResult" onclick="toMenu()" class="buttonMain" style="float:left;margin-left: 50px">Back</button>
     </div>
-
+    <!--Help page-->
     <div id="helpMP" class="hidden">
         <div style="text-align: center">
             <ul>
