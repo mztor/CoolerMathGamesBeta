@@ -101,12 +101,6 @@
     </div>
 </div>
 <div id="content"></div>
-<!-- <div id="footer">
-    <h1>If you wish to <a href="#"><em>contact</em></a> us or learn more <a href="#"><em>about us</em></a>. Use the following social media platforms or continue to peruse our site.</h1>
-    <a href="https://www.github.com/mztor/CoolerMathGamesBeta" target="_blank"><img src="images/svg/github.svg" width="75px"/></a>
-    <a href="mailto:theawesomew@gmail.com"><img src="images/svg/mail.svg" width="75px"/></a>
-    <a href="https://www.twitter.com" target="_blank"><img src="images/svg/twitter.svg" width="75px"/></a>
-</div> -->
 <!-- These tags load in the script files for access to the necessary Google APIs
          as well as the in-house developed JS code -->
 <script>
@@ -128,7 +122,7 @@
     /* This variable holds the email address of the Signed In user. It is initialised as an empty string as
     * the code has not yet ascertained the identity of the user. However, it is altered when the user signs in */
     let eAddress = "";
-    let labels = [];
+    let labels = ['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13'];
 
 
     /* This function loads the Oauth 2 API when the its script files have been imported */
@@ -183,7 +177,7 @@
                     let users = {};
                     for (let rows = 0; rows < values.length; rows++) {
                         if (rows === 0) {
-                            labels.push(...values[rows][1].slice(1));
+                            //labels.push(...values[rows][1].slice(1));
                             continue;
                         }
                         let scores = {};
@@ -203,10 +197,35 @@
     async function getHighScore(game, score) {
         let auth2 = gapi.auth2.getAuthInstance();
         let users = await getUserData(auth2.isSignedIn.get());
-        if (!(eAddress in users)) {
-            console.log('not found');
+        let isHighScore = false;
+        if (labels.includes(game)) {
+            if (!(eAddress in users)) {
+                let scores = {}
+                labels.forEach((key) => {
+                    scores[key] = key === game ? score : 0;
+                });
+                users[eAddress] = scores;
+            } else {
+                if (users[eAddress][game] < score) {
+                    users[eAddress][game] = score;
+                    isHighScore = true;
+                }
+            }
+            let values = []
+            values.push(["email"].concat(labels));
+            for (let userObj of Object.entries(users)) {
+                values.push([userObj[0]].concat(Object.values(userObj[1])));
+            }
+            return gapi.client.sheets.spreadsheets.values.update({
+                spreadsheetId: SPREADSHEET_ID,
+                range: "Sheet1",
+                valueInputOption: 'USER_ENTERED',
+                resource: {values: values}
+            }).then((response) => {
+                return isHighScore;
+            });
         } else {
-            console.log('found');
+            throw new Error("Invalid 'game' variable parsed");
         }
     }
 </script>

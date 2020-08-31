@@ -3,25 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Aim Game</title>
-    <link rel="stylesheet" href="aimgame.css">
+    <link rel="stylesheet" href="aimGame.css">
 </head>
 <body>
 <canvas id="tester-canvas" width="1895" height="925" class="hide"></canvas>
-<div id="targetCount">
-</div>
+
 <div id="targetHit" class="hide"></div>
+<div id="targetLeft" class="hide"></div>
 <h1 id="aimTitle">The Aim Game</h1>
 <div id="start">
     <button id="startDifficulty" onclick="difficultySelection()">Start</button>
 </div>
+
+
 <div id="buttons" class="hide">
     <button id="easyMode">Easy</button>
     <button id="standardMode">Standard</button>
-    <button id="expertMode" onclick="{ document.getElementById('tester-canvas').classList.remove('hide'); run(); hideDifficulty();  }">Expert</button>
+    <button id="expertMode" onclick="{ document.getElementById('targetLeft').classList.remove('hide'); run(); hideDifficulty();  }">Expert</button>
+    <button id="helpButton" onclick="showText()">Difficulty Help</button>
+
+
 </div>
-<div id="accuracyDesc">Accuracy : </div>
-<div id="accuracyHard"></div>
-<script src="aimgame.js"></script>
+
+<div id="helpText" class="hide">
+    <div id="easyText">Easy : 10 targets, the maximum distance between each target is small.
+    </div>
+    <div id="standardText">Standard : 20 targets, the maximum distance between each target that will spawn is bigger.
+    </div>
+    <div id="expertText">Expert: 30 targets, the maximum distance between each target that will spawn may be from one side to the other side of the screen.
+    </div>
+
+</div>
+
+<button id="backDifficulty" onclick="{ difficultySelection(); document.getElementById('backDifficulty').style.display = 'none' }" class="hide">Go Back.</button>
+
+
+<script src="aimGame.js"></script>
 </body>
 </html>
 

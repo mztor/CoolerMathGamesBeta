@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap'); /*Pulling the font from google*/
 
 body {
-    font-family: 'Architects Daughter', cursive;
+    font-family: 'Architects Daughter', cursive; /*Making all fonts in the page architects daughter*/
 }
 
-.container {
+.container { /*aligning everything to the center of the page*/
     margin: 0 auto;
     text-align: center;
 }

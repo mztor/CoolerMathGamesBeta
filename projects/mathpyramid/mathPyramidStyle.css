@@ -34,9 +34,6 @@
     float: right;
     margin:8px 50px;
 }
-.hidden{
-    display:none;
-}
 
 .divGame0{
     text-align: center;
@@ -47,4 +44,8 @@
     width: 200px;
     display: inline-block;
     border: black 2px solid;
+}
+
+.hidden{
+    display:none;
 }

@@ -61,15 +61,15 @@ function winCondition() {
 
 
 
-    else if (data[0][0] === data[0][1] && data[0][1] === data[0][2] ||
-        data[1][0] === data[1][1] && data[1][1] === data[1][2] ||
-        data[2][0] === data[2][1] && data[2][1] === data[2][2]) {
-        if (data[0][0] === "x" && data[0][1] === "x" && data[0][2] === "x" ||
-            data[1][0] === "x" && data[1][1] === "x" && data[1][2] === "x" ||
-            data[2][0] === "x" && data[2][1] === "x" && data[2][2] === "x" ||
-            data[0][0] === "o" && data[0][1] === "o" && data[0][2] === "o" ||
-            data[1][0] === "o" && data[1][1] === "o" && data[1][2] === "o" ||
-            data[2][0] === "o" && data[2][1] === "o" && data[2][2] === "o"){
+    else if (data[0][0] === data[1][0] && data[1][0] === data[2][0] ||
+        data[0][1] === data[1][1] && data[1][1] === data[2][1] ||
+        data[0][2] === data[1][2] && data[1][2] === data[2][2]) {
+        if (data[0][0] === "x" && data[1][0] === "x" && data[2][0] === "x" ||
+            data[0][1] === "x" && data[1][1] === "x" && data[2][1] === "x" ||
+            data[0][2] === "x" && data[1][2] === "x" && data[2][2] === "x" ||
+            data[0][0] === "o" && data[1][0] === "o" && data[2][0] === "o" ||
+            data[0][1] === "o" && data[1][1] === "o" && data[2][1] === "o" ||
+            data[0][2] === "o" && data[1][2] === "o" && data[2][2] === "o" ){
             target--;
             if (target === 0){
                 winScreen()
