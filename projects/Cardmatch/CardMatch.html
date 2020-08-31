@@ -6,15 +6,15 @@
     <link rel="stylesheet" href="CardMatchStyles.css">
     <script src="CardMatchScript.js"></script>
 </head>
-
+<!-- links to css and javascript -->
 
 <body>
-<h1 class="pageTitle">Matching Cards</h1>
+<h1 class="pageTitle">Matching Cards</h1> <!-- title -->
 
 <button id="flipping" onclick="flipping()" style="display: none;">Flipping</button>
 <div class="overlayText visible">
     Click to Start
-    <button id="testing" onclick="testing()">Testing mode</button>
+    <button id="testing" onclick="testing()">Testing mode</button> <!--starting screen-->
 </div>
 
 <div id="gameOverText" class="overlayText">
@@ -22,28 +22,28 @@
     <div class="overlayScore">
         Score: <span id="scoreAfter">0</span>
     </div>
-    <span id="Restart" class="afterText">Try Again</span>
+    <span id="Restart" class="afterText">Try Again</span> <!--the text for the gameover screen-->
 
 </div>
 
-<div class="gameContainer">
+<div class="gameContainer"> <!--contains info of the game design and structure-->
    <div class="gameInformationContainer">
 
         <div class="gameInfo">
-            Lives: <span id="lives"></span>
+            Lives: <span id="lives"></span><!--lives-->
         </div>
 
         <div class="gameInfo">
-            Time: <span id="timeRemaining"></span>
+            Time: <span id="timeRemaining"></span><!--timer-->
         </div>
 
         <div class="gameInfo">
-            Score: <span id="Score">0</span>
+            Score: <span id="Score">0</span><!--score-->
         </div>
 
 
     </div>
-    <div class="card">
+    <div class="card"> <!--every single card-->
         <div class="cardFront cardFace">
             <img class="cardValue" src="food/KrabbyPatty.jpg" style="width: 100px;" alt="burger">
         </div>
