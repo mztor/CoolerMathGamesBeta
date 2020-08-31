@@ -1,3 +1,4 @@
+//Where the scores will be recorded to || if IM is at the start of something it it reffering to the harder difficulty
 let playerboard = 0;
 let computerboard = 0;
 let winstreak = 0;
@@ -5,8 +6,9 @@ let IMplayerboard = 0;
 let IMcomputerboard = 0;
 let IMwinstreak = 0;
 
-
+//This is setting the options that the computer will be able to use
 var ability = ['Rock','Paper', 'Scissors'];
+//Making options for the user to use, this also changes the text onscreen to what you chose
 function rockchoice() {
     response2.textContent = "Rock";
 }
@@ -21,9 +23,11 @@ function scissorschoice() {
     response2.textContent = "Scissors";
 }
 scissors.onclick = scissorschoice;
-
+//This compares your result to the randomly generated response from the computer
 function Check() {
+    //randomly selects one of the options in the array (ability)
     var random = ability[Math.floor(Math.random()*ability.length)];
+    //Starts comparing results
     response.textContent = random;
     if (response2.textContent === random) {
         changethis.textContent = "You Tie";
@@ -64,20 +68,24 @@ function Check() {
             computerboard++;
         }
     }
+    //Changing the pre existing onscreen text to the score
     document.getElementById("computerscorechange").textContent = computerboard;
     document.getElementById("playerscorechange").textContent = playerboard;
+    //if computer wins opens loser end screen
     if (computerboard === 3) {
         document.getElementById("StartStandard").style.display = "none";
         document.getElementById("LoserEndScreen").style.display = "block";
         winstreak = 0;
     }
+    //if player wins opens winner end screen
     if (playerboard === 3) {
         document.getElementById("StartStandard").style.display = "none";
         document.getElementById("WinnerEndScreen").style.display = "block";
         winstreak++;
     }
+    //sets the screen back up for the next game
     document.getElementById("responses").style.display = "none";
-    document.getElementById("button2").style.display = "block";
+    document.getElementById("PLAYAGAIN").style.display = "block";
     document.getElementById("changethis").style.display = "block";
     document.getElementById("playerscore").style.display = "block";
     document.getElementById("computerscore").style.display = "block";
@@ -85,6 +93,7 @@ function Check() {
     document.getElementById("winstreakchange").textContent = winstreak;
 }
 responses.onclick = Check;
+//Hides everything but the two options when you press start
 function startbutton() {
     document.getElementById("Startbutton").style.display = "none";
     document.getElementById("standardbutton").style.display = "block";
@@ -98,16 +107,18 @@ function startbutton() {
 Startbutton.onclick = startbutton;
 
 function standardmode2() {
+    //hides everything but the standard game
     document.getElementById("standardbutton").style.display = "none";
     document.getElementById("hardbutton").style.display = "none";
     document.getElementById("responses").style.display = "block";
     document.getElementById("response").style.display = "block";
     document.getElementById("response2").style.display = "block";
     document.getElementById("StartStandard").style.display = "block";
-    document.getElementById("button2").style.display = "none";
+    document.getElementById("PLAYAGAIN").style.display = "none";
     document.getElementById("changethis").style.display = "none";
     document.getElementById("TitleScreen").style.display = "none";
     document.getElementById("ScoreTally").style.display = "none";
+    //resets the scores when you go back into the game
     computerboard = 0;
     playerboard = 0;
     document.getElementById("computerscorechange").textContent = computerboard;
@@ -118,14 +129,16 @@ function standardmode2() {
 standardbutton.onclick = standardmode2;
 
 function reset() {
+    //This takes away the responses and then brings up a play again button
     document.getElementById("responses").style.display = "block";
-    document.getElementById("button2").style.display = "none";
+    document.getElementById("PLAYAGAIN").style.display = "none";
     document.getElementById("changethis").style.display = "none";
     response2.textContent = "You";
     response.textContent = "Computer";
 }
-button2.onclick = reset;
+PLAYAGAIN.onclick = reset;
 function restartgamefromloss() {
+    //This restarts the game from the lose screen || and restarts the scores
     document.getElementById("LoserEndScreen").style.display = "none";
     document.getElementById("standardbutton").style.display = "none";
     document.getElementById("hardbutton").style.display = "none";
@@ -133,7 +146,7 @@ function restartgamefromloss() {
     document.getElementById("response").style.display = "block";
     document.getElementById("response2").style.display = "block";
     document.getElementById("StartStandard").style.display = "block";
-    document.getElementById("button2").style.display = "none";
+    document.getElementById("PLAYAGAIN").style.display = "none";
     document.getElementById("changethis").style.display = "none";
     computerboard = 0;
     playerboard = 0;
@@ -145,13 +158,14 @@ function restartgamefromloss() {
 restartLoss.onclick = restartgamefromloss;
 
 function restartgamefromwin() {
+    //This restarts the game from the win screen || and restarts the scores
     document.getElementById("WinnerEndScreen").style.display = "none";
     document.getElementById("standardbutton").style.display = "none";
     document.getElementById("hardbutton").style.display = "none";
     document.getElementById("responses").style.display = "block";
     document.getElementById("response").style.display = "block";
     document.getElementById("response2").style.display = "block";
-    document.getElementById("button2").style.display = "none";
+    document.getElementById("PLAYAGAIN").style.display = "none";
     document.getElementById("StartStandard").style.display = "block";
     document.getElementById("changethis").style.display = "none";
     computerboard = 0;
@@ -190,6 +204,7 @@ function Iscissorschoice() {
 Iscissors.onclick = Iscissorschoice;
 
 function ImpossibleResponses() {
+    // Made lists for each user response to give a higher chance to lose
     var IMrock = ['Rock','Rock','Paper','Scissors'];
     var IMpaper = ['Rock','Paper','Paper','Scissors'];
     var IMscissors = ['Rock','Paper','Scissors','Scissors'];
@@ -198,6 +213,7 @@ function ImpossibleResponses() {
     var higherScissors = IMscissors[Math.floor(Math.random()*IMscissors.length)];
     document.getElementById("computerscorechange").textContent = computerboard;
     document.getElementById("playerscorechange").textContent = playerboard;
+    //comparing scores
     if (yourResponse.textContent === "Scissors") {
         ComputerResponse.textContent = higherRock;
         console.log(yourResponse.textContent, ComputerResponse.textContent);
@@ -243,6 +259,7 @@ function ImpossibleResponses() {
             IMplayerboard++;
         }
     }
+
     document.getElementById("Ichangethis").style.display = "block";
     document.getElementById("IMplayerscorechange").textContent = IMplayerboard;
     document.getElementById("IMcomputerscorechange").textContent = IMcomputerboard;
@@ -265,7 +282,7 @@ function ImpossibleResponses() {
     }
 }
 impossibleResponses.onclick = ImpossibleResponses;
-
+//function to quit
 function quit() {
     document.getElementById("StartStandard").style.display = "none";
     document.getElementById("standardbutton").style.display = "none";
@@ -277,23 +294,27 @@ function quit() {
     document.getElementById("Startbutton").style.display = "block";
     document.getElementById("playagain").style.display = "block";
     document.getElementById("Quit").style.display = "none";
-    document.getElementById("GameSelector").style.display = "block"
-    document.getElementById("HowToPlay").style.display = "block"
-    document.getElementById("IMwinscreen").style.display = "none"
-    document.getElementById("IMlossscreen").style.display = "none"
+    document.getElementById("GameSelector").style.display = "block";
+    document.getElementById("HowToPlay").style.display = "block";
+    document.getElementById("IMwinscreen").style.display = "none";
+    document.getElementById("IMlossscreen").style.display = "none";
+    document.getElementById("Instructions").style.display = "none";
 }
 Quit.onclick = quit;
-
+//function that hides everything for the game selector however it is not coded
 function GameSelectorPage() {
     document.getElementById("TitleScreen").style.display = "none";
     document.getElementById("GameSelector").style.display = "none";
-    document.getElementById("HowToPlay").style.display = "none"
+    document.getElementById("HowToPlay").style.display = "none";
+
 }
 GameSelector.onclick = GameSelectorPage;
-
+//function hides everything and makes the online help appear
 function Walkthrough() {
     document.getElementById("TitleScreen").style.display = "none";
     document.getElementById("GameSelector").style.display = "none";
-    document.getElementById("HowToPlay").style.display = "none"
+    document.getElementById("HowToPlay").style.display = "none";
+    document.getElementById("Instructions").style.display = "block";
+    document.getElementById("Quit").style.display = "block";
 }
 HowToPlay.onclick = Walkthrough;

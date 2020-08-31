@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="rockpaperscissors.css">
 </head>
 <body>
+<!--Title screen with buttons that allow you to get into the games-->
 <div id="TitleScreen">
     <h11><strong>ROCK          PAPER        SCISSORS</strong></h11>
     <div id="StartButtons">
@@ -19,20 +20,24 @@
         </div>
     </div>
 </div>
+<!--Starts the standard game-->
 <div id="StartStandard">
-    <div id="button2">
+    <div id="PLAYAGAIN">
         <button id="playagain">Play Again</button>
     </div>
     <h5 id="changethis">Change This</h5>
+<!--    Responses that the user can choose from-->
     <div id="responses">
         <button id="rock" type="button">Rock</button>
         <button id="paper" type="button">Paper</button>
         <button id="scissors" type="button">Scissors</button>
     </div>
+<!--    onscreen text that gets changed-->
     <div class="DisplayedResults">
         <h1 id="response">Computer</h1>
         <h2 id="response2">You</h2>
     </div>
+<!--Shows the scores-->
     <div id="ScoreTally">
         <div id="playerscore">
             <h3>Player</h3>
@@ -44,10 +49,12 @@
         </div>
     </div>
 </div>
+<!--Lets the user go to the homepage and lets the user know how to play the game-->
 <div id="DirectionButtons">
     <button id="Quit">Homepage</button>
     <button id="HowToPlay">How To Play</button>
 </div>
+<!--End Screens-->
 <div id="WinnerEndScreen">
     <h4>YOU WIN</h4>
     <div id="restartWin">
@@ -69,9 +76,10 @@
         <p id="winstreakchange">0</p>
     </div>
 </div>
-
+<!--Starts the hard Gamemode-->
 <div id="HardGame">
     <h6 id="Ichangethis">????</h6>
+<!--    Choices that the user can select-->
     <div id="impossibleResponses">
         <button id="Irock" type="button">Rock</button>
         <button id="Ipaper" type="button">Paper</button>
@@ -86,6 +94,8 @@
 <!--            <h13>winstreak</h13>-->
 <!--            <p id="IMwinstreakchange">0</p>-->
 <!--        </div>-->
+
+<!--        scores that will be changed-->
         <div id="IMplayerscore">
             <h3>Player</h3>
             <p id="IMplayerscorechange">0</p>
@@ -95,10 +105,12 @@
             <p id="IMcomputerscorechange">0</p>
         </div>
     </div>
+<!--Restart from the win streak-->
 </div>
 <div id="HARDrestartwin">
     <button id="IMrestartwin">Play Again</button>
 </div>
+<!--Response to the user ||| letting them know if they win or lost-->
 <div id="IMwinscreen">
     <h12>You Won!</h12>
 </div>
@@ -108,6 +120,12 @@
 <div id="Leavegame">
     <button id="GameSelector">Game Selector</button>
 </div>
+<!--Instructions for the user to take-->
+<div id="Instructions">
+    <h14>How to play Rock, Paper, Scissors</h14>
+    <p>Start by selecting "Start", by doing this it will bring up to options to chose from "Standard" and "Hard". After selecting from the difficulties you will enter the game. Select Rock Paper or Scissors and the results will be shown, hit replay and keep playing, whoever gets a score of three will win the set, this in which will bring up the endscreen which will allow you to play again or exit.</p>
+</div>
+<!--links to the css-->
 <script src="rockpaperscissors.js"></script>
 </body>
 </html>

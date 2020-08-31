@@ -38,7 +38,7 @@ button {
     border-color: black;
     font-size: 24px;
 }
-#button2 {
+#PLAYAGAIN {
     display: none;
     position: absolute;
     top: 580px;
@@ -162,5 +162,8 @@ IMwinstreak {
     display: none;
 }
 .HardTally {
+    display: none;
+}
+#Instructions {
     display: none;
 }
