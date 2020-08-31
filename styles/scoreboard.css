@@ -1,0 +1,11 @@
+table {
+    position: absolute;
+    left: 40%;
+    top: 75px;
+    color: white;
+    outline: 1px solid white;
+}
+
+tr > td, th {
+    padding: 5px 15px 5px 15px;
+}
